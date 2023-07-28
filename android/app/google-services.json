@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "824900840335",
+    "project_id": "maarif-567b8",
+    "storage_bucket": "maarif-567b8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:824900840335:android:9ebdc5a4d860e3c51379fa",
+        "android_client_info": {
+          "package_name": "com.egitimoncesi.maarifkids"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "824900840335-veok6jpr6ml3lqpm7k0eqmgia7ackouc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3zh-vskGQObMeWiCSk1XF6hjV9HNeYNQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "824900840335-veok6jpr6ml3lqpm7k0eqmgia7ackouc.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "824900840335-5nep2f164n64nvavh29kjlebka0adh55.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.maarifkids"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:824900840335:android:63dad013e167e34a1379fa",
+        "android_client_info": {
+          "package_name": "com.example.api_trial"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "824900840335-veok6jpr6ml3lqpm7k0eqmgia7ackouc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3zh-vskGQObMeWiCSk1XF6hjV9HNeYNQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "824900840335-veok6jpr6ml3lqpm7k0eqmgia7ackouc.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "824900840335-5nep2f164n64nvavh29kjlebka0adh55.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.maarifkids"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
