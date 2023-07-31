@@ -8,11 +8,14 @@ import '../menu_page.dart';
 import 'custom_nav_bar.dart';
 
 class MessagesPage extends StatelessWidget {
+  final bool isFromSearch;
+   const MessagesPage({super.key,  required this.isFromSearch});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xffE7F7F8),
-      appBar: buildAppBar('Messages', context),
+      appBar: buildAppBar(  title: 'Messages', context:context, isFromSearch: isFromSearch,),
       body: ListView(
         padding: EdgeInsets.all(16),
         children: [
@@ -26,7 +29,7 @@ class MessagesPage extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                       builder: (context) => DiscussionPage(
-                            personName: 'Principal',
+                            personName: 'Principal', isFromSearch: false,
                           )));
             },
           ),
@@ -130,9 +133,10 @@ class MessageCard extends StatelessWidget {
 }
 
 class DiscussionPage extends StatefulWidget {
+  final bool isFromSearch;
   final String personName;
 
-  DiscussionPage({required this.personName});
+  DiscussionPage({required this.personName, required this.isFromSearch});
 
   @override
   _DiscussionPageState createState() => _DiscussionPageState();
@@ -173,7 +177,7 @@ class _DiscussionPageState extends State<DiscussionPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: profileSecimiBackgroundColor,
-      appBar: buildAppBar('Messages', context),
+      appBar: buildAppBar( title: 'Messages', context: context, isFromSearch: widget.isFromSearch,),
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,

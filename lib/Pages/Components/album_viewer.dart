@@ -247,18 +247,19 @@ import 'all_photos_page.dart';
 import 'custom_nav_bar.dart';
 
 class AlbumViewerPage extends StatefulWidget {
-  @override
+@override
   _AlbumViewerPageState createState() => _AlbumViewerPageState();
 }
 
 class _AlbumViewerPageState extends State<AlbumViewerPage> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: profileSecimiBackgroundColor,
       appBar: AppBar(
         backgroundColor: MainColor,
-        title: Text('Galeris'),
+        title: const Text('Gallery'),
       ),
       body: Stack(
         children: [
@@ -269,7 +270,7 @@ class _AlbumViewerPageState extends State<AlbumViewerPage> {
                 color: profileSecimiBackgroundColor,
                 child: Center(
                   child: Text(
-                    'A Sınıfı',
+                    'Class A',
                     style: TextStyle(
                         color: MainColor,
                         fontWeight: FontWeight.bold,
@@ -282,10 +283,10 @@ class _AlbumViewerPageState extends State<AlbumViewerPage> {
                   Navigator.push(
                       context,
                       PageRouteBuilder(
-                          transitionDuration: Duration(milliseconds: 500),
+                          transitionDuration: const Duration(milliseconds: 500),
                           pageBuilder:
                               (context, animation, secondaryAnimation) =>
-                                  AllPhototosPage(),
+                                  const AllPhototosPage(isFromSearch: false,),
                           transitionsBuilder:
                               (context, animation, secondaryAnimation, child) {
                             return FadeTransition(

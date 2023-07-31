@@ -8,13 +8,14 @@ import 'attendance_page.dart';
 import 'custom_nav_bar.dart';
 
 class ServicePage extends StatelessWidget {
-  const ServicePage({super.key});
+  final bool  isFromSearch;
+  const ServicePage({super.key, required this.isFromSearch});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: profileSecimiBackgroundColor,
-      appBar: buildAppBar('School Service', context),
+      appBar: buildAppBar(  title: 'School Service', context: context, isFromSearch: isFromSearch,),
       body: Column(
         children: [
           ProfileCard(),
@@ -107,7 +108,7 @@ decoration: BoxDecoration(
                             ],
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 8,
                         ),
                         Padding(

@@ -6,15 +6,16 @@ import '../menu_page.dart';
 import 'custom_nav_bar.dart';
 
 class HealthInformationPage extends StatelessWidget {
-  const HealthInformationPage({super.key});
+  final bool isFromSearch;
+  const HealthInformationPage({super.key, required this.isFromSearch});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar('Health', context),
+      appBar: buildAppBar(title:'Health', context: context, isFromSearch:isFromSearch,),
       body: Column(
         children: [
-          ProfileCard(),
+          const ProfileCard(),
           Divider(
             color: MainColor,
           ),

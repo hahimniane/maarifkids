@@ -7,6 +7,9 @@ import '../menu_page.dart';
 import 'custom_nav_bar.dart';
 
 class AllPhototosPage extends StatefulWidget {
+ final  bool isFromSearch;
+  const AllPhototosPage({super.key, required this.isFromSearch});
+
   @override
   _AllPhototosPageState createState() => _AllPhototosPageState();
 }
@@ -21,7 +24,7 @@ class _AllPhototosPageState extends State<AllPhototosPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xffE7F7F8),
-      appBar: buildAppBar('Gallery', context),
+      appBar: buildAppBar(  title: 'Gallery', context: context, isFromSearch: widget.isFromSearch,),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [

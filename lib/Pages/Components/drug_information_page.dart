@@ -10,7 +10,9 @@ import 'custom_nav_bar.dart';
 
 class DrugInformationPage extends StatefulWidget {
   final Function(DateTime) onDateSelected;
-  const DrugInformationPage({super.key, required this.onDateSelected});
+
+  final bool isFromSearch;
+  const DrugInformationPage({super.key, required this.onDateSelected, required this.isFromSearch});
 
   @override
   State<DrugInformationPage> createState() => _DrugInformationPageState();
@@ -25,7 +27,7 @@ class _DrugInformationPageState extends State<DrugInformationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar('Health', context),
+      appBar: buildAppBar( title: 'Health', context: context, isFromSearch: widget.isFromSearch,),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

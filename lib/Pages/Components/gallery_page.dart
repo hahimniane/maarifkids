@@ -8,13 +8,25 @@ import 'album_viewer.dart';
 import 'custom_nav_bar.dart';
 
 class GalleryPage extends StatelessWidget {
-  const GalleryPage({Key? key}) : super(key: key);
 
+  final bool isFromSearch;
+    GalleryPage({Key? key, required this.isFromSearch}) : super(key: key);
+  int count = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: profileSecimiBackgroundColor,
       appBar: AppBar(
+        leading: IconButton(
+          onPressed: (){
+          if(isFromSearch){
+            Navigator.of(context).popUntil((_) => count++ >= 2);
+          }
+          },
+          icon: Icon(
+            Icons.arrow_back_ios_new
+          ),
+        ),
         backgroundColor: MainColor,
         title: Text('Galeri'),
       ),

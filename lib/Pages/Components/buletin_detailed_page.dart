@@ -14,17 +14,20 @@ class BulletinDetailedPage extends StatelessWidget {
   final String topic;
   final String randomText;
 
+  final bool IsFromSearch;
+
+
   BulletinDetailedPage({
     required this.title,
     required this.coverImage,
     required this.topic,
-    required this.randomText,
+    required this.randomText, required this.IsFromSearch,
   });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar('School Bulletin', context),
+      appBar: buildAppBar(  title: 'School Bulletin', context: context, isFromSearch: IsFromSearch,),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

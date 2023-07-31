@@ -8,7 +8,8 @@ import '../menu_page.dart';
 import 'custom_nav_bar.dart';
 
 class AttendancePage extends StatefulWidget {
-  const AttendancePage({super.key});
+  final bool isFromSearch;
+  const AttendancePage({super.key, required this.isFromSearch});
 
   @override
   State<AttendancePage> createState() => _AttendancePageState();
@@ -18,7 +19,7 @@ class _AttendancePageState extends State<AttendancePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar('Attendance', context),
+      appBar: buildAppBar(  title: 'Attendance', context: context, isFromSearch: widget.isFromSearch,),
       body: Column(
         children: [
           ProfileCard(),

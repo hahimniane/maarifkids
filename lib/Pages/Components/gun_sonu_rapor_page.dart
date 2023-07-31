@@ -5,12 +5,13 @@ import '../menu_page.dart';
 import 'custom_nav_bar.dart';
 
 class GelisimTakipPage extends StatelessWidget {
-  const GelisimTakipPage({super.key});
+  final bool isFromSearch;
+  const GelisimTakipPage({super.key, required this.isFromSearch});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar('Progress Tracking', context),
+      appBar: buildAppBar(   title: 'Progress Tracking', context: context, isFromSearch:isFromSearch ,),
       body: const Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

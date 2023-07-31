@@ -18,24 +18,51 @@ Future animatedRoute(BuildContext context, page) {
 
 var appBar2 = AppBar(
   backgroundColor: MainColor,
-  title: Text(
+  title: const Text(
     'Gallery',
     style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
   ),
 );
-AppBar buildAppBar(String title, context) {
-  return AppBar(
-    leading: IconButton(
-      icon: Icon(Icons.arrow_back_ios_new),
-      color: Colors.white,
-      onPressed: () {
-        Navigator.pop(context);
-      },
-    ),
-    backgroundColor: MainColor,
-    title: Text(
-      title,
-      style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-    ),
-  );
+
+
+
+class buildAppBar extends StatelessWidget implements PreferredSizeWidget {
+  final String title;
+  final BuildContext context;
+  final bool isFromSearch;
+
+   const buildAppBar({super.key, required this.title, required this.context,required this.isFromSearch});
+
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+      leading: IconButton(
+        icon: const Icon(Icons.arrow_back_ios_new),
+        color: Colors.white,
+        onPressed: () {
+
+          if(isFromSearch){
+            int count=0;
+            Navigator.of(context).popUntil((_) => count++ >= 2);
+          }
+          Navigator.pop(context);
+        },
+      ),
+      backgroundColor: MainColor,
+      title: Text(
+        title,
+        style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+      ),
+    );
+  }
+
+  @override
+  // TODO: implement preferredSize
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
+
+
+// AppBar buildAppBar(String title, context,) {
+//
+//   return
+// }

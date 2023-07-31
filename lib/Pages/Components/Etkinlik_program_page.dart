@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import '../../contants.dart';
+import '../../test_page.dart';
 import '../../widgets/acitvities_class.dart';
 import '../../widgets/function_for_initializing_dates.dart';
 import '../../widgets/function_to_display_what_happens_depending_on_the_date_selected.dart';
@@ -41,6 +42,9 @@ List<String> deneme = [
 ];
 
 class EtkinlikPage extends StatefulWidget {
+  final bool isFromSearch;
+  const EtkinlikPage({super.key, required this.isFromSearch});
+
   @override
   _EtkinlikPageState createState() => _EtkinlikPageState();
 }
@@ -59,6 +63,8 @@ class _EtkinlikPageState extends State<EtkinlikPage> {
 
   TextEditingController textController = TextEditingController();
 
+
+
   void _onTabTapped(int index) {
     if (index == 0) {
       Navigator.push(
@@ -66,7 +72,12 @@ class _EtkinlikPageState extends State<EtkinlikPage> {
         MaterialPageRoute(builder: (context) => MenuPage()),
       );
     } else if (index == 1) {
-      _openSearchTab();
+      print('in here');
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const SearchFieldSample()),
+
+      );
       setState(() {
         showSearchBar = true;
       });
@@ -91,34 +102,7 @@ class _EtkinlikPageState extends State<EtkinlikPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: MainColor,
-        title: showSearchBar
-            ? TextField(
-                decoration: const InputDecoration(
-                  hintStyle: TextStyle(
-                    color: Colors.white,
-                  ),
-                  hintText: 'Search a menu',
-                  border: InputBorder.none,
-                ),
-                onChanged: (value) {
-                  // Handle search query
-                },
-                autofocus: true,
-                textInputAction: TextInputAction.search,
-                onSubmitted: (value) {
-                  setState(() {
-                    showSearchBar = false;
-                  });
-                },
-              )
-            : const Text(
-                'Activity Page',
-                style:
-                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-              ),
-      ),
+      appBar:  buildAppBar(title: 'Activity Page', context: context, isFromSearch: widget.isFromSearch,),
       // buildAppBar('Etkinlik Sayfasi', context),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -211,7 +195,7 @@ class _EtkinlikPageState extends State<EtkinlikPage> {
               bottom: MediaQuery.of(context).viewInsets.bottom,
             ),
             child: Container(
-                // child: Text('Hello'),
+                child: Text('Hello'),
                 // Search tab content goes here
                 ),
           ),

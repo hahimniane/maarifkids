@@ -10,13 +10,14 @@ import 'custom_nav_bar.dart';
 import 'drug_information_page.dart';
 
 class HealthWelcomePage extends StatelessWidget {
-  const HealthWelcomePage({Key? key}) : super(key: key);
+  final bool isFromSearch;
+  const HealthWelcomePage({Key? key, required this.isFromSearch}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: profileSecimiBackgroundColor,
-      appBar: buildAppBar('Health', context),
+      appBar: buildAppBar( title: 'Health', context: context, isFromSearch: isFromSearch,),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
@@ -37,7 +38,7 @@ class HealthWelcomePage extends StatelessWidget {
                     child: InkWell(
                       onTap: () {
                         NavigationHelper.pushPage(
-                            context, const HealthInformationPage());
+                            context, const HealthInformationPage(isFromSearch: false,));
                       },
                       child: Card(
                         color: MainColor,
@@ -60,7 +61,7 @@ class HealthWelcomePage extends StatelessWidget {
               NavigationHelper.pushPage(
                   context,
                   DrugInformationPage(
-                    onDateSelected: (DateTime) {},
+                    onDateSelected: (DateTime) {}, isFromSearch: false,
                   ));
             },
             child: Center(

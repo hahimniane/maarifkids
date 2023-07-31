@@ -569,3 +569,190 @@
 //     return const Placeholder();
 //   }
 // }
+import 'package:flutter/material.dart';
+import 'package:maarifkids/Pages/Components/Etkinlik_program_page.dart';
+import 'package:maarifkids/Pages/Components/gallery_page.dart';
+import 'package:maarifkids/contants.dart';
+import 'package:searchfield/searchfield.dart';
+
+import 'Pages/Components/food_page.dart';
+import 'Pages/Components/messages_page.dart';
+
+class SearchFieldSample extends StatefulWidget {
+  const SearchFieldSample({super.key});
+
+  @override
+  _SearchFieldSampleState createState() => _SearchFieldSampleState();
+}
+
+class _SearchFieldSampleState extends State<SearchFieldSample> {
+  int count = 0;
+  final TextEditingController _searchController = TextEditingController();
+  List<SearchFieldListItem<String>> _searchResults = [];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: SearchField(
+            searchStyle: TextStyle(
+              color: MainColor,
+            ),
+            suggestionItemDecoration: SuggestionDecoration(
+              // shape: BoxShape.circle,
+              border: Border.all(color: MainColor),
+              color: MainColor,
+            ),
+            onSearchTextChanged: (query) {
+              setState(() {
+                _searchResults = generateSearchItems(query);
+              });
+            },
+            key: const Key('searchfield'),
+            hint: 'Search pages...',
+            itemHeight: 50,
+            suggestionsDecoration: SuggestionDecoration(
+              padding: const EdgeInsets.all(4),
+              border: Border.all(color: Colors.red),
+              borderRadius: BorderRadius.all(Radius.circular(10)),
+            ),
+            suggestions: _searchResults,
+            suggestionState: Suggestion.expand,
+            onSuggestionTap: (SearchFieldListItem<String> item) {
+              switch (item.searchKey) {
+
+                case 'Gallery':
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => GalleryPage(
+                                isFromSearch: true,
+                              )));
+                case 'Messages':
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => MessagesPage(
+                            isFromSearch: true,
+                              )));
+                case 'Event Programme':
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => EtkinlikPage(
+                            isFromSearch: true,
+                          )));
+                default:
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => FoodPage()));
+
+              }
+            }),
+      ),
+      body: Center(
+          // Your main content here
+          ),
+    );
+  }
+
+  List<SearchFieldListItem<String>> generateSearchItems(String query) {
+    final filter = allPages
+        .where((page) => page.toLowerCase().contains(query.toLowerCase()))
+        .toList();
+
+    return filter
+        .map((e) => SearchFieldListItem<String>(
+              e,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 4.0),
+                child: Text(
+                  e,
+                  style: TextStyle(fontSize: 24, color: Colors.red),
+                ),
+              ),
+            ))
+        .toList();
+  }
+}
+
+List<String> allPages = [
+  "Gallery",
+  "Messages",
+  "Event Programme",
+  "Progress Tracking",
+  "Food List",
+  'Health',
+  'Attendance',
+  'School Service',
+  'School Bulletin',
+
+  // Add other page names or identifiers here
+];
+
+// class SearchFieldSample extends StatefulWidget {
+//   const SearchFieldSample({Key? key}) : super(key: key);
+//
+//   @override
+//   State<SearchFieldSample> createState() => _SearchFieldSampleState();
+// }
+//
+// class _SearchFieldSampleState extends State<SearchFieldSample> {
+//   int suggestionsCount = 12;
+//   final focus = FocusNode();
+//   @override
+//   Widget build(BuildContext context) {
+//     final suggestions =
+//     List.generate(suggestionsCount, (index) => 'suggestion $index');
+//     return Scaffold(
+//         appBar: AppBar(
+//           title: Text('Dynamic sample Demo'),
+//         ),
+//         floatingActionButton: FloatingActionButton(
+//           onPressed: () {
+//             setState(() {
+//               suggestionsCount++;
+//               suggestions.add('suggestion $suggestionsCount');
+//             });
+//           },
+//           child: const Icon(Icons.add),
+//         ),
+//         body: Center(
+//           child: SearchField(
+//             onSearchTextChanged: (query) {
+//               final filter = suggestions
+//                   .where((element) =>
+//                   element.toLowerCase().contains(query.toLowerCase()))
+//                   .toList();
+//               return filter
+//                   .map((e) => SearchFieldListItem<String>(e,
+//                   child: Padding(
+//                     padding: const EdgeInsets.symmetric(vertical: 4.0),
+//                     child: Text(e,
+//                         style: TextStyle(fontSize: 24, color: Colors.red)),
+//                   )))
+//                   .toList();
+//             },
+//             key: const Key('searchfield'),
+//             hint: 'Search by country name',
+//             itemHeight: 50,
+//             suggestionsDecoration: SuggestionDecoration(
+//                 padding: const EdgeInsets.all(4),
+//                 border: Border.all(color: Colors.red),
+//                 borderRadius: BorderRadius.all(Radius.circular(10))),
+//             suggestions: suggestions
+//                 .map((e) => SearchFieldListItem<String>(e,
+//                 child: Padding(
+//                   padding: const EdgeInsets.symmetric(vertical: 4.0),
+//                   child: Text(e,
+//                       style: TextStyle(fontSize: 24, color: Colors.red)),
+//                 )))
+//                 .toList(),
+//             focusNode: focus,
+//             suggestionState: Suggestion.expand,
+//             onSuggestionTap: (SearchFieldListItem<String> x) {
+//               focus.unfocus();
+//             },
+//           ),
+//         ));
+//   }
+// }

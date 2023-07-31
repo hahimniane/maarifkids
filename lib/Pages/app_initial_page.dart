@@ -2,8 +2,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:maarifkids/Pages/api_deneme.dart';
 import 'package:maarifkids/Pages/login_page.dart';
+import 'package:maarifkids/Pages/profile_page.dart';
 
 import '../contants.dart';
+import '../test_page.dart';
+import 'Components/profil_secimi.dart';
 
 class AppInitialPage extends StatefulWidget {
   const AppInitialPage({Key? key}) : super(key: key);
@@ -93,12 +96,16 @@ class _AppInitialPageState extends State<AppInitialPage> {
                   ApiCall apiCall = ApiCall();
                   // WeatherData? weatherData = await apiCall.getWeather();
                   // print(weatherData?.currentWeather.isDay);
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => LoginPage()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ProfileSelectionPage()));
                 },
                 child: const Text(
                   'Devam Et',
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),
