@@ -4,6 +4,7 @@ import 'package:flutter_cupertino_date_picker_fork/flutter_cupertino_date_picker
 import 'package:maarifkids/Pages/Components/saglik_page.dart';
 import 'package:maarifkids/contants.dart';
 
+import '../../test_page.dart';
 import '../menu_page.dart';
 import 'custom_nav_bar.dart';
 
@@ -19,7 +20,11 @@ class _AttendancePageState extends State<AttendancePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(  title: 'Attendance', context: context, isFromSearch: widget.isFromSearch,),
+      appBar: buildAppBar(
+        title: 'Attendance',
+        context: context,
+        isFromSearch: widget.isFromSearch,
+      ),
       body: Column(
         children: [
           ProfileCard(),
@@ -39,6 +44,9 @@ class _AttendancePageState extends State<AttendancePage> {
           if (value == 0) {
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => MenuPage()));
+          } else if (value == 1) {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => SearchFieldSample()));
           }
         },
       ),

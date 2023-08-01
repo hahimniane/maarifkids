@@ -33,7 +33,7 @@ class MenuPage extends StatelessWidget {
                 bottomRight: Radius.circular(25),
               ),
             ),
-            height: MediaQuery.of(context).size.height*0.30,
+            height: MediaQuery.of(context).size.height * 0.30,
             width: MediaQuery.of(context).size.width,
             child: Padding(
               padding: const EdgeInsets.only(top: 60.0),
@@ -69,7 +69,6 @@ class MenuPage extends StatelessWidget {
               ),
             ),
           ),
-
 
           ///this contains me
 
@@ -110,7 +109,9 @@ class MenuPage extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) =>  GalleryPage(isFromSearch: false,)));
+                                builder: (context) => GalleryPage(
+                                      isFromSearch: false,
+                                    )));
                       },
                     ),
                     _buildMenuItem(
@@ -121,7 +122,9 @@ class MenuPage extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => MessagesPage(isFromSearch: false,)));
+                                builder: (context) => MessagesPage(
+                                      isFromSearch: false,
+                                    )));
                       },
                     ),
                     _buildMenuItem(
@@ -132,7 +135,9 @@ class MenuPage extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const EtkinlikPage(isFromSearch: false,)));
+                                builder: (context) => const EtkinlikPage(
+                                      isFromSearch: false,
+                                    )));
                       },
                     ),
                     _buildMenuItem(
@@ -143,7 +148,9 @@ class MenuPage extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => GelisimTakipPage(isFromSearch: false,)));
+                                builder: (context) => GelisimTakipPage(
+                                      isFromSearch: false,
+                                    )));
                       },
                     ),
                     _buildMenuItem(
@@ -154,7 +161,9 @@ class MenuPage extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => FoodPage()));
+                                builder: (context) => FoodPage(
+                                      isFromSearch: false,
+                                    )));
                       },
                     ),
                     _buildMenuItem(
@@ -162,7 +171,11 @@ class MenuPage extends StatelessWidget {
                       label: 'Health',
                       color: const Color(0xff14CDD4),
                       onTap: () {
-                        NavigationHelper.pushPage(context, const HealthWelcomePage(isFromSearch: false,));
+                        NavigationHelper.pushPage(
+                            context,
+                            const HealthWelcomePage(
+                              isFromSearch: false,
+                            ));
                       },
                     ),
                     _buildMenuItem(
@@ -171,7 +184,10 @@ class MenuPage extends StatelessWidget {
                       color: const Color(0xff050039),
                       onTap: () {
                         NavigationHelper.pushPage(
-                            context, const AttendancePage(isFromSearch: false,));
+                            context,
+                            const AttendancePage(
+                              isFromSearch: false,
+                            ));
                       },
                     ),
                     _buildMenuItem(
@@ -179,7 +195,11 @@ class MenuPage extends StatelessWidget {
                       label: 'School Service',
                       color: const Color(0xffDA0064),
                       onTap: () {
-                        NavigationHelper.pushPage(context, const ServicePage(isFromSearch: false,));
+                        NavigationHelper.pushPage(
+                            context,
+                            const ServicePage(
+                              isFromSearch: false,
+                            ));
                       },
                     ),
                     const SizedBox(),
@@ -188,7 +208,11 @@ class MenuPage extends StatelessWidget {
                       label: 'School Bulletin',
                       color: const Color(0xffF24727),
                       onTap: () {
-                       NavigationHelper.pushPage(context, const SchoolBulettinPage(isFromSearch: false,)) ;
+                        NavigationHelper.pushPage(
+                            context,
+                            const SchoolBulettinPage(
+                              isFromSearch: false,
+                            ));
                       },
                     ),
                   ],

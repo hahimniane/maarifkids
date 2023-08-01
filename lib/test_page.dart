@@ -571,7 +571,12 @@
 // }
 import 'package:flutter/material.dart';
 import 'package:maarifkids/Pages/Components/Etkinlik_program_page.dart';
+import 'package:maarifkids/Pages/Components/attendance_page.dart';
 import 'package:maarifkids/Pages/Components/gallery_page.dart';
+import 'package:maarifkids/Pages/Components/gun_sonu_rapor_page.dart';
+import 'package:maarifkids/Pages/Components/saglik_page.dart';
+import 'package:maarifkids/Pages/Components/school_buletin_page.dart';
+import 'package:maarifkids/Pages/Components/service_page.dart';
 import 'package:maarifkids/contants.dart';
 import 'package:searchfield/searchfield.dart';
 
@@ -579,14 +584,13 @@ import 'Pages/Components/food_page.dart';
 import 'Pages/Components/messages_page.dart';
 
 class SearchFieldSample extends StatefulWidget {
-  const SearchFieldSample({super.key});
+  const SearchFieldSample({Key? key}) : super(key: key);
 
   @override
   _SearchFieldSampleState createState() => _SearchFieldSampleState();
 }
 
 class _SearchFieldSampleState extends State<SearchFieldSample> {
-  int count = 0;
   final TextEditingController _searchController = TextEditingController();
   List<SearchFieldListItem<String>> _searchResults = [];
 
@@ -595,64 +599,120 @@ class _SearchFieldSampleState extends State<SearchFieldSample> {
     return Scaffold(
       appBar: AppBar(
         title: SearchField(
-            searchStyle: TextStyle(
-              color: MainColor,
-            ),
-            suggestionItemDecoration: SuggestionDecoration(
-              // shape: BoxShape.circle,
-              border: Border.all(color: MainColor),
-              color: MainColor,
-            ),
-            onSearchTextChanged: (query) {
-              setState(() {
-                _searchResults = generateSearchItems(query);
-              });
-            },
-            key: const Key('searchfield'),
-            hint: 'Search pages...',
-            itemHeight: 50,
-            suggestionsDecoration: SuggestionDecoration(
-              padding: const EdgeInsets.all(4),
-              border: Border.all(color: Colors.red),
-              borderRadius: BorderRadius.all(Radius.circular(10)),
-            ),
-            suggestions: _searchResults,
-            suggestionState: Suggestion.expand,
-            onSuggestionTap: (SearchFieldListItem<String> item) {
-              switch (item.searchKey) {
-
-                case 'Gallery':
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => GalleryPage(
-                                isFromSearch: true,
-                              )));
-                case 'Messages':
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => MessagesPage(
-                            isFromSearch: true,
-                              )));
-                case 'Event Programme':
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => EtkinlikPage(
-                            isFromSearch: true,
-                          )));
-                default:
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => FoodPage()));
-
-              }
-            }),
+          searchStyle: TextStyle(
+            color: MainColor,
+          ),
+          suggestionItemDecoration: SuggestionDecoration(
+            // shape: BoxShape.circle,
+            border: Border.all(color: MainColor),
+            color: MainColor,
+          ),
+          onSearchTextChanged: (query) {
+            setState(() {
+              _searchResults = generateSearchItems(query);
+            });
+          },
+          key: const Key('searchfield'),
+          hint: 'Search pages...',
+          itemHeight: 50,
+          suggestionsDecoration: SuggestionDecoration(
+            padding: const EdgeInsets.all(4),
+            border: Border.all(color: Colors.red),
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+          ),
+          suggestions: _searchResults,
+          suggestionState: Suggestion.expand,
+          onSuggestionTap: _onSuggestionTap,
+        ),
       ),
       body: Center(
           // Your main content here
           ),
     );
+  }
+
+  void _onSuggestionTap(SearchFieldListItem<String> item) {
+    switch (item.searchKey) {
+      case 'Gallery':
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => GalleryPage(isFromSearch: true),
+          ),
+        );
+        break;
+      case 'Messages':
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => MessagesPage(isFromSearch: true),
+          ),
+        );
+        break;
+      case 'Event Programme':
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => EtkinlikPage(isFromSearch: true),
+          ),
+        );
+        break;
+      case 'Progress Tracking':
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => GelisimTakipPage(isFromSearch: true),
+          ),
+        );
+        break;
+      case 'Food List':
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => FoodPage(isFromSearch: true),
+          ),
+        );
+        break;
+      case 'Health':
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const HealthWelcomePage(isFromSearch: true),
+          ),
+        );
+        break;
+      case 'Attendance':
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const AttendancePage(isFromSearch: true),
+          ),
+        );
+        break;
+      case 'School Service':
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const ServicePage(isFromSearch: true),
+          ),
+        );
+        break;
+      case 'School Bulletin':
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const SchoolBulettinPage(isFromSearch: true),
+          ),
+        );
+        break;
+      default:
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => FoodPage(isFromSearch: true),
+          ),
+        );
+    }
   }
 
   List<SearchFieldListItem<String>> generateSearchItems(String query) {
@@ -661,16 +721,18 @@ class _SearchFieldSampleState extends State<SearchFieldSample> {
         .toList();
 
     return filter
-        .map((e) => SearchFieldListItem<String>(
-              e,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 4.0),
-                child: Text(
-                  e,
-                  style: TextStyle(fontSize: 24, color: Colors.red),
-                ),
+        .map(
+          (e) => SearchFieldListItem<String>(
+            e,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 4.0),
+              child: Text(
+                e,
+                style: TextStyle(fontSize: 24, color: Colors.red),
               ),
-            ))
+            ),
+          ),
+        )
         .toList();
   }
 }
@@ -685,9 +747,161 @@ List<String> allPages = [
   'Attendance',
   'School Service',
   'School Bulletin',
-
-  // Add other page names or identifiers here
 ];
+
+// class SearchFieldSample extends StatefulWidget {
+//   const SearchFieldSample({super.key});
+//
+//   @override
+//   _SearchFieldSampleState createState() => _SearchFieldSampleState();
+// }
+//
+// class _SearchFieldSampleState extends State<SearchFieldSample> {
+//   int count = 0;
+//   final TextEditingController _searchController = TextEditingController();
+//   List<SearchFieldListItem<String>> _searchResults = [];
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: SearchField(
+//             searchStyle: TextStyle(
+//               color: MainColor,
+//             ),
+//             suggestionItemDecoration: SuggestionDecoration(
+//               // shape: BoxShape.circle,
+//               border: Border.all(color: MainColor),
+//               color: MainColor,
+//             ),
+//             onSearchTextChanged: (query) {
+//               setState(() {
+//                 _searchResults = generateSearchItems(query);
+//               });
+//             },
+//             key: const Key('searchfield'),
+//             hint: 'Search pages...',
+//             itemHeight: 50,
+//             suggestionsDecoration: SuggestionDecoration(
+//               padding: const EdgeInsets.all(4),
+//               border: Border.all(color: Colors.red),
+//               borderRadius: BorderRadius.all(Radius.circular(10)),
+//             ),
+//             suggestions: _searchResults,
+//             suggestionState: Suggestion.expand,
+//             onSuggestionTap: (SearchFieldListItem<String> item) {
+//               switch (item.searchKey) {
+//                 case 'Gallery':
+//                   Navigator.push(
+//                       context,
+//                       MaterialPageRoute(
+//                           builder: (context) => GalleryPage(
+//                                 isFromSearch: true,
+//                               )));
+//                 case 'Messages':
+//                   Navigator.push(
+//                       context,
+//                       MaterialPageRoute(
+//                           builder: (context) => MessagesPage(
+//                                 isFromSearch: true,
+//                               )));
+//                 case 'Event Programme':
+//                   Navigator.push(
+//                       context,
+//                       MaterialPageRoute(
+//                           builder: (context) => EtkinlikPage(
+//                                 isFromSearch: true,
+//                               )));
+//                 case 'Progress Tracking':
+//                   Navigator.push(
+//                       context,
+//                       MaterialPageRoute(
+//                           builder: (context) => GelisimTakipPage(
+//                                 isFromSearch: true,
+//                               )));
+//                 case 'Food List':
+//                   Navigator.push(
+//                       context,
+//                       MaterialPageRoute(
+//                           builder: (context) => FoodPage(
+//                                 isFromSearch: true,
+//                               )));
+//                 case 'Health':
+//                   Navigator.push(
+//                       context,
+//                       MaterialPageRoute(
+//                           builder: (context) => const HealthWelcomePage(
+//                                 isFromSearch: true,
+//                               )));
+//                 case 'Attendance':
+//                   Navigator.push(
+//                       context,
+//                       MaterialPageRoute(
+//                           builder: (context) => const AttendancePage(
+//                                 isFromSearch: true,
+//                               )));
+//                 case 'School Service':
+//                   Navigator.push(
+//                       context,
+//                       MaterialPageRoute(
+//                           builder: (context) => const ServicePage(
+//                                 isFromSearch: true,
+//                               )));
+//                 case 'School Bulletin':
+//                   Navigator.push(
+//                       context,
+//                       MaterialPageRoute(
+//                           builder: (context) => const SchoolBulettinPage(
+//                                 isFromSearch: true,
+//                               )));
+//
+//                 default:
+//                   Navigator.push(
+//                       context,
+//                       MaterialPageRoute(
+//                           builder: (context) => FoodPage(
+//                                 isFromSearch: true,
+//                               )));
+//               }
+//             }),
+//       ),
+//       body: Center(
+//           // Your main content here
+//           ),
+//     );
+//   }
+//
+//   List<SearchFieldListItem<String>> generateSearchItems(String query) {
+//     final filter = allPages
+//         .where((page) => page.toLowerCase().contains(query.toLowerCase()))
+//         .toList();
+//
+//     return filter
+//         .map((e) => SearchFieldListItem<String>(
+//               e,
+//               child: Padding(
+//                 padding: const EdgeInsets.symmetric(vertical: 4.0),
+//                 child: Text(
+//                   e,
+//                   style: TextStyle(fontSize: 24, color: Colors.red),
+//                 ),
+//               ),
+//             ))
+//         .toList();
+//   }
+// }
+//
+// List<String> allPages = [
+//   "Gallery",
+//   "Messages",
+//   "Event Programme",
+//   "Progress Tracking",
+//   "Food List",
+//   'Health',
+//   'Attendance',
+//   'School Service',
+//   'School Bulletin',
+// ];
 
 // class SearchFieldSample extends StatefulWidget {
 //   const SearchFieldSample({Key? key}) : super(key: key);

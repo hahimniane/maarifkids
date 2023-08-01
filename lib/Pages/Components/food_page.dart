@@ -4,11 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import '../../contants.dart';
+import '../../test_page.dart';
 import '../menu_page.dart';
 import 'Etkinlik_program_page.dart';
 import 'custom_nav_bar.dart';
 
 class FoodPage extends StatefulWidget {
+  final bool isFromSearch;
+  FoodPage({
+    super.key,
+    required this.isFromSearch,
+  });
   @override
   _FoodPageState createState() => _FoodPageState();
 }
@@ -34,7 +40,8 @@ class _FoodPageState extends State<FoodPage> {
         MaterialPageRoute(builder: (context) => MenuPage()),
       );
     } else if (index == 1) {
-      _openSearchTab();
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => SearchFieldSample()));
       setState(() {
         showSearchBar = true;
       });
@@ -88,33 +95,10 @@ class _FoodPageState extends State<FoodPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       // backgroundColor: profileSecimiBackgroundColor,
-      appBar: AppBar(
-        backgroundColor: MainColor,
-        title: showSearchBar
-            ? TextField(
-                decoration: InputDecoration(
-                  hintStyle: TextStyle(
-                    color: Colors.white,
-                  ),
-                  hintText: 'Search a menu',
-                  border: InputBorder.none,
-                ),
-                onChanged: (value) {
-                  // Handle search query
-                },
-                autofocus: true,
-                textInputAction: TextInputAction.search,
-                onSubmitted: (value) {
-                  setState(() {
-                    showSearchBar = false;
-                  });
-                },
-              )
-            : const Text(
-                'Activity Page',
-                style:
-                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-              ),
+      appBar: buildAppBar(
+        title: 'Food Page',
+        context: context,
+        isFromSearch: widget.isFromSearch,
       ),
       // buildAppBar('Etkinlik Sayfasi', context),
       body: Column(
@@ -581,8 +565,7 @@ class MyColumn extends StatelessWidget {
             // color: MainColor,
             // padding: EdgeInsets.all(16.0),
             child: const Padding(
-              padding:
-                  EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
+              padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
               child: Text(
                 'Breakfast',
                 style: TextStyle(

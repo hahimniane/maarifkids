@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_lorem/flutter_lorem.dart';
 
 import '../../contants.dart';
+import '../../test_page.dart';
 import '../menu_page.dart';
 import 'buletin_detailed_page.dart';
 import 'custom_nav_bar.dart';
@@ -13,7 +14,11 @@ class SchoolBulettinPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(  title: 'School Bulletin', context:context, isFromSearch: isFromSearch,),
+      appBar: buildAppBar(
+        title: 'School Bulletin',
+        context: context,
+        isFromSearch: isFromSearch,
+      ),
       body: GridView.builder(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2, // Number of items per row
@@ -34,6 +39,9 @@ class SchoolBulettinPage extends StatelessWidget {
           if (value == 0) {
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => MenuPage()));
+          } else if (value == 1) {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => SearchFieldSample()));
           }
         },
       ),
@@ -54,7 +62,8 @@ Widget _buildPamphlet(
                     title: 'Maarif bulletin',
                     coverImage: 'images/bulettin/bultenweb1.png',
                     topic: 'school',
-                    randomText: lorem(paragraphs: 1, words: 20), IsFromSearch: false,
+                    randomText: lorem(paragraphs: 1, words: 20),
+                    IsFromSearch: false,
                   )));
     },
     child: Card(

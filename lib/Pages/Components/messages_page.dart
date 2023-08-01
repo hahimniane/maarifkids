@@ -4,18 +4,23 @@ import 'package:chat_bubbles/message_bars/message_bar.dart';
 import 'package:flutter/material.dart';
 
 import '../../contants.dart';
+import '../../test_page.dart';
 import '../menu_page.dart';
 import 'custom_nav_bar.dart';
 
 class MessagesPage extends StatelessWidget {
   final bool isFromSearch;
-   const MessagesPage({super.key,  required this.isFromSearch});
+  const MessagesPage({super.key, required this.isFromSearch});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xffE7F7F8),
-      appBar: buildAppBar(  title: 'Messages', context:context, isFromSearch: isFromSearch,),
+      appBar: buildAppBar(
+        title: 'Messages',
+        context: context,
+        isFromSearch: isFromSearch,
+      ),
       body: ListView(
         padding: EdgeInsets.all(16),
         children: [
@@ -29,7 +34,8 @@ class MessagesPage extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                       builder: (context) => DiscussionPage(
-                            personName: 'Principal', isFromSearch: false,
+                            personName: 'Principal',
+                            isFromSearch: false,
                           )));
             },
           ),
@@ -55,6 +61,9 @@ class MessagesPage extends StatelessWidget {
           if (value == 0) {
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => MenuPage()));
+          } else if (value == 1) {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => SearchFieldSample()));
           }
         },
       ),
@@ -177,7 +186,11 @@ class _DiscussionPageState extends State<DiscussionPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: profileSecimiBackgroundColor,
-      appBar: buildAppBar( title: 'Messages', context: context, isFromSearch: widget.isFromSearch,),
+      appBar: buildAppBar(
+        title: 'Messages',
+        context: context,
+        isFromSearch: widget.isFromSearch,
+      ),
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,

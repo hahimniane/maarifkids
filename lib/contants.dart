@@ -24,14 +24,17 @@ var appBar2 = AppBar(
   ),
 );
 
-
-
 class buildAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final BuildContext context;
   final bool isFromSearch;
+  int count = 0;
 
-   const buildAppBar({super.key, required this.title, required this.context,required this.isFromSearch});
+  buildAppBar(
+      {super.key,
+      required this.title,
+      required this.context,
+      required this.isFromSearch});
 
   @override
   Widget build(BuildContext context) {
@@ -40,18 +43,18 @@ class buildAppBar extends StatelessWidget implements PreferredSizeWidget {
         icon: const Icon(Icons.arrow_back_ios_new),
         color: Colors.white,
         onPressed: () {
-
-          if(isFromSearch){
-            int count=0;
+          if (isFromSearch) {
             Navigator.of(context).popUntil((_) => count++ >= 2);
+          } else {
+            Navigator.pop(context);
           }
-          Navigator.pop(context);
         },
       ),
       backgroundColor: MainColor,
       title: Text(
         title,
-        style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        style:
+            const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
       ),
     );
   }
@@ -60,7 +63,6 @@ class buildAppBar extends StatelessWidget implements PreferredSizeWidget {
   // TODO: implement preferredSize
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
-
 
 // AppBar buildAppBar(String title, context,) {
 //

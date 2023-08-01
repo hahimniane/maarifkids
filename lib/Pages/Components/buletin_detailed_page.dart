@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:maarifkids/Pages/Components/pdf_viewer_page.dart';
+import 'package:maarifkids/test_page.dart';
 
 import '../../contants.dart';
 
@@ -16,18 +17,22 @@ class BulletinDetailedPage extends StatelessWidget {
 
   final bool IsFromSearch;
 
-
   BulletinDetailedPage({
     required this.title,
     required this.coverImage,
     required this.topic,
-    required this.randomText, required this.IsFromSearch,
+    required this.randomText,
+    required this.IsFromSearch,
   });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(  title: 'School Bulletin', context: context, isFromSearch: IsFromSearch,),
+      appBar: buildAppBar(
+        title: 'School Bulletin',
+        context: context,
+        isFromSearch: IsFromSearch,
+      ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -110,6 +115,9 @@ class BulletinDetailedPage extends StatelessWidget {
           if (value == 0) {
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => MenuPage()));
+          } else if (value == 1) {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => SearchFieldSample()));
           }
         },
       ),

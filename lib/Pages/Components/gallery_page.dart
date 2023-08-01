@@ -3,32 +3,23 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 import '../../contants.dart';
+import '../../test_page.dart';
 import '../menu_page.dart';
 import 'album_viewer.dart';
 import 'custom_nav_bar.dart';
 
 class GalleryPage extends StatelessWidget {
-
   final bool isFromSearch;
-    GalleryPage({Key? key, required this.isFromSearch}) : super(key: key);
+  GalleryPage({Key? key, required this.isFromSearch}) : super(key: key);
   int count = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: profileSecimiBackgroundColor,
-      appBar: AppBar(
-        leading: IconButton(
-          onPressed: (){
-          if(isFromSearch){
-            Navigator.of(context).popUntil((_) => count++ >= 2);
-          }
-          },
-          icon: Icon(
-            Icons.arrow_back_ios_new
-          ),
-        ),
-        backgroundColor: MainColor,
-        title: Text('Galeri'),
+      appBar: buildAppBar(
+        title: 'Gallery',
+        context: context,
+        isFromSearch: isFromSearch,
       ),
       body: Column(
         // mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -57,7 +48,9 @@ class GalleryPage extends StatelessWidget {
                           transitionDuration: Duration(milliseconds: 500),
                           pageBuilder:
                               (context, animation, secondaryAnimation) =>
-                                  AlbumViewerPage(),
+                                  AlbumViewerPage(
+                                    isFromSearch: false,
+                                  ),
                           transitionsBuilder:
                               (context, animation, secondaryAnimation, child) {
                             return FadeTransition(
@@ -254,6 +247,9 @@ class GalleryPage extends StatelessWidget {
           if (value == 0) {
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => MenuPage()));
+          } else if (value == 1) {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => SearchFieldSample()));
           }
         },
       ),
