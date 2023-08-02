@@ -567,7 +567,7 @@ class MyColumn extends StatelessWidget {
             child: const Padding(
               padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
               child: Text(
-                'Breakfast',
+                'Lunch',
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 20.0,
