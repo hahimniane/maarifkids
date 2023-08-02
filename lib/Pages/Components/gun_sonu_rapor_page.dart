@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:maarifkids/Pages/Components/pdf_viewer_page.dart';
 
 import '../../contants.dart';
 import '../menu_page.dart';
@@ -12,7 +13,7 @@ class GelisimTakipPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(   title: 'Progress Tracking', context: context, isFromSearch:isFromSearch ,),
-      body: const Column(
+      body:  Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           DateSelectionWidget(),
@@ -24,7 +25,18 @@ class GelisimTakipPage extends StatelessWidget {
                   Expanded(
                     child: ImageWithTitle(
                       imageUrl: 'images/gelisim_takip.png', // Replace with your image URL
-                      title: 'End of Term Achievements', // Replace with your desired title
+                      title: 'End of Term Achievements', onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                          const SyncVisionPdfViewer(
+                            pdfUrl:
+                            'https://firebasestorage.googleapis.com/v0/b/maarif-567b8.appspot.com/o/Alphabet%20Identification.pdf?alt=media&token=2272bf00-ad80-4a2f-919e-251654597a93',
+                          ),
+                        ),
+                      );
+                      }, // Replace with your desired title
                     ),
                   ),
                   SizedBox(
@@ -33,7 +45,18 @@ class GelisimTakipPage extends StatelessWidget {
                   Expanded(
                     child: ImageWithTitle(
                       imageUrl: 'images/gelisim_takip_2.png', // Replace with your image URL
-                      title: 'February achievement', // Replace with your desired title
+                      title: 'February achievement', onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                          const SyncVisionPdfViewer(
+                            pdfUrl:
+                            'https://firebasestorage.googleapis.com/v0/b/maarif-567b8.appspot.com/o/creative-child-like-best-teacher-school-certificate_23-2148933833.pdf?alt=media&token=ebd83321-c72e-4c78-91b7-e2980cb52656',
+                          ),
+                        ),
+                      );
+                    }, // Replace with your desired title
                     ),
                   ),
                 ],
@@ -60,10 +83,11 @@ class GelisimTakipPage extends StatelessWidget {
 class ImageWithTitle extends StatelessWidget {
   final String imageUrl;
   final String title;
+  final VoidCallback onTap;
 
-  const ImageWithTitle({
+   ImageWithTitle({super.key,
     required this.imageUrl,
-    required this.title,
+    required this.title, required this.onTap,
   });
 
   @override
@@ -72,9 +96,12 @@ class ImageWithTitle extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Expanded(
-          child: Image.asset(
-            imageUrl,
-            fit: BoxFit.cover,
+          child: InkWell(
+            onTap: onTap,
+            child: Image.asset(
+              imageUrl,
+              fit: BoxFit.cover,
+            ),
           ),
         ),
         const SizedBox(height: 8),

@@ -99,7 +99,7 @@ class _AppInitialPageState extends State<AppInitialPage> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => ProfileSelectionPage()));
+                          builder: (context) => LoginPage()));
                 },
                 child: const Text(
                   'Devam Et',

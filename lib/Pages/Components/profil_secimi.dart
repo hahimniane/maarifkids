@@ -82,14 +82,14 @@ class ProfileSelectionPage extends StatelessWidget {
                       padding: EdgeInsets.all(10.0),
                       child: CircleAvatar(
                         radius: 55.0,
-                        backgroundImage: AssetImage('images/yavuz_selim.jpeg'),
+                        backgroundImage: AssetImage('images/IMG_2103.png'),
                       ),
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const Text(
-                          'Yavuz Selim\n   (ogrenci)',
+                          'Abdullah Nian\n   (ogrenci)',
                           style: TextStyle(
                             fontSize: 20.0,
                           ),

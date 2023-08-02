@@ -188,13 +188,13 @@ class _SyncVisionPdfViewerState extends State<SyncVisionPdfViewer> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('PDF Viewer'),
+        title: const Text('PDF Viewer'),
         actions: <Widget>[
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: IconButton(
               color: MainColor,
-              icon: Icon(Icons.download),
+              icon: const Icon(Icons.download),
               onPressed: () {
                 print('clicked');
                 FileStorage.writeCounter(
@@ -206,8 +206,9 @@ class _SyncVisionPdfViewerState extends State<SyncVisionPdfViewer> {
         ],
       ),
       body: _downloading
-          ? Center(child: CircularProgressIndicator())
+          ? const Center(child: CircularProgressIndicator())
           : SfPdfViewer.network(
+
               widget.pdfUrl,
             ),
     );
