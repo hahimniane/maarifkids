@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:maarifkids/contants.dart';
 
 class CustomNavigationBar extends StatelessWidget {
   final int currentIndex;
@@ -13,6 +14,11 @@ class CustomNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+
+      unselectedLabelStyle: TextStyle(
+        fontWeight: FontWeight.bold
+      ),
+      unselectedItemColor: MainColor,
       elevation: 4,
       currentIndex: currentIndex,
       onTap: onTap,

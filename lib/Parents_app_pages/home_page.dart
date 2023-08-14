@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:maarifkids/Pages/profile_page.dart';
-import 'package:maarifkids/Pages/search_page.dart';
+import 'package:maarifkids/Parents_app_pages/profile_page.dart';
+import 'package:maarifkids/Parents_app_pages/search_page.dart';
+
 
 import 'menu_page.dart';
 

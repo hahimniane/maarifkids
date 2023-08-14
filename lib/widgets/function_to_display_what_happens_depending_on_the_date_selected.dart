@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../Pages/Components/Etkinlik_program_page.dart';
+
+import '../Parents_app_pages/Components/Etkinlik_program_page.dart';
 import '../contants.dart';
 
 Widget getActivitiesForDate(

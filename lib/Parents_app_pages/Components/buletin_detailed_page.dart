@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:maarifkids/Pages/Components/pdf_viewer_page.dart';
+import 'package:maarifkids/Parents_app_pages/Components/pdf_viewer_page.dart';
+
 import 'package:maarifkids/test_page.dart';
 
 import '../../contants.dart';

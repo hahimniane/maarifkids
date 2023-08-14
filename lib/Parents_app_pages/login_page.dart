@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../admin_app_pages/teacher_profile_selection.dart';
 import '../contants.dart';
 
 import 'Components/profil_secimi.dart';
@@ -108,7 +109,11 @@ class _LoginPageState extends State<LoginPage> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => ProfileSelectionPage()));
+                            builder: (context) => ProfileSelectionPage(isItAdmin: true,)));
+                    // Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //         builder: (context) => TeacherProfileSelection()));
                   },
                   child: const Text(
                     'Giriş!',

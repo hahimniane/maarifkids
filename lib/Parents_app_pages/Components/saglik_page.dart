@@ -1,13 +1,15 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:maarifkids/Pages/Components/health_infromation_page.dart';
+
 import 'package:maarifkids/contants.dart';
 import 'package:maarifkids/widgets/navigator_class.dart';
 
+import '../../test_page.dart';
 import '../menu_page.dart';
 import 'custom_nav_bar.dart';
 import 'drug_information_page.dart';
+import 'health_infromation_page.dart';
 
 class HealthWelcomePage extends StatelessWidget {
   final bool isFromSearch;
@@ -88,6 +90,10 @@ class HealthWelcomePage extends StatelessWidget {
           if (value == 0) {
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => MenuPage()));
+          }
+          else if (value == 1) {
+
+            Navigator.push(context,      MaterialPageRoute(builder: (context) => SearchFieldSample()));
           }
         },
       ),

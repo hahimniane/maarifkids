@@ -1,7 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-import '../Pages/Components/Etkinlik_program_page.dart';
+
+import '../Parents_app_pages/Components/Etkinlik_program_page.dart';
 import '../contants.dart';
 
 class CustomActivityList extends StatefulWidget {

@@ -28,17 +28,22 @@ class buildAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final BuildContext context;
   final bool isFromSearch;
+
+  final List <Widget> actions;
   int count = 0;
 
   buildAppBar(
       {super.key,
       required this.title,
       required this.context,
-      required this.isFromSearch});
+      required this.isFromSearch,
+
+      this.actions=const []});
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      actions: actions,
       leading: IconButton(
         icon: const Icon(Icons.arrow_back_ios_new),
         color: Colors.white,

@@ -1,17 +1,59 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
+import '../../admin_app_pages/constants.dart';
 import '../../contants.dart';
 import '../menu_page.dart';
 import 'announcement_details_page.dart';
 
 class ProfileSelectionPage extends StatelessWidget {
+  final bool isItAdmin;
+  ProfileSelectionPage({required this.isItAdmin});
+
+  final parentTheme = ThemeData(
+
+    buttonTheme: ButtonThemeData(
+        buttonColor: Colors.teal
+    ),
+    primaryColor: Colors.teal,
+    appBarTheme: AppBarTheme(color: Colors.teal), // Set the AppBar color
+  );
+
+
+  // Select the appropriate theme based on the user role
+
+
+
   @override
   Widget build(BuildContext context) {
+    final adminTheme = ThemeData(
+      primarySwatch: Colors.orange,
+      textTheme:
+      Theme.of(context).textTheme.apply(
+        bodyColor: Colors.pinkAccent, //<-- SEE HERE
+        displayColor: Colors.pinkAccent,
+        //<-- SEE HERE
+      ),
+
+      buttonTheme: ButtonThemeData(
+          buttonColor: Colors.orange
+      ),
+      primaryColor: Colors.orange,
+      appBarTheme: AppBarTheme(
+        backgroundColor: Colors.orange,
+          titleTextStyle: TextStyle(
+            color: Colors.white,
+          ),
+          // color: Colors.orange,
+      ), // Set the AppBar color
+    );
+    final selectedTheme = isItAdmin ? adminTheme : parentTheme;
+    print('admin mode is $isItAdmin');
     return Scaffold(
       backgroundColor: profileSecimiBackgroundColor,
       appBar: AppBar(
         backgroundColor: MainColor,
-        title: Text('Profil Seçimi'),
+        title: Text('Profile Selection'),
       ),
       body: Center(
         child: Column(

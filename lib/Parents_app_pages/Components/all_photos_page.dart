@@ -3,6 +3,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:maarifkids/contants.dart';
 import 'package:video_player/video_player.dart';
 
+import '../../test_page.dart';
 import '../menu_page.dart';
 import 'custom_nav_bar.dart';
 
@@ -229,8 +230,9 @@ class _AllPhototosPageState extends State<AllPhototosPage> {
           if (value == 0) {
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => MenuPage()));
-          } else {
-            print('search screen');
+          }      else if (value == 1) {
+
+            Navigator.push(context,      MaterialPageRoute(builder: (context) => SearchFieldSample()));
           }
         },
       ),

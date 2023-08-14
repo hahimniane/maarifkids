@@ -186,14 +186,10 @@ class _SyncVisionPdfViewerState extends State<SyncVisionPdfViewer> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('PDF Viewer'),
-        actions: <Widget>[
-          Padding(
+    List <Widget> actions =[ Padding(
             padding: const EdgeInsets.all(8.0),
             child: IconButton(
-              color: MainColor,
+              color: Colors.white,
               icon: const Icon(Icons.download),
               onPressed: () {
                 print('clicked');
@@ -202,9 +198,10 @@ class _SyncVisionPdfViewerState extends State<SyncVisionPdfViewer> {
               },
               // onPressed: _downloading ? null : _downloadPDF,
             ),
-          ),
-        ],
-      ),
+          )];
+    return Scaffold(
+      appBar:  buildAppBar(title: 'PDF Viewer', context: context, isFromSearch: false,actions: actions,),
+
       body: _downloading
           ? const Center(child: CircularProgressIndicator())
           : SfPdfViewer.network(

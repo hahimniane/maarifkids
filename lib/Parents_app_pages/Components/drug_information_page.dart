@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:maarifkids/Pages/Components/saglik_page.dart';
+import 'package:maarifkids/Parents_app_pages/Components/saglik_page.dart';
+
 import 'package:maarifkids/contants.dart';
 import 'package:maarifkids/widgets/function_for_initializing_dates.dart';
 
+import '../../test_page.dart';
 import '../../widgets/acitvities_class.dart';
 import '../menu_page.dart';
 import 'Etkinlik_program_page.dart';
@@ -61,6 +63,10 @@ class _DrugInformationPageState extends State<DrugInformationPage> {
           if (value == 0) {
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => MenuPage()));
+          }
+          else if (value == 1) {
+
+            Navigator.push(context,      MaterialPageRoute(builder: (context) => SearchFieldSample()));
           }
         },
       ),

@@ -1,24 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:maarifkids/contants.dart';
 
+import '../../test_page.dart';
 import '../menu_page.dart';
 import 'announcement_details_page.dart';
 import 'custom_nav_bar.dart';
 
-class DuyrularPage extends StatelessWidget {
-  @override
+class AnnouncementsWelcomePage extends StatelessWidget {
+   final bool isFromSearch;
+   AnnouncementsWelcomePage({ required this.isFromSearch, });
+   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xffE7F7F8),
-      appBar: AppBar(
-        elevation: 10,
-        backgroundColor: MainColor,
-        title: const Text('Announcements',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-            )),
-      ),
+       appBar: buildAppBar(title: 'Announcements', context: context, isFromSearch: isFromSearch,),
       body: ListView(
         padding: EdgeInsets.all(16.0),
         children: [
@@ -32,10 +27,10 @@ class DuyrularPage extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => const AnnouncementDetailsPage(
+                      builder: (context) =>  AnnouncementDetailsPage(
                             heading: 'Parent Meeting',
                             description:
-                                'Degerli Velilerimiz, 25 Haziran Pazar günü veli toplantisi düzenlenecektir. Katilimlarinizi ônemle rica ederiz.',
+                                'Degerli Velilerimiz, 25 Haziran Pazar günü veli toplantisi düzenlenecektir. Katilimlarinizi ônemle rica ederiz.', isFromSearch: false,
                           )));
             },
           ),
@@ -89,8 +84,10 @@ class DuyrularPage extends StatelessWidget {
           if (value == 0) {
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => MenuPage()));
-          } else {
-            print('search screen');
+          }
+          else if (value == 1) {
+
+            Navigator.push(context,      MaterialPageRoute(builder: (context) => SearchFieldSample()));
           }
         },
       ),

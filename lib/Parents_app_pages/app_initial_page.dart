@@ -1,12 +1,11 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:flutter/material.dart';
-import 'package:maarifkids/Pages/api_deneme.dart';
-import 'package:maarifkids/Pages/login_page.dart';
-import 'package:maarifkids/Pages/profile_page.dart';
+
 
 import '../contants.dart';
-import '../test_page.dart';
-import 'Components/profil_secimi.dart';
+import 'api_deneme.dart';
+import 'login_page.dart';
+
 
 class AppInitialPage extends StatefulWidget {
   const AppInitialPage({Key? key}) : super(key: key);
@@ -74,7 +73,7 @@ class _AppInitialPageState extends State<AppInitialPage> {
             Padding(
               padding: EdgeInsets.all(8.0),
               child: Text(
-                'Maarif e-kreş ile çocuklarınızın gelişimlerini günlük, haftalık, aylık ve yıllık olarak takip edebilirsiniz',
+                'You can track your children\'s development on a daily, weekly, monthly, and yearly basis with Maarif e-kindergarten.',
                 style: TextStyle(
                   fontSize: 15,
                   color: MainColor,
@@ -102,8 +101,9 @@ class _AppInitialPageState extends State<AppInitialPage> {
                           builder: (context) => LoginPage()));
                 },
                 child: const Text(
-                  'Devam Et',
+                  'Continue',
                   style: TextStyle(
+
                     color: Colors.white,
                   ),
                 ),

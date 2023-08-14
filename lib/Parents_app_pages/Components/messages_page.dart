@@ -512,6 +512,10 @@ class _DiscussionPageState extends State<DiscussionPage> {
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => MenuPage()));
           }
+          else if (value == 1) {
+
+            Navigator.push(context,      MaterialPageRoute(builder: (context) => SearchFieldSample()));
+          }
         },
       ),
     );

@@ -570,18 +570,21 @@
 //   }
 // }
 import 'package:flutter/material.dart';
-import 'package:maarifkids/Pages/Components/Etkinlik_program_page.dart';
-import 'package:maarifkids/Pages/Components/attendance_page.dart';
-import 'package:maarifkids/Pages/Components/gallery_page.dart';
-import 'package:maarifkids/Pages/Components/gun_sonu_rapor_page.dart';
-import 'package:maarifkids/Pages/Components/saglik_page.dart';
-import 'package:maarifkids/Pages/Components/school_buletin_page.dart';
-import 'package:maarifkids/Pages/Components/service_page.dart';
+
 import 'package:maarifkids/contants.dart';
 import 'package:searchfield/searchfield.dart';
 
-import 'Pages/Components/food_page.dart';
-import 'Pages/Components/messages_page.dart';
+import 'Parents_app_pages/Components/Etkinlik_program_page.dart';
+import 'Parents_app_pages/Components/attendance_page.dart';
+import 'Parents_app_pages/Components/food_page.dart';
+import 'Parents_app_pages/Components/gallery_page.dart';
+import 'Parents_app_pages/Components/gun_sonu_rapor_page.dart';
+import 'Parents_app_pages/Components/messages_page.dart';
+import 'Parents_app_pages/Components/saglik_page.dart';
+import 'Parents_app_pages/Components/school_buletin_page.dart';
+import 'Parents_app_pages/Components/service_page.dart';
+
+
 
 class SearchFieldSample extends StatefulWidget {
   const SearchFieldSample({Key? key}) : super(key: key);

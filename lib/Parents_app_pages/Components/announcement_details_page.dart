@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:maarifkids/Pages/Components/pdf_viewer_page.dart';
-import 'package:maarifkids/Pages/home_page.dart';
+import 'package:maarifkids/Parents_app_pages/Components/pdf_viewer_page.dart';
+
 import 'package:maarifkids/contants.dart';
 
+import '../../test_page.dart';
 import '../app_initial_page.dart';
+import '../home_page.dart';
 import '../menu_page.dart';
 import 'custom_nav_bar.dart';
 
 class AnnouncementDetailsPage extends StatelessWidget {
   final String heading;
   final String description;
+  final bool isFromSearch;
 
   const AnnouncementDetailsPage({
     required this.heading,
-    required this.description,
+    required this.description, required this.isFromSearch,
   });
 
   @override
@@ -22,9 +25,8 @@ class AnnouncementDetailsPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xffE7F7F8),
       // backgroundColor: Colors.blue,
-      appBar: AppBar(
-        title: const Text('Announcement Detail'),
-      ),
+      appBar: buildAppBar(title: 'Announcement Detail', context: context, isFromSearch: isFromSearch,),
+
       body: SafeArea(
         bottom: true,
         child: Column(
@@ -182,6 +184,10 @@ class AnnouncementDetailsPage extends StatelessWidget {
           if (value == 0) {
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => MenuPage()));
+          }
+         else if (value == 1) {
+
+       Navigator.push(context,      MaterialPageRoute(builder: (context) => SearchFieldSample()));
           }
         },
       ),

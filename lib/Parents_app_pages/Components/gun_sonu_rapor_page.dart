@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:maarifkids/Pages/Components/pdf_viewer_page.dart';
+import 'package:maarifkids/Parents_app_pages/Components/pdf_viewer_page.dart';
+
 
 import '../../contants.dart';
+import '../../test_page.dart';
 import '../menu_page.dart';
 import 'custom_nav_bar.dart';
 
@@ -71,6 +73,10 @@ class GelisimTakipPage extends StatelessWidget {
           if (value == 0) {
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => MenuPage()));
+          }
+          else if (value == 1) {
+
+            Navigator.push(context,      MaterialPageRoute(builder: (context) => SearchFieldSample()));
           }
         },
       ),

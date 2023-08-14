@@ -68,6 +68,7 @@ dependencies:
   flutter_cupertino_date_picker_fork: ^1.0.7
   auto_size_text: ^3.0.0
   searchfield: ^0.8.3
+  google_fonts: ^4.0.4
 
 
 dev_dependencies:

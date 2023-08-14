@@ -1,8 +1,10 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:maarifkids/Pages/Components/saglik_page.dart';
+import 'package:maarifkids/Parents_app_pages/Components/saglik_page.dart';
+
 import 'package:maarifkids/contants.dart';
 
+import '../../test_page.dart';
 import '../menu_page.dart';
 import 'attendance_page.dart';
 import 'custom_nav_bar.dart';
@@ -171,6 +173,10 @@ decoration: BoxDecoration(
           if (value == 0) {
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => MenuPage()));
+          }
+          else if (value == 1) {
+
+            Navigator.push(context,      MaterialPageRoute(builder: (context) => SearchFieldSample()));
           }
         },
       ),
