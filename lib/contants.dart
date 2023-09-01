@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-Color MainColor = Color(0xff38C0C6);
+Color parentAppColor = Color(0xff38C0C6);
+Color adminAppColor = Color(0xffEF8515);
 Color profileSecimiBackgroundColor = Color(0xffE7F7F8);
 Future animatedRoute(BuildContext context, page) {
   return Navigator.push(
@@ -17,7 +18,7 @@ Future animatedRoute(BuildContext context, page) {
 }
 
 var appBar2 = AppBar(
-  backgroundColor: MainColor,
+  backgroundColor: parentAppColor,
   title: const Text(
     'Gallery',
     style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
@@ -28,22 +29,20 @@ class buildAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final BuildContext context;
   final bool isFromSearch;
-
-  final List <Widget> actions;
   int count = 0;
+  final bool isAdminColor;
 
   buildAppBar(
       {super.key,
       required this.title,
       required this.context,
-      required this.isFromSearch,
-
-      this.actions=const []});
+      required this.isFromSearch, this.isAdminColor=false});
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      actions: actions,
+
+
       leading: IconButton(
         icon: const Icon(Icons.arrow_back_ios_new),
         color: Colors.white,
@@ -55,8 +54,9 @@ class buildAppBar extends StatelessWidget implements PreferredSizeWidget {
           }
         },
       ),
-      backgroundColor: MainColor,
+      backgroundColor: isAdminColor?adminAppColor:parentAppColor,
       title: Text(
+        textAlign:TextAlign.center,
         title,
         style:
             const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),

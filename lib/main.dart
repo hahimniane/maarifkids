@@ -3,21 +3,22 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-
-import 'Parents_app_pages/app_initial_page.dart';
-import 'admin_app_pages/constants.dart';
+import 'Pages/app_initial_page.dart';
 import 'contants.dart';
 import 'firebase_options.dart';
 
 Future<void> main() async {
-   WidgetsFlutterBinding();
+  WidgetsFlutterBinding();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(  DevicePreview(
-    enabled: kReleaseMode,
-    builder: (context) => MyApp(), // Wrap your app
-  ),);
+  runApp(
+    DevicePreview(
+      enabled: true,
+      builder: (context) => MyApp(), // Wrap your app
+    ),
+  );
+  // runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -27,16 +28,22 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-
         locale: DevicePreview.locale(context),
-        builder: DevicePreview.appBuilder,
+        // builder: DevicePreview.appBuilder,
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
-          // primarySwatch: MainColor,
+          iconTheme: IconThemeData(
+            color: Colors.white, // Set your desired icon color
+          ),
+          appBarTheme: AppBarTheme(
+            iconTheme: IconThemeData(
+              color: Colors
+                  .white, // Set your desired icon color for the back icon in AppBar
+            ),
+          ),
           colorScheme: ColorScheme.fromSeed(
-            seedColor: MainColor,
-            // primary: adminAppColor
+            seedColor: parentAppColor,
           ),
           useMaterial3: true,
         ),

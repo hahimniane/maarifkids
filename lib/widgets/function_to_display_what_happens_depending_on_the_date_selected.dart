@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-
-import '../Parents_app_pages/Components/Etkinlik_program_page.dart';
+import '../Pages/Components/Etkinlik_program_page.dart';
 import '../contants.dart';
 
 Widget getActivitiesForDate(
@@ -34,7 +33,7 @@ class listViewForDisplayingListOfActivities extends StatelessWidget {
                   style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: MainColor),
+                      color: parentAppColor),
                 ),
               ),
               Expanded(
@@ -54,7 +53,7 @@ class listViewForDisplayingListOfActivities extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w500,
-                        color: MainColor,
+                        color: parentAppColor,
                       ),
                     ),
                   ),

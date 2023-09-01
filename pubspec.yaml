@@ -36,12 +36,12 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   carousel_slider: ^4.2.1
-#  firebase_core: ^1.24.0
-#  cloud_firestore: ^3.5.1
-#  firebase_auth: ^3.11.2
-#  firebase_storage: ^10.3.11
-#  firebase_crashlytics: ^2.8.13
-#  firebase_messaging: ^13.1.0
+  #  firebase_core: ^1.24.0
+  #  cloud_firestore: ^3.5.1
+  #  firebase_auth: ^3.11.2
+  #  firebase_storage: ^10.3.11
+  #  firebase_crashlytics: ^2.8.13
+  #  firebase_messaging: ^13.1.0
   font_awesome_flutter: ^10.4.0
   device_preview: ^1.1.0
   persistent_bottom_nav_bar_v2: any
@@ -58,8 +58,8 @@ dependencies:
 
   path_provider: ^2.0.15
   syncfusion_flutter_pdfviewer: ^21.2.9
-  dio: ^5.2.1
-  file_picker: ^5.2.10
+  dio: ^4.0.0
+  file_picker: ^5.3.1
   permission_handler: ^10.3.0
   chat_bubbles: ^1.4.1
   anim_search_bar: ^2.0.3
@@ -68,7 +68,7 @@ dependencies:
   flutter_cupertino_date_picker_fork: ^1.0.7
   auto_size_text: ^3.0.0
   searchfield: ^0.8.3
-  google_fonts: ^4.0.4
+  flutter_file_view: ^2.2.1
 
 
 dev_dependencies:
@@ -82,15 +82,15 @@ flutter_launcher_icons:
   web:
     generate: true
     image_path: "images/IM Maarif Okul Öncesi TR Logo.png"
-#    background_color: "#FFFFFF"
-#    theme_color: "#hexcode"
-#  windows:
-#    generate: true
-#    image_path: "path/to/image.png"
-#    icon_size: 48 # min:48, max:256, default: 48
-#  macos:
-#    generate: true
-#    image_path: "path/to/image.png"
+  #    background_color: "#FFFFFF"
+  #    theme_color: "#hexcode"
+  #  windows:
+  #    generate: true
+  #    image_path: "path/to/image.png"
+  #    icon_size: 48 # min:48, max:256, default: 48
+  #  macos:
+  #    generate: true
+  #    image_path: "path/to/image.png"
   flutter_test:
     sdk: flutter
 
@@ -114,10 +114,10 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-   - images/
-   - images/icons/
-
-   - images/bulettin/
+    - images/
+    - images/icons/
+    - images/bulettin/
+    - images/admin_images/
 
   #   - images/a_dot_ham.jpeg
 

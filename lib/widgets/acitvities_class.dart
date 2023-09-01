@@ -1,8 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-
-import '../Parents_app_pages/Components/Etkinlik_program_page.dart';
+import '../Pages/Components/Etkinlik_program_page.dart';
 import '../contants.dart';
 
 class CustomActivityList extends StatefulWidget {
@@ -40,7 +39,7 @@ class _CustomActivityListState extends State<CustomActivityList> {
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(4),
-                    color: MainColor,
+                    color: parentAppColor,
                   ),
                   child: Text(
                     DateFormat.yMMMM().format(DateTime.now()),
@@ -67,7 +66,7 @@ class _CustomActivityListState extends State<CustomActivityList> {
                     });
                   },
                   icon: Icon(Icons.arrow_back_ios),
-                  color: MainColor,
+                  color: parentAppColor,
                 ),
                 customHorizontalDatePicker(
                     dates: widget.dates,
@@ -81,7 +80,7 @@ class _CustomActivityListState extends State<CustomActivityList> {
                     });
                   },
                   icon: Icon(Icons.arrow_forward_ios),
-                  color: MainColor,
+                  color: parentAppColor,
                 ),
               ],
             ),
@@ -92,7 +91,7 @@ class _CustomActivityListState extends State<CustomActivityList> {
           child: widget.addDividerAtTheBottom
               ? Divider(
                   thickness: 3,
-                  color: MainColor,
+                  color: parentAppColor,
                 )
               : Container(),
         ),
