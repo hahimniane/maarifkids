@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:maarifkids/admin_module/view_old_photos.dart';
 
 import '../Pages/Components/custom_nav_bar.dart';
 import '../Pages/menu_page.dart';
 import '../contants.dart';
 import '../test_page.dart';
 import 'add_new_photo_page.dart';
+import 'exercise.dart';
 
 class GalleryPage extends StatelessWidget {
   const GalleryPage({super.key});
@@ -67,7 +69,7 @@ class GalleryPage extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-
+Navigator.push(context, MaterialPageRoute(builder: (context)=>ViewOldPhotos()));
               },
               child: SizedBox(
                 width: MediaQuery.of(context).size.width * 0.60,
