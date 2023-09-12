@@ -1,7 +1,34 @@
 import 'package:flutter/material.dart';
-
+const String galleryString ='Gallery';
+const String eventProgramString='Event Program';
+const String dateString='Date';
+const String gradeString='Grade';
 Color parentAppColor = Color(0xff38C0C6);
 Color adminAppColor = Color(0xffEF8515);
+MaterialColor adminMaterialColor = MaterialColor(0xFFEF8515, <int, Color>{
+  50: Color(0xFF558B2F),
+  100: Color(0xFF558B2F),
+  200: Color(0xFF558B2F),
+  300: Color(0xFF558B2F),
+  400: Color(0xFF558B2F),
+  500: Color(0xFF558B2F),
+  600: Color(0xFF558B2F),
+  700: Color(0xFF558B2F),
+  800: Color(0xFF558B2F),
+  900: Color(0xFF558B2F),
+});
+MaterialColor parentMaterialColor = MaterialColor(0xff38C0C6, <int, Color>{
+  50: Color(0xFF558B2F),
+  100: Color(0xFF558B2F),
+  200: Color(0xFF558B2F),
+  300: Color(0xFF558B2F),
+  400: Color(0xFF558B2F),
+  500: Color(0xFF558B2F),
+  600: Color(0xFF558B2F),
+  700: Color(0xFF558B2F),
+  800: Color(0xFF558B2F),
+  900: Color(0xFF558B2F),
+});
 Color profileSecimiBackgroundColor = Color(0xffE7F7F8);
 Future animatedRoute(BuildContext context, page) {
   return Navigator.push(

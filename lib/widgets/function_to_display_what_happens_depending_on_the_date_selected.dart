@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
 import '../Pages/Components/Etkinlik_program_page.dart';
+import '../admin_module/utils/lists.dart';
 import '../contants.dart';
 
-Widget getActivitiesForDate(
-    DateTime date, String responseIfWeekend, Widget responseIfWeekDay) {
+Widget getActivitiesForDate({ required
+    DateTime date,required String responseIfWeekend,required Widget responseIfWeekDay}) {
   if (date.weekday == DateTime.saturday || date.weekday == DateTime.sunday) {
     return Center(child: Text(responseIfWeekend));
   } else {
@@ -13,14 +14,15 @@ Widget getActivitiesForDate(
 }
 
 class listViewForDisplayingListOfActivities extends StatelessWidget {
+  final List itemAccount;
   const listViewForDisplayingListOfActivities({
-    super.key,
+    super.key, required this.itemAccount,
   });
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: hours.length,
+      itemCount: itemAccount.length,
       itemBuilder: (BuildContext context, int index) {
         return Padding(
           padding: const EdgeInsets.only(top: 16.0, bottom: 12, left: 16),
@@ -33,7 +35,7 @@ class listViewForDisplayingListOfActivities extends StatelessWidget {
                   style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: parentAppColor),
+                      color: Theme.of(context).primaryColor,),
                 ),
               ),
               Expanded(
@@ -53,7 +55,7 @@ class listViewForDisplayingListOfActivities extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w500,
-                        color: parentAppColor,
+                        color: Theme.of(context).primaryColor,
                       ),
                     ),
                   ),

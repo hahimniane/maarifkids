@@ -39,7 +39,7 @@ class _CustomActivityListState extends State<CustomActivityList> {
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(4),
-                    color: parentAppColor,
+                    color: Theme.of(context).primaryColor,
                   ),
                   child: Text(
                     DateFormat.yMMMM().format(DateTime.now()),
@@ -91,7 +91,7 @@ class _CustomActivityListState extends State<CustomActivityList> {
           child: widget.addDividerAtTheBottom
               ? Divider(
                   thickness: 3,
-                  color: parentAppColor,
+                  color: Theme.of(context).primaryColor,
                 )
               : Container(),
         ),

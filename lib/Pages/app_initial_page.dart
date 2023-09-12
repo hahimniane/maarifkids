@@ -57,7 +57,7 @@ class _AppInitialPageState extends State<AppInitialPage> {
                 style: TextStyle(
                     backgroundColor: Colors.white70,
                     fontSize: 25,
-                    color: parentAppColor),
+                    color: Theme.of(context).primaryColor,),
               ),
             ),
             // Photo holder
@@ -77,7 +77,7 @@ class _AppInitialPageState extends State<AppInitialPage> {
                 'Maarif e-kreş ile çocuklarınızın gelişimlerini günlük, haftalık, aylık ve yıllık olarak takip edebilirsiniz',
                 style: TextStyle(
                   fontSize: 15,
-                  color: parentAppColor,
+                  color: Theme.of(context).primaryColor,
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -90,7 +90,7 @@ class _AppInitialPageState extends State<AppInitialPage> {
               padding: EdgeInsets.symmetric(horizontal: 110, vertical: 16),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: parentAppColor,
+                  backgroundColor: Theme.of(context).primaryColor,
                 ),
                 onPressed: () async {
                   ApiCall apiCall = ApiCall();

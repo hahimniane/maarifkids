@@ -3,8 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:maarifkids/Pages/Components/school_buletin_page.dart';
 import 'package:maarifkids/Pages/Components/service_page.dart';
-import 'package:maarifkids/admin_module/announcement_page.dart';
-import '../admin_module/gallery_page.dart';
+import 'package:maarifkids/admin_module/Announcement/admin_announcement_dynamic_popup_menu_button.dart';
+import '../admin_module/Announcement/admin_announcement_page.dart';
+import '../admin_module/Gallery/admin_gallery_page.dart';
+import '../admin_module/EventProgram/admin_activity_page.dart';
+import '../admin_module/Messages/admin_messages_page.dart';
+
+import '../contants.dart';
 import '../widgets/navigator_class.dart';
 import 'Components/Etkinlik_program_page.dart';
 import 'Components/attendance_page.dart';
@@ -135,25 +140,35 @@ class MenuPage extends StatelessWidget {
                       label: 'Messages',
                       color: const Color(0xffFAC711),
                       onTap: () {
+
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => MessagesPage(
+                                builder: (context) => AdminMessagesPage(
                                       isFromSearch: false,
                                     )));
+
+
+                        // Navigator.push(
+                        //     context,
+                        //     MaterialPageRoute(
+                        //         builder: (context) => MessagesPage(
+                        //               isFromSearch: false,
+                        //             )));
                       },
                     ),
                     _buildMenuItem(
                       icon: FontAwesomeIcons.puzzlePiece,
-                      label: 'Event Programme',
+                      label: 'Event Program',
                       color: const Color(0xff2D9BF0),
                       onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const EtkinlikPage(
-                                      isFromSearch: false,
-                                    )));
+                        NavigationHelper.pushPage(context, AdminActivityPage());
+                        // Navigator.push(
+                        //     context,
+                        //     MaterialPageRoute(
+                        //         builder: (context) => const EtkinlikPage(
+                        //               isFromSearch: false,
+                        //             )));
                       },
                     ),
                     _buildMenuItem(
@@ -276,3 +291,5 @@ class MenuPage extends StatelessWidget {
     );
   }
 }
+
+

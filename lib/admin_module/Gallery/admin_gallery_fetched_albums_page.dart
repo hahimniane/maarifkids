@@ -2,11 +2,12 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-import '../Pages/Components/album_viewer.dart';
-import '../Pages/Components/custom_nav_bar.dart';
-import '../Pages/menu_page.dart';
-import '../contants.dart';
-import '../test_page.dart';
+import '../../Pages/Components/album_viewer.dart';
+import '../../Pages/Components/custom_nav_bar.dart';
+import '../../Pages/menu_page.dart';
+import '../../contants.dart';
+import '../../test_page.dart';
+import 'media_display_page.dart';
 class FetchedAlbumsPage extends StatelessWidget {
   const FetchedAlbumsPage({super.key});
 
@@ -14,7 +15,9 @@ class FetchedAlbumsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: profileSecimiBackgroundColor,
-      appBar: buildAppBar(
+    appBar:  buildAppBar(
+
+        isAdminColor: true,
         title: 'Gallery',
         context: context,
         isFromSearch: false,
@@ -27,9 +30,9 @@ class FetchedAlbumsPage extends StatelessWidget {
             color: profileSecimiBackgroundColor,
             child: Center(
               child: Text(
-                'A Sınıfı',
+                'Class A',
                 style: TextStyle(
-                    color: parentAppColor,
+                    color: adminAppColor,
                     fontWeight: FontWeight.bold,
                     fontSize: 19),
               ),
@@ -46,7 +49,7 @@ class FetchedAlbumsPage extends StatelessWidget {
                           transitionDuration: Duration(milliseconds: 500),
                           pageBuilder:
                               (context, animation, secondaryAnimation) =>
-                              AlbumViewerPage(
+                              MediaDisplayPage(
                                 isFromSearch: false,
                               ),
                           transitionsBuilder:
@@ -74,6 +77,13 @@ class FetchedAlbumsPage extends StatelessWidget {
                         height: double.infinity,
                       ),
                     ),
+
+                    BackdropFilter(
+                      filter: ImageFilter.blur(sigmaX: 0, sigmaY: 0),
+                      child: Container(
+                        color: Colors.black.withOpacity(0.6),
+                      ),
+                    ),
                     Positioned(
                       bottom: 16,
                       left: 16,
@@ -81,7 +91,7 @@ class FetchedAlbumsPage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Jan 2023',
+                            '20 March 2023 Photos',
                             style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
@@ -89,7 +99,7 @@ class FetchedAlbumsPage extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            'Photos/Videos',
+                            '32 Photos/2Videos',
                             style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.w900,
@@ -97,12 +107,6 @@ class FetchedAlbumsPage extends StatelessWidget {
                             ),
                           ),
                         ],
-                      ),
-                    ),
-                    BackdropFilter(
-                      filter: ImageFilter.blur(sigmaX: 0, sigmaY: 0),
-                      child: Container(
-                        color: Colors.grey.withOpacity(0.3),
                       ),
                     ),
                   ],
@@ -124,53 +128,11 @@ class FetchedAlbumsPage extends StatelessWidget {
                       height: double.infinity,
                     ),
                   ),
-                  Positioned(
-                    bottom: 16,
-                    left: 16,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Jan 2023',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 24,
-                          ),
-                        ),
-                        Text(
-                          'Photos and Videos',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+
                   BackdropFilter(
                     filter: ImageFilter.blur(sigmaX: 0, sigmaY: 0),
                     child: Container(
-                      color: Colors.grey.withOpacity(0.3),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Stack(
-                children: [
-                  Container(
-                    color: Colors.blue,
-                    child: Image.asset(
-                      'images/1647011757459939023.jpg',
-                      fit: BoxFit.cover,
-                      width: double.infinity,
-                      height: double.infinity,
+                      color: Colors.black.withOpacity(0.5),
                     ),
                   ),
                   Positioned(
@@ -180,7 +142,7 @@ class FetchedAlbumsPage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Jan 2023',
+                          'Field Trip Album',
                           style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
@@ -188,7 +150,7 @@ class FetchedAlbumsPage extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          'Photos and Videos',
+                          '10Photos/4Videos',
                           style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
@@ -198,16 +160,59 @@ class FetchedAlbumsPage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  BackdropFilter(
-                    filter: ImageFilter.blur(sigmaX: 0, sigmaY: 0),
-                    child: Container(
-                      color: Colors.grey.withOpacity(0.3),
-                    ),
-                  ),
                 ],
               ),
             ),
           ),
+          // Expanded(
+          //   child: Padding(
+          //     padding: const EdgeInsets.all(8.0),
+          //     child: Stack(
+          //       children: [
+          //         Container(
+          //           color: Colors.blue,
+          //           child: Image.asset(
+          //             'images/1647011757459939023.jpg',
+          //             fit: BoxFit.cover,
+          //             width: double.infinity,
+          //             height: double.infinity,
+          //           ),
+          //         ),
+          //         Positioned(
+          //           bottom: 16,
+          //           left: 16,
+          //           child: Column(
+          //             crossAxisAlignment: CrossAxisAlignment.start,
+          //             children: [
+          //               Text(
+          //                 'Jan 2023',
+          //                 style: TextStyle(
+          //                   color: Colors.white,
+          //                   fontWeight: FontWeight.bold,
+          //                   fontSize: 24,
+          //                 ),
+          //               ),
+          //               Text(
+          //                 'Photos and Videos',
+          //                 style: TextStyle(
+          //                   color: Colors.white,
+          //                   fontWeight: FontWeight.bold,
+          //                   fontSize: 16,
+          //                 ),
+          //               ),
+          //             ],
+          //           ),
+          //         ),
+          //         BackdropFilter(
+          //           filter: ImageFilter.blur(sigmaX: 0, sigmaY: 0),
+          //           child: Container(
+          //             color: Colors.grey.withOpacity(0.3),
+          //           ),
+          //         ),
+          //       ],
+          //     ),
+          //   ),
+          // ),
           // Padding(
           //   padding: const EdgeInsets.only(top: 15.0),
           //   child: Container(

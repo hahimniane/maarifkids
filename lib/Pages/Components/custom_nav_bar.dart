@@ -13,7 +13,7 @@ class CustomNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      elevation: 4,
+      elevation: 10,
       currentIndex: currentIndex,
       onTap: onTap,
       items: const [

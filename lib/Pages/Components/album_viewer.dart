@@ -241,6 +241,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:maarifkids/Pages/menu_page.dart';
+
 import 'package:maarifkids/test_page.dart';
 
 import '../../contants.dart';
@@ -263,7 +264,7 @@ class _AlbumViewerPageState extends State<AlbumViewerPage> {
     return Scaffold(
       backgroundColor: profileSecimiBackgroundColor,
       appBar: buildAppBar(
-        title: 'Gallery',
+        title: galleryString,
         context: context,
         isFromSearch: widget.isFromSearch,
       ),

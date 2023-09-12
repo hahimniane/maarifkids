@@ -14,8 +14,8 @@ DateTime? initializeDates(
   for (int i = firstDayOfMonth.day; i <= lastDayOfMonth.day; i++) {
     final date = DateTime(now.year, now.month, i);
     dates.add(date);
-    activities.add(getActivitiesForDate(
-        date, 'there is no activity', whatToReturnAsAWidget));
+    activities.add(getActivitiesForDate(date:
+        date,   responseIfWeekend: 'there is no activity', responseIfWeekDay: whatToReturnAsAWidget,));
   }
 
   selectedDate = dates.first;

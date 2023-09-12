@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:maarifkids/admin_module/profile_selection.dart';
+import 'package:maarifkids/theme.dart';
+import 'package:maarifkids/widgets/navigator_class.dart';
+import 'package:provider/provider.dart';
 
+import '../Providers/Providers.dart';
 import '../contants.dart';
 
+import '../enums.dart';
 import 'Components/profil_secimi.dart';
 import 'home_page.dart';
 
@@ -14,8 +19,15 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  TextEditingController textField1Controller = TextEditingController();
-  TextEditingController textField2Controller = TextEditingController();
+  TextEditingController emailTextFieldController = TextEditingController();
+  TextEditingController passwordTextFieldController = TextEditingController();
+
+
+  @override
+  void initState() {
+    super.initState();
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +60,7 @@ class _LoginPageState extends State<LoginPage> {
                     padding: const EdgeInsets.only(bottom: 8.0),
                     child: Text(
                       'Email',
-                      style: TextStyle(color: parentAppColor),
+                      style: TextStyle(color: Theme.of(context).primaryColor,),
                     ),
                   ),
                   Container(
@@ -56,7 +68,7 @@ class _LoginPageState extends State<LoginPage> {
                     child: TextField(
                       keyboardType: TextInputType.emailAddress,
                       // style: const TextStyle(color: Colors.grey),
-                      controller: textField1Controller,
+                      controller: emailTextFieldController,
                       decoration: const InputDecoration(
                         hintText: 'isim@example.com',
                         border: OutlineInputBorder(),
@@ -77,7 +89,7 @@ class _LoginPageState extends State<LoginPage> {
                     padding: EdgeInsets.only(bottom: 8.0),
                     child: Text(
                       'Password',
-                      style: TextStyle(color: parentAppColor),
+                      style: TextStyle(color: Theme.of(context).primaryColor,),
                     ),
                   ),
                   Container(
@@ -86,7 +98,7 @@ class _LoginPageState extends State<LoginPage> {
                       obscureText: true,
                       keyboardType: TextInputType.emailAddress,
                       // style: const TextStyle(color: Colors.grey),
-                      controller: textField1Controller,
+                      controller: emailTextFieldController,
                       decoration: const InputDecoration(
                         hintText: '********',
                         border: OutlineInputBorder(),
@@ -103,18 +115,33 @@ class _LoginPageState extends State<LoginPage> {
               width: 150,
               child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: parentAppColor,
+                    backgroundColor: Theme.of(context).primaryColor,
                   ),
                   onPressed: () {
+                    if(emailTextFieldController.text=='parent'){
+                      Provider.of<ThemeProvider>(context,listen: false).changeUserType(UserType.parent);
+                      NavigationHelper.pushPage(context, ProfileSelectionPage());
+                    }
+                    else{
+                      Provider.of<ThemeProvider>(context,listen: false).changeUserType(UserType.admin);
+                      NavigationHelper.pushPage(context, AdminProfileSelectionPage());
+                    }
+                    // if( Provider.of<ThemeProvider>(context,listen: false).activeThemeData==ParentTheme.lightTheme()){
+                    //   Provider.of<ThemeProvider>(context,listen: false).changeUserType(UserType.admin);
+                    // }
+                    // else{
+                    //
+                    // }
+
                     // Navigator.push(
                     //     context,
                     //     MaterialPageRoute(
                     //         builder: (context) => ProfileSelectionPage()));
 
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => AdminProfileSelectionPage()));
+                    // Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //         builder: (context) => AdminProfileSelectionPage()));
                   },
                   child: const Text(
                     'Giriş!',

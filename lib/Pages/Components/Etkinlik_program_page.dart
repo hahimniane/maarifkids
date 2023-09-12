@@ -3,6 +3,7 @@ import 'package:chat_bubbles/date_chips/date_chip.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import '../../admin_module/utils/lists.dart';
 import '../../contants.dart';
 import '../../test_page.dart';
 import '../../widgets/acitvities_class.dart';
@@ -11,30 +12,7 @@ import '../../widgets/function_to_display_what_happens_depending_on_the_date_sel
 import '../menu_page.dart';
 import 'custom_nav_bar.dart';
 
-final List<String> hours = [
-  '8 AM',
-  '9 AM',
-  '10 AM',
-  '11 AM',
-  '12 PM',
-  '1 PM',
-  '2 PM',
-  '3 PM',
-  '4 PM',
-  '5 PM',
-];
-final List<String> listOfActivities = [
-  'Breakfast',
-  'Meeting',
-  'Workout',
-  'Lunch',
-  'Project Discussion',
-  'Emails',
-  'Presentation',
-  'Coding',
-  'Brainstorming',
-  'Wrap Up',
-];
+
 List<String> deneme = [
   'Book',
   'Pen',
@@ -92,7 +70,7 @@ class _EtkinlikPageState extends State<EtkinlikPage> {
     selectedDate = initializeDates(
         dates: dates,
         activities: activities,
-        whatToReturnAsAWidget: listViewForDisplayingListOfActivities());
+        whatToReturnAsAWidget: listViewForDisplayingListOfActivities(itemAccount: hours,));
     // this.selectedDate = selectedDate;
   }
 
@@ -100,6 +78,7 @@ class _EtkinlikPageState extends State<EtkinlikPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(
+        isAdminColor: true,
         title: 'Activity Page',
         context: context,
         isFromSearch: widget.isFromSearch,
@@ -253,7 +232,7 @@ class customHorizontalDatePicker extends StatelessWidget {
                         height: 50,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: isSelected ? parentAppColor : Colors.grey,
+                          color: isSelected ? Theme.of(context).primaryColor : Colors.grey,
                         ),
                         child: Center(
                           child: Text(
@@ -275,7 +254,7 @@ class customHorizontalDatePicker extends StatelessWidget {
                             height: 20,
                             padding: EdgeInsets.all(3),
                             decoration: BoxDecoration(
-                              color: isSelected ? parentAppColor : Colors.grey,
+                              color: isSelected ? Theme.of(context).primaryColor : Colors.grey,
                               borderRadius: BorderRadius.circular(5),
                             ),
                             child: Center(
@@ -283,10 +262,12 @@ class customHorizontalDatePicker extends StatelessWidget {
                                 textAlign: TextAlign.center,
                                 dayOfWeek,
                                 style: TextStyle(
+
                                   color: isSelected
                                       ? Colors.white
-                                      : parentAppColor,
+                                      : Theme.of(context).primaryColor,
                                   fontWeight: FontWeight.bold,
+                                  fontSize: 12,
                                 ),
                               ),
                             ),
@@ -297,7 +278,7 @@ class customHorizontalDatePicker extends StatelessWidget {
                             dayOfWeek,
                             style: TextStyle(
                               fontSize: 12,
-                              color: parentAppColor,
+                              color: Theme.of(context).primaryColor,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
