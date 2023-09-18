@@ -1,16 +1,16 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:maarifkids/Pages/Components/attendance_page.dart';
+
 import 'package:maarifkids/contants.dart';
 
-import '../../Pages/Components/Etkinlik_program_page.dart';
+
 import '../../Pages/Components/custom_nav_bar.dart';
-import '../../Pages/Components/food_page.dart';
+
 import '../../Pages/menu_page.dart';
 import '../../test_page.dart';
 import '../../widgets/acitvities_class.dart';
 import '../../widgets/function_for_initializing_dates.dart';
-import '../../widgets/function_to_display_what_happens_depending_on_the_date_selected.dart';
+
 
 class AdminAddNewEventPage extends StatefulWidget {
   final bool isFromSearch;
@@ -94,39 +94,7 @@ class _AdminAddNewEventPageState extends State<AdminAddNewEventPage> {
             ),
           ),
 
-          // Padding(
-          //   padding: const EdgeInsets.only(top: 16.0, bottom: 12, left: 16),
-          //   child: Row(
-          //     children: [
-          //       Expanded(
-          //         flex: 1,
-          //         child: Text(
-          //           'Hour',
-          //           style: TextStyle(
-          //               fontSize: 20,
-          //               fontWeight: FontWeight.bold,
-          //               color: parentAppColor),
-          //         ),
-          //       ),
-          //       Expanded(
-          //         flex: 4,
-          //         child: Center(
-          //           child: Text(
-          //             'Event',
-          //             style: TextStyle(
-          //                 fontSize: 20,
-          //                 fontWeight: FontWeight.bold,
-          //                 color: parentAppColor),
-          //           ),
-          //         ),
-          //       )
-          //     ],
-          //   ),
-          //   // child: ListTile(
-          //   //   leading: Text('Hour'),
-          //   //
-          //   // ),
-          // ),
+
           Expanded(
             flex: 7,
             child: Padding(
@@ -148,15 +116,13 @@ class _AdminAddNewEventPageState extends State<AdminAddNewEventPage> {
       context: context,
       isScrollControlled: true,
       builder: (BuildContext context) {
-        return SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.only(
-              bottom: MediaQuery.of(context).viewInsets.bottom,
-            ),
-            child: Container(
-              child: Text('Hello'),
-              // Search tab content goes here
-            ),
+        return Padding(
+          padding: EdgeInsets.only(
+            bottom: MediaQuery.of(context).viewInsets.bottom,
+          ),
+          child: Container(
+            child: Text('Hello'),
+            // Search tab content goes here
           ),
         );
       },
@@ -172,6 +138,7 @@ class EventSlot {
   String selectedTime;
   String eventDetails;
 
+
   EventSlot(this.selectedTime, this.eventDetails);
 }
 
@@ -185,8 +152,17 @@ class CreateEvent extends StatefulWidget {
 }
 
 class _CreateEventState extends State<CreateEvent> {
-  List<EventSlot> eventSlots = []; // List to store event slots
-  String? selectedTime='12:00';
+
+
+  List<Map<String, String>> eventSlots = []; // List to store event slots
+  String? selectedTime = '12:00';
+  int slotId = 0;
+
+  bool hasUnsavedChanges = false;
+
+  bool hasEmptyDetails=true;
+  // Unique identifier for each slot
+
   List<String> generateTimeOptions() {
     List<String> timeOptions = [];
     for (int hour = 0; hour < 24; hour++) {
@@ -199,16 +175,31 @@ class _CreateEventState extends State<CreateEvent> {
     }
     return timeOptions;
   }
+
   void addSlot() {
+    print('adding a new slot and slot id is $slotId ');
     setState(() {
-      eventSlots.add(EventSlot(selectedTime!, '')); // Add a new slot with selected time
+      // Add a new slot with a unique identifier
+      eventSlots.add({
+        'id': slotId.toString(),
+        'selectedTime': selectedTime!,
+        'eventDetails': '',
+      });
+      slotId++; // Increment the unique identifier
+    });
+  }
+
+  void removeSlot(String id) {
+    setState(() {
+      // Remove the slot with the given unique identifier
+      eventSlots.removeWhere((slot) => slot['id'] == id);
     });
   }
 
   @override
   Widget build(BuildContext context) {
     List<String> timeList = generateTimeOptions();
-    List<Widget> slotRows = eventSlots.map((slot) {
+    List<Widget> slotWidgets = eventSlots.map((slot) {
       return Padding(
         padding: const EdgeInsets.only(top: 16.0, bottom: 5, left: 16),
         child: Row(
@@ -223,10 +214,10 @@ class _CreateEventState extends State<CreateEvent> {
                 child: DropdownButtonHideUnderline(
                   child: DropdownButton<String>(
                     icon: SizedBox.shrink(),
-                    value: slot.selectedTime,
+                    value: slot['selectedTime'],
                     onChanged: (newValue) {
                       setState(() {
-                        slot.selectedTime = newValue!;
+                        slot['selectedTime'] = newValue!;
                       });
                     },
                     items: timeList.map<DropdownMenuItem<String>>((String value) {
@@ -251,25 +242,63 @@ class _CreateEventState extends State<CreateEvent> {
               flex: 3,
               child: Container(
                 height: 30,
-                child: Center(
-                  child: TextField(
-                    decoration: InputDecoration(
-                      contentPadding: EdgeInsets.zero,
-                      border: OutlineInputBorder(),
+                child: Stack(
+                  clipBehavior: Clip.none,
+                  children: [
+                    TextField(
+                      decoration: InputDecoration(
+                        contentPadding: EdgeInsets.all(10),
+                        border: OutlineInputBorder(),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: hasEmptyDetails && slot['eventDetails']!.isEmpty
+                                ? Colors.red // Set red border for empty fields
+                                : Colors.black,
+                          ),
+                        ),
+                        errorText: slot['validationError'],
+                      ),
+
+
+                      // decoration: InputDecoration(
+                      //   border: BorderSide(
+                      //     color: hasEmptyDetails && slot['eventDetails'].isEmpty
+                      //         ? Colors.red // Set red border for empty fields
+                      //         : Colors.black,
+                      //   ),
+                      //   contentPadding: EdgeInsets.zero,
+                      //   border: OutlineInputBorder(),
+                      // ),
+                      onChanged: (newValue) {
+                        // Update event details when the text field changes
+                        slot['eventDetails'] = newValue;
+                      },
                     ),
-                    onChanged: (newValue) {
-                      // Update event details when the text field changes
-                      slot.eventDetails = newValue;
-                    },
-                  ),
+                    Positioned(
+                      top: -25,
+                      right: -24,
+                      child: IconButton(
+                        icon: Icon(Icons.cancel, size: 15, color: adminAppColor),
+                        onPressed: () {
+                          // print('clicked');
+                          // print('the slot id at the moment is $slotId');
+                          print('the slot I am in right now is ${slot['id']}');
+
+                           removeSlot(slot['id']!); // Remove the slot when the icon is clicked
+                        },
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            )
+            ),
+            SizedBox(
+              width: 10,
+            ),
           ],
         ),
       );
     }).toList();
-
 
     return SingleChildScrollView(
       child: Column(
@@ -277,56 +306,64 @@ class _CreateEventState extends State<CreateEvent> {
         children: [
           ListTile(
             title: Container(
-                width: 60,
-                height: 30,
-                decoration: BoxDecoration(
-                    color: adminAppColor, borderRadius: BorderRadius.circular(8)),
-                child: Center(
-                    child: Text(
+              width: 60,
+              height: 30,
+              decoration: BoxDecoration(
+                  color: adminAppColor,
+                  borderRadius: BorderRadius.circular(8)),
+              child: Center(
+                child: Text(
                   gradeString,
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
                     color: Colors.white,
                   ),
-                ))),
+                ),
+              ),
+            ),
             trailing: Container(
-                width: 210,
-                child: TextField(
-                  decoration: InputDecoration(
-                      hintText: 'Class A',
-                      hintStyle: TextStyle(
-                        color: adminAppColor,
-                        decoration: TextDecoration.underline,
-                      )
-                      // label: Text(  ),
-                      ),
-                  textAlign: TextAlign.center,
-                )),
+              width: 210,
+              child: TextField(
+                decoration: InputDecoration(
+                  hintText: 'Class A',
+                  hintStyle: TextStyle(
+                    color: adminAppColor,
+                    decoration: TextDecoration.underline,
+                  ),
+                  // label: Text(  ),
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
           ),
           ListTile(
             title: Container(
-                width: 60,
-                height: 30,
-                decoration: BoxDecoration(
-                    color: adminAppColor, borderRadius: BorderRadius.circular(8)),
-                child: Center(
-                    child: Text(
+              width: 60,
+              height: 30,
+              decoration: BoxDecoration(
+                  color: adminAppColor,
+                  borderRadius: BorderRadius.circular(8)),
+              child: Center(
+                child: Text(
                   dateString,
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
                     color: Colors.white,
                   ),
-                ))),
+                ),
+              ),
+            ),
             trailing: Container(
-                width: 210,
-                child: TextField(
-                  decoration: InputDecoration(
-                      hintStyle: TextStyle(color: adminAppColor),
-                      hintText: '${DateFormat.MMMMEEEEd().format(DateTime.now())}'
-                      // label: Text(  ),
-                      ),
-                  textAlign: TextAlign.center,
-                )),
+              width: 210,
+              child: TextField(
+                decoration: InputDecoration(
+                  hintStyle: TextStyle(color: adminAppColor),
+                  hintText: '${DateFormat.MMMMEEEEd().format(DateTime.now())}',
+                  // label: Text(  ),
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
           ),
           Padding(
             padding: const EdgeInsets.only(top: 16.0, bottom: 12, left: 16),
@@ -356,29 +393,368 @@ class _CreateEventState extends State<CreateEvent> {
                 )
               ],
             ),
-            // child: ListTile(
-            //   leading: Text('Hour'),
-            //
-            // ),
           ),
-          ...slotRows,
-
+          ...slotWidgets, // Display slots in a normal column layout
           Container(
-
             child: TextButton(
-              onPressed: (){
+              onPressed: () {
                 addSlot();
-              }, child: Row(
-              children: [
-                Icon(Icons.add,color: adminAppColor,),Text('Add',style: TextStyle(
-                  color: adminAppColor,
-                ),)
-              ],
+              },
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.add,
+                    color: adminAppColor,
+                  ),
+                  Text(
+                    'Add',
+                    style: TextStyle(
+                      color: adminAppColor,
+                    ),
+                  )
+                ],
+              ),
             ),
+          ),
+          Align(
+            alignment: Alignment.centerRight,
+            child: Container(
+              height: MediaQuery.of(context).size.height * 0.047,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  backgroundColor: adminAppColor,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.zero,
+                  ),
+                ),
+                onPressed: () {
+                   hasEmptyDetails = eventSlots.any((slot) => slot['eventDetails']!.isEmpty);
+                  print('the has empty details is $hasEmptyDetails');
+                  if (eventSlots.isEmpty) {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: Text("No Events Created"),
+                          content: Text("You have not created any events."),
+                          actions: <Widget>[
+                            TextButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: Text("OK"),
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  } else if (hasEmptyDetails) {
+                    setState(() {
+                      eventSlots.forEach((slot) {
+                        if (slot['eventDetails']!.isEmpty) {
+                          slot['validationError'] = 'Event details cannot be empty';
+                        } else {
+                          slot.remove('validationError');
+                        }
+                      });
+                    });
+                  } else {
+                    setState(() {
+                      hasUnsavedChanges = false;
+                    });
+                  }
+                },
+                child: Text(
+                  'Save',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+              ),
             ),
           )
         ],
       ),
     );
   }
+
+  @override
+  void initState() {
+    super.initState();
+    eventSlots.add({
+      'id': slotId.toString(),
+      'selectedTime': selectedTime!,
+      'eventDetails': '',
+      'mandatory': 'true', // Add a 'mandatory' key to mark it as mandatory
+    });
+    slotId++;
+
+
+  }
 }
+
+// class _CreateEventState extends State<CreateEvent> {
+//   List<EventSlot> eventSlots = []; // List to store event slots
+//   String? selectedTime = '12:00';
+//   List<String> generateTimeOptions() {
+//     List<String> timeOptions = [];
+//     for (int hour = 0; hour < 24; hour++) {
+//       for (int minute = 0; minute < 60; minute += 15) {
+//         // Create time strings in HH:mm format
+//         String hourStr = hour.toString().padLeft(2, '0');
+//         String minuteStr = minute.toString().padLeft(2, '0');
+//         timeOptions.add('$hourStr:$minuteStr');
+//       }
+//     }
+//     return timeOptions;
+//   }
+//
+//   void addSlot() {
+//     setState(() {
+//       eventSlots.add(
+//           EventSlot(selectedTime!, '')); // Add a new slot with selected time
+//     });
+//   }
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     List<String> timeList = generateTimeOptions();
+//     List<Widget> slotRows = eventSlots.map((slot) {
+//       return Padding(
+//         padding: const EdgeInsets.only(top: 16.0, bottom: 5, left: 16),
+//         child: Row(
+//           children: [
+//             Expanded(
+//               child: Container(
+//                 height: 30,
+//                 decoration: BoxDecoration(
+//                   borderRadius: BorderRadius.circular(5),
+//                   border: Border.all(color: adminAppColor),
+//                 ),
+//                 child: DropdownButtonHideUnderline(
+//                   child: DropdownButton<String>(
+//                     icon: SizedBox.shrink(),
+//                     value: slot.selectedTime,
+//                     onChanged: (newValue) {
+//                       setState(() {
+//                         slot.selectedTime = newValue!;
+//                       });
+//                     },
+//                     items:
+//                         timeList.map<DropdownMenuItem<String>>((String value) {
+//                       return DropdownMenuItem<String>(
+//                         value: value,
+//                         child: Center(
+//                           child: Text(
+//                             value,
+//                             style: TextStyle(color: adminAppColor),
+//                           ),
+//                         ),
+//                       );
+//                     }).toList(),
+//                   ),
+//                 ),
+//               ),
+//             ),
+//             SizedBox(
+//               width: 10,
+//             ),
+//             Expanded(
+//               flex: 3,
+//               child: Container(
+//                 height: 30,
+//                 child: Stack(
+//                   clipBehavior: Clip.none,
+//                   children: [
+//                     TextField(
+//                       decoration: InputDecoration(
+//                         contentPadding: EdgeInsets.zero,
+//                         border: OutlineInputBorder(),
+//                       ),
+//                       onChanged: (newValue) {
+//                         // Update event details when the text field changes
+//                         slot.eventDetails = newValue;
+//                       },
+//                     ),
+//                     Positioned(
+//                       top: -25,
+//                       right: -24,
+//                       child: IconButton(
+//                         icon: Icon(Icons.cancel,size: 15,color: adminAppColor,),
+//                         onPressed: () {
+//
+//                           slot.eventDetails = '';
+//                         },
+//                       ),
+//                     ),
+//                   ],
+//                 ),
+//               ),
+//             ),
+//             SizedBox(
+//               width: 10,
+//             ),
+//
+//           ],
+//         ),
+//       );
+//     }).toList();
+//
+//     return SingleChildScrollView(
+//       child: Column(
+//         crossAxisAlignment: CrossAxisAlignment.center,
+//         children: [
+//           ListTile(
+//             title: Container(
+//                 width: 60,
+//                 height: 30,
+//                 decoration: BoxDecoration(
+//                     color: adminAppColor,
+//                     borderRadius: BorderRadius.circular(8)),
+//                 child: Center(
+//                     child: Text(
+//                   gradeString,
+//                   style: TextStyle(
+//                     fontWeight: FontWeight.w500,
+//                     color: Colors.white,
+//                   ),
+//                 ))),
+//             trailing: Container(
+//                 width: 210,
+//                 child: TextField(
+//                   decoration: InputDecoration(
+//                       hintText: 'Class A',
+//                       hintStyle: TextStyle(
+//                         color: adminAppColor,
+//                         decoration: TextDecoration.underline,
+//                       )
+//                       // label: Text(  ),
+//                       ),
+//                   textAlign: TextAlign.center,
+//                 )),
+//           ),
+//           ListTile(
+//             title: Container(
+//                 width: 60,
+//                 height: 30,
+//                 decoration: BoxDecoration(
+//                     color: adminAppColor,
+//                     borderRadius: BorderRadius.circular(8)),
+//                 child: Center(
+//                     child: Text(
+//                   dateString,
+//                   style: TextStyle(
+//                     fontWeight: FontWeight.w500,
+//                     color: Colors.white,
+//                   ),
+//                 ))),
+//             trailing: Container(
+//                 width: 210,
+//                 child: TextField(
+//                   decoration: InputDecoration(
+//                       hintStyle: TextStyle(color: adminAppColor),
+//                       hintText:
+//                           '${DateFormat.MMMMEEEEd().format(DateTime.now())}'
+//                       // label: Text(  ),
+//                       ),
+//                   textAlign: TextAlign.center,
+//                 )),
+//           ),
+//           Padding(
+//             padding: const EdgeInsets.only(top: 16.0, bottom: 12, left: 16),
+//             child: Row(
+//               children: [
+//                 Expanded(
+//                   flex: 1,
+//                   child: Text(
+//                     'Time',
+//                     style: TextStyle(
+//                         fontSize: 20,
+//                         fontWeight: FontWeight.bold,
+//                         color: adminAppColor),
+//                   ),
+//                 ),
+//                 Expanded(
+//                   flex: 4,
+//                   child: Center(
+//                     child: Text(
+//                       'Event',
+//                       style: TextStyle(
+//                           fontSize: 20,
+//                           fontWeight: FontWeight.bold,
+//                           color: adminAppColor),
+//                     ),
+//                   ),
+//                 )
+//               ],
+//             ),
+//             // child: ListTile(
+//             //   leading: Text('Hour'),
+//             //
+//             // ),
+//           ),
+//           // ...slotRows,
+//           ListView.builder(
+//             shrinkWrap: true,
+//               itemCount: slotRows.length,
+//               itemBuilder: (context,index){
+//
+//             return slotRows[index];
+//           }),
+//           Container(
+//             child: TextButton(
+//               onPressed: () {
+//                 addSlot();
+//               },
+//               child: Row(
+//                 children: [
+//                   Icon(
+//                     Icons.add,
+//                     color: adminAppColor,
+//                   ),
+//                   Text(
+//                     'Add',
+//                     style: TextStyle(
+//                       color: adminAppColor,
+//                     ),
+//                   )
+//                 ],
+//               ),
+//             ),
+//           ),
+//           Align(
+//             alignment: Alignment.centerRight,
+//             child: Container(
+//               height: MediaQuery.of(context).size.height*0.047,
+//               decoration: BoxDecoration(
+//
+//                 borderRadius: BorderRadius.circular(10)
+//               ),
+//               child: TextButton(
+//                 style: TextButton.styleFrom(
+//
+//                   backgroundColor: adminAppColor,
+//                   shape: RoundedRectangleBorder(
+//                     borderRadius: BorderRadius.zero, // Zero border radius creates a rectangular button
+//                   ),
+//                 ),
+//                 onPressed: () {
+//                   // addSlot();
+//                 },
+//                 child: Text(
+//                   'Save',
+//                   style: TextStyle(
+//                     color: Colors.white,
+//                   ),
+//                 ),
+//               ),
+//             ),
+//           )
+//         ],
+//       ),
+//     );
+//   }
+// }

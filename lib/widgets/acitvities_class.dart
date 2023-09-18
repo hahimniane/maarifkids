@@ -66,7 +66,7 @@ class _CustomActivityListState extends State<CustomActivityList> {
                     });
                   },
                   icon: Icon(Icons.arrow_back_ios),
-                  color: parentAppColor,
+                  color: Theme.of(context).primaryColor,
                 ),
                 customHorizontalDatePicker(
                     dates: widget.dates,
@@ -80,7 +80,7 @@ class _CustomActivityListState extends State<CustomActivityList> {
                     });
                   },
                   icon: Icon(Icons.arrow_forward_ios),
-                  color: parentAppColor,
+                  color: Theme.of(context).primaryColor,
                 ),
               ],
             ),
