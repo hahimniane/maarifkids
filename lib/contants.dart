@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 const String galleryString ='Gallery';
+const String progressTrackingString='Progress Tracking';
 const String eventProgramString='Event Program';
+const String foodListString='Food List';
+const String schoolBuletinString='School Bulletin';
 const String dateString='Date';
 const String gradeString='Grade';
 Color parentAppColor = Color(0xff38C0C6);

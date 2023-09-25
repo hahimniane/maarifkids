@@ -5,7 +5,24 @@ import 'package:maarifkids/contants.dart';
 class ParentTheme {
   static ThemeData lightTheme() {
     return ThemeData(
+      appBarTheme: AppBarTheme(
+
+          titleTextStyle:TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+          ),
+
+        iconTheme: IconThemeData(
+          color: Colors.white,
+        )
+
+
+      ),
+
+
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
+
         selectedItemColor: parentAppColor,
             unselectedItemColor: parentAppColor,
       ),

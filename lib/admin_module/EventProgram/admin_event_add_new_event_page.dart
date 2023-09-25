@@ -3,14 +3,12 @@ import 'package:flutter/material.dart';
 
 import 'package:maarifkids/contants.dart';
 
-
 import '../../Pages/Components/custom_nav_bar.dart';
 
 import '../../Pages/menu_page.dart';
 import '../../test_page.dart';
 import '../../widgets/acitvities_class.dart';
 import '../../widgets/function_for_initializing_dates.dart';
-
 
 class AdminAddNewEventPage extends StatefulWidget {
   final bool isFromSearch;
@@ -93,8 +91,6 @@ class _AdminAddNewEventPageState extends State<AdminAddNewEventPage> {
               selectedDate: selectedDate!,
             ),
           ),
-
-
           Expanded(
             flex: 7,
             child: Padding(
@@ -138,7 +134,6 @@ class EventSlot {
   String selectedTime;
   String eventDetails;
 
-
   EventSlot(this.selectedTime, this.eventDetails);
 }
 
@@ -152,15 +147,13 @@ class CreateEvent extends StatefulWidget {
 }
 
 class _CreateEventState extends State<CreateEvent> {
-
-
   List<Map<String, String>> eventSlots = []; // List to store event slots
   String? selectedTime = '12:00';
   int slotId = 0;
 
   bool hasUnsavedChanges = false;
 
-  bool hasEmptyDetails=true;
+  bool hasEmptyDetails = true;
   // Unique identifier for each slot
 
   List<String> generateTimeOptions() {
@@ -220,7 +213,8 @@ class _CreateEventState extends State<CreateEvent> {
                         slot['selectedTime'] = newValue!;
                       });
                     },
-                    items: timeList.map<DropdownMenuItem<String>>((String value) {
+                    items:
+                        timeList.map<DropdownMenuItem<String>>((String value) {
                       return DropdownMenuItem<String>(
                         value: value,
                         child: Center(
@@ -245,46 +239,52 @@ class _CreateEventState extends State<CreateEvent> {
                 child: Stack(
                   clipBehavior: Clip.none,
                   children: [
-                    TextField(
-                      decoration: InputDecoration(
-                        contentPadding: EdgeInsets.all(10),
-                        border: OutlineInputBorder(),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: hasEmptyDetails && slot['eventDetails']!.isEmpty
-                                ? Colors.red // Set red border for empty fields
-                                : Colors.black,
+                    Container(
+                      height: 38,
+                      child: TextField(
+                        decoration: InputDecoration(
+                          focusColor: Colors.green,
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: hasEmptyDetails && slot['eventDetails']!.isEmpty? Colors.red:adminAppColor,
+                            )
                           ),
+
+                          hintStyle: TextStyle(
+                              color: Colors.red, fontWeight: FontWeight.bold),
+                          hintText:
+                              hasEmptyDetails && slot['eventDetails']!.isEmpty
+                                  ? 'Input Event...'
+                                  : '',
+                          helperStyle: TextStyle(height: 0),
+
+                          contentPadding: EdgeInsets.zero,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(5),
+                              borderSide: BorderSide(
+                            width: 1,
+                            color: Colors.purple,
+                          )),
                         ),
-                        errorText: slot['validationError'],
+
+                        onChanged: (newValue) {
+                          // Update event details when the text field changes
+                          slot['eventDetails'] = newValue;
+                        },
                       ),
-
-
-                      // decoration: InputDecoration(
-                      //   border: BorderSide(
-                      //     color: hasEmptyDetails && slot['eventDetails'].isEmpty
-                      //         ? Colors.red // Set red border for empty fields
-                      //         : Colors.black,
-                      //   ),
-                      //   contentPadding: EdgeInsets.zero,
-                      //   border: OutlineInputBorder(),
-                      // ),
-                      onChanged: (newValue) {
-                        // Update event details when the text field changes
-                        slot['eventDetails'] = newValue;
-                      },
                     ),
                     Positioned(
                       top: -25,
                       right: -24,
                       child: IconButton(
-                        icon: Icon(Icons.cancel, size: 15, color: adminAppColor),
+                        icon:
+                            Icon(Icons.cancel, size: 15, color: adminAppColor),
                         onPressed: () {
-                          // print('clicked');
-                          // print('the slot id at the moment is $slotId');
+
                           print('the slot I am in right now is ${slot['id']}');
 
-                           removeSlot(slot['id']!); // Remove the slot when the icon is clicked
+                          removeSlot(slot[
+                              'id']!); // Remove the slot when the icon is clicked
                         },
                       ),
                     ),
@@ -309,8 +309,7 @@ class _CreateEventState extends State<CreateEvent> {
               width: 60,
               height: 30,
               decoration: BoxDecoration(
-                  color: adminAppColor,
-                  borderRadius: BorderRadius.circular(8)),
+                  color: adminAppColor, borderRadius: BorderRadius.circular(8)),
               child: Center(
                 child: Text(
                   gradeString,
@@ -341,8 +340,7 @@ class _CreateEventState extends State<CreateEvent> {
               width: 60,
               height: 30,
               decoration: BoxDecoration(
-                  color: adminAppColor,
-                  borderRadius: BorderRadius.circular(8)),
+                  color: adminAppColor, borderRadius: BorderRadius.circular(8)),
               child: Center(
                 child: Text(
                   dateString,
@@ -431,21 +429,32 @@ class _CreateEventState extends State<CreateEvent> {
                   ),
                 ),
                 onPressed: () {
-                   hasEmptyDetails = eventSlots.any((slot) => slot['eventDetails']!.isEmpty);
+                  hasEmptyDetails =
+                      eventSlots.any((slot) => slot['eventDetails']!.isEmpty);
                   print('the has empty details is $hasEmptyDetails');
                   if (eventSlots.isEmpty) {
                     showDialog(
                       context: context,
                       builder: (BuildContext context) {
                         return AlertDialog(
+                          backgroundColor: adminAppColor,
                           title: Text("No Events Created"),
+                          titleTextStyle: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold
+                          ),
                           content: Text("You have not created any events."),
+                          contentTextStyle: TextStyle(
+                            color: Colors.white
+                          ),
                           actions: <Widget>[
                             TextButton(
                               onPressed: () {
                                 Navigator.of(context).pop();
                               },
-                              child: Text("OK"),
+                              child: Text("OK",style: TextStyle(
+                                color: Colors.white,
+                              ),),
                             ),
                           ],
                         );
@@ -455,7 +464,8 @@ class _CreateEventState extends State<CreateEvent> {
                     setState(() {
                       eventSlots.forEach((slot) {
                         if (slot['eventDetails']!.isEmpty) {
-                          slot['validationError'] = 'Event details cannot be empty';
+                          slot['validationError'] =
+                              'Event details cannot be empty';
                         } else {
                           slot.remove('validationError');
                         }
@@ -491,8 +501,6 @@ class _CreateEventState extends State<CreateEvent> {
       'mandatory': 'true', // Add a 'mandatory' key to mark it as mandatory
     });
     slotId++;
-
-
   }
 }
 

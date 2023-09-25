@@ -3,6 +3,7 @@ import 'package:maarifkids/Pages/Components/announcement_details_page.dart';
 import 'package:maarifkids/Pages/Components/pdf_viewer_page.dart';
 import 'package:maarifkids/test_page.dart';
 
+import '../../admin_module/utils/custom_date_picker.dart';
 import '../../contants.dart';
 
 import 'package:flutter/material.dart';
@@ -30,6 +31,7 @@ class BulletinDetailedPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(
+        isAdminColor: Theme.of(context).primaryColor==adminAppColor?true:false,
         title: 'School Bulletin',
         context: context,
         isFromSearch: IsFromSearch,
@@ -39,22 +41,7 @@ class BulletinDetailedPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Center(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.calendar_today,
-                    color: parentAppColor,
-                  ),
-                  SizedBox(width: 8),
-                  Text(
-                    'July 17, 2023',
-                    style: TextStyle(
-                      color: parentAppColor,
-                    ),
-                  ),
-                ],
-              ),
+              child: DateSelectionWidget(),
             ),
             SizedBox(height: 16),
             Image.asset(coverImage),
@@ -65,7 +52,7 @@ class BulletinDetailedPage extends StatelessWidget {
                 style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
-                    color: parentAppColor),
+                    color: Theme.of(context).primaryColor),
               ),
             ),
             SizedBox(height: 16),
@@ -101,7 +88,7 @@ class BulletinDetailedPage extends StatelessWidget {
                   'Click to continue reading',
                   style: TextStyle(
                     fontSize: 16,
-                    color: Colors.blue,
+                    color: Theme.of(context).primaryColor,
                     decoration: TextDecoration.underline,
                   ),
                 ),

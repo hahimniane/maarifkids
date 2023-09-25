@@ -10,8 +10,8 @@ import '../../test_page.dart';
 import 'admin_gallery_add_new_photo_page.dart';
 
 
-class GalleryPage extends StatelessWidget {
-  const GalleryPage({super.key});
+class AdminGalleryPage extends StatelessWidget {
+  const AdminGalleryPage({super.key});
 
   @override
   Widget build(BuildContext context) {

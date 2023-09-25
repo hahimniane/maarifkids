@@ -53,7 +53,7 @@ class _AppInitialPageState extends State<AppInitialPage> {
             Expanded(
               flex: 0,
               child: Text(
-                'Hoş Geldiniz!',
+                'Welcome!',
                 style: TextStyle(
                     backgroundColor: Colors.white70,
                     fontSize: 25,
@@ -74,7 +74,7 @@ class _AppInitialPageState extends State<AppInitialPage> {
             Padding(
               padding: EdgeInsets.all(8.0),
               child: Text(
-                'Maarif e-kreş ile çocuklarınızın gelişimlerini günlük, haftalık, aylık ve yıllık olarak takip edebilirsiniz',
+                'You can track your children\'s development on a daily, weekly, monthly, and yearly basis with Maarif e-preschool.',
                 style: TextStyle(
                   fontSize: 15,
                   color: Theme.of(context).primaryColor,

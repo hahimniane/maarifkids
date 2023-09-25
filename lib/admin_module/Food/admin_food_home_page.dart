@@ -1,21 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:maarifkids/admin_module/EventProgram/view_old_events.dart';
-import 'package:maarifkids/admin_module/utils/CustomIconButton.dart';
+import 'package:maarifkids/admin_module/Food/admin_add_new_food_list.dart';
+import 'package:maarifkids/admin_module/Food/admin_view_old_food_list.dart';
 
-import '../../Pages/Components/Etkinlik_program_page.dart';
 import '../../Pages/Components/custom_nav_bar.dart';
 import '../../Pages/menu_page.dart';
 import '../../contants.dart';
+import '../../test_page.dart';
 import '../../widgets/navigator_class.dart';
-import '../utils/custom_view_old.dart';
-import 'admin_event_add_new_event_page.dart';
-class AdminActivityPage extends StatelessWidget{
+import '../Bulletin/admin_add_new_bulletin.dart';
+import '../Bulletin/admin_view_old_buletin.dart';
+import '../utils/CustomIconButton.dart';
+class AdminFoodHomePage extends StatelessWidget {
+  const AdminFoodHomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return  Scaffold(
       appBar: buildAppBar(
         isAdminColor: true,
-        title: eventProgramString,
+        title: foodListString,
         context: context,
         isFromSearch: false,
       ),
@@ -25,21 +28,17 @@ class AdminActivityPage extends StatelessWidget{
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             CustomIconButton(onTap: () {
-              NavigationHelper.pushPage(context, AdminAddNewEventPage(isFromSearch: false,));
 
-            }, iconData: Icons.add, label: 'Add New\n Event',),
+              NavigationHelper.pushPage(context, AdminAddNewFoodListPage(isFromSearch: false,));
+            }, iconData: Icons.add, label: 'Add New\n Food List',),
+
             SizedBox(
               height: 20,
             ),
             CustomIconButton(onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) =>  ViewOldEvents(
-                            // isFromSearch: false,
-                          )));
+              NavigationHelper.pushPage(context, AdminViewOldFoolListPage());
+            }, iconData:  Icons.list_alt_sharp, label:  'View Food\n List',),
 
-            }, iconData: Icons.list_alt_outlined, label: 'View Old',)
           ],
         ),
       ),
@@ -49,8 +48,9 @@ class AdminActivityPage extends StatelessWidget{
           if (value == 0) {
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => MenuPage()));
-          } else {
-            print('search screen');
+          } else if (value == 1) {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => SearchFieldSample()));
           }
         },
       ),

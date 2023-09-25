@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:maarifkids/admin_module/EventProgram/view_old_events.dart';
-import 'package:maarifkids/admin_module/utils/CustomIconButton.dart';
+import 'package:maarifkids/admin_module/Progress%20Tracking/admin_progress_tracking_view_old.dart';
 
-import '../../Pages/Components/Etkinlik_program_page.dart';
 import '../../Pages/Components/custom_nav_bar.dart';
 import '../../Pages/menu_page.dart';
 import '../../contants.dart';
+import '../../test_page.dart';
 import '../../widgets/navigator_class.dart';
-import '../utils/custom_view_old.dart';
-import 'admin_event_add_new_event_page.dart';
-class AdminActivityPage extends StatelessWidget{
+import '../utils/CustomIconButton.dart';
+import 'admin_progress_tracking_add_new_file_page.dart';
+class AdminProgressTrackingHomePage extends StatelessWidget {
+  const AdminProgressTrackingHomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return  Scaffold(
       appBar: buildAppBar(
         isAdminColor: true,
-        title: eventProgramString,
+        title: progressTrackingString,
         context: context,
         isFromSearch: false,
       ),
@@ -25,21 +26,17 @@ class AdminActivityPage extends StatelessWidget{
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             CustomIconButton(onTap: () {
-              NavigationHelper.pushPage(context, AdminAddNewEventPage(isFromSearch: false,));
 
-            }, iconData: Icons.add, label: 'Add New\n Event',),
+              NavigationHelper.pushPage(context, AdminProgressAddNewFilePage());
+            }, iconData: Icons.add, label: 'Add New\n File',),
+
             SizedBox(
               height: 20,
             ),
             CustomIconButton(onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) =>  ViewOldEvents(
-                            // isFromSearch: false,
-                          )));
+              NavigationHelper.pushPage(context, AdminProgressViewOldPage());
+            }, iconData:  Icons.file_present_sharp, label:  'View Old',),
 
-            }, iconData: Icons.list_alt_outlined, label: 'View Old',)
           ],
         ),
       ),
@@ -49,8 +46,9 @@ class AdminActivityPage extends StatelessWidget{
           if (value == 0) {
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => MenuPage()));
-          } else {
-            print('search screen');
+          } else if (value == 1) {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => SearchFieldSample()));
           }
         },
       ),

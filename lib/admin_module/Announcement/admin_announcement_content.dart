@@ -49,7 +49,7 @@ class _AdminAnnouncementContentState extends State<AdminAnnouncementContent> {
             indicatorColor: adminAppColor,
             tabs: [
               Tab(
-                text: 'New Announcement',
+                text: 'New',
                 icon: Icon(Icons.file_open_outlined),
               ),
               Tab(text: 'Posted'),

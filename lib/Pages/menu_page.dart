@@ -1,21 +1,29 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:maarifkids/Pages/Components/gallery_page.dart';
 import 'package:maarifkids/Pages/Components/school_buletin_page.dart';
 import 'package:maarifkids/Pages/Components/service_page.dart';
 import 'package:maarifkids/admin_module/Announcement/admin_announcement_dynamic_popup_menu_button.dart';
+import 'package:maarifkids/admin_module/Progress%20Tracking/admin_progress_tracking_home_page.dart';
+import 'package:provider/provider.dart';
+import '../Providers/Providers.dart';
 import '../admin_module/Announcement/admin_announcement_page.dart';
+import '../admin_module/Bulletin/admin_buletin_home_page.dart';
+import '../admin_module/Food/admin_food_home_page.dart';
 import '../admin_module/Gallery/admin_gallery_page.dart';
 import '../admin_module/EventProgram/admin_activity_page.dart';
 import '../admin_module/Messages/admin_messages_page.dart';
 
 import '../contants.dart';
+import '../theme.dart';
 import '../widgets/navigator_class.dart';
 import 'Components/Etkinlik_program_page.dart';
 import 'Components/attendance_page.dart';
 import 'Components/duyrular_page.dart';
 import 'Components/food_page.dart';
-// import 'Components/gallery_page.dart';
+import 'Components/gallery_page.dart';
+import 'Components/gallery_page.dart';
 import 'Components/gun_sonu_rapor_page.dart';
 import 'Components/messages_page.dart';
 import 'Components/saglik_page.dart';
@@ -27,6 +35,7 @@ class MenuPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeProvider provider = Provider.of<ThemeProvider>(context, listen: true);
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -94,25 +103,18 @@ class MenuPage extends StatelessWidget {
                   crossAxisCount: 3,
                   children: [
                     _buildMenuItem(
-                      icon: const AssetImage(
-                          'images/information-speaker-notification-announcement-512.ico'),
-                      // icon: Icons.notification_important_rounded,
+                      // icon: const AssetImage(
+                      //     'images/information-speaker-notification-announcement-512.ico'),
+                      icon: Icons.notification_important_rounded,
                       label: 'Announcement',
                       color: const Color(0xffF55B5B),
                       onTap: () {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => DuyrularPage(),
-                        //   ),
-                        // );
-
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => AdminAnnouncementPage(),
-                          ),
-                        );
+                        provider.activeThemeData == ParentTheme.lightTheme()
+                            ? NavigationHelper.pushPage(context, DuyrularPage())
+                            : NavigationHelper.pushPage(
+                                context,
+                                AdminAnnouncementPage(),
+                              );
                       },
                     ),
                     _buildMenuItem(
@@ -120,19 +122,18 @@ class MenuPage extends StatelessWidget {
                       label: 'Galerry',
                       color: const Color(0xff0CA789),
                       onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => GalleryPage(
-                                  // isFromSearch: false,
-                                )));
-
-                        // Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //         builder: (context) => GalleryPage(
-                        //               isFromSearch: false,
-                        //             )));
+                        provider.activeThemeData == ParentTheme.lightTheme()
+                            ? NavigationHelper.pushPage(
+                                context,
+                                GalleryPage(
+                                  isFromSearch: false,
+                                ))
+                            : NavigationHelper.pushPage(
+                                context,
+                                AdminGalleryPage(
+                                    // isFromSearch: false,
+                                    ),
+                              );
                       },
                     ),
                     _buildMenuItem(
@@ -140,21 +141,18 @@ class MenuPage extends StatelessWidget {
                       label: 'Messages',
                       color: const Color(0xffFAC711),
                       onTap: () {
-
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => AdminMessagesPage(
-                                      isFromSearch: false,
-                                    )));
-
-
-                        // Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //         builder: (context) => MessagesPage(
-                        //               isFromSearch: false,
-                        //             )));
+                        provider.activeThemeData == ParentTheme.lightTheme()
+                            ? NavigationHelper.pushPage(
+                                context,
+                                MessagesPage(
+                                  isFromSearch: false,
+                                ))
+                            : NavigationHelper.pushPage(
+                                context,
+                                AdminMessagesPage(
+                                  isFromSearch: false,
+                                ),
+                              );
                       },
                     ),
                     _buildMenuItem(
@@ -162,13 +160,19 @@ class MenuPage extends StatelessWidget {
                       label: 'Event Program',
                       color: const Color(0xff2D9BF0),
                       onTap: () {
-                        NavigationHelper.pushPage(context, AdminActivityPage());
-                        // Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //         builder: (context) => const EtkinlikPage(
-                        //               isFromSearch: false,
-                        //             )));
+
+                        provider.activeThemeData == ParentTheme.lightTheme()
+                            ? NavigationHelper.pushPage(
+                            context,
+                            EtkinlikPage(
+                              isFromSearch: false,
+                            ))
+                            : NavigationHelper.pushPage(
+                          context,
+                            AdminActivityPage()
+                        );
+
+
                       },
                     ),
                     _buildMenuItem(
@@ -176,12 +180,20 @@ class MenuPage extends StatelessWidget {
                       label: 'Progress Tracking',
                       color: const Color(0xff414BB2),
                       onTap: () {
-                        Navigator.push(
+
+
+                        provider.activeThemeData == ParentTheme.lightTheme()
+                            ? NavigationHelper.pushPage(
                             context,
-                            MaterialPageRoute(
-                                builder: (context) => GelisimTakipPage(
-                                      isFromSearch: false,
-                                    )));
+                            GelisimTakipPage(
+                              isFromSearch: false,
+                            ))
+                            : NavigationHelper.pushPage(
+                            context,
+                            AdminProgressTrackingHomePage()
+                        );
+
+
                       },
                     ),
                     _buildMenuItem(
@@ -189,12 +201,29 @@ class MenuPage extends StatelessWidget {
                       label: 'Food List',
                       color: const Color(0xff652CB3),
                       onTap: () {
-                        Navigator.push(
+
+
+                        provider.activeThemeData == ParentTheme.lightTheme()
+                            ? NavigationHelper.pushPage(
                             context,
-                            MaterialPageRoute(
-                                builder: (context) => FoodPage(
-                                      isFromSearch: false,
-                                    )));
+                            FoodPage(
+                              isFromSearch: false,
+                            )
+                        )
+                            : NavigationHelper.pushPage(
+                            context,
+                            AdminFoodHomePage()
+                        );
+
+
+                        // AdminFoodHomePage
+
+                        // Navigator.push(
+                        //     context,
+                        //     MaterialPageRoute(
+                        //         builder: (context) => FoodPage(
+                        //               isFromSearch: false,
+                        //             )));
                       },
                     ),
                     _buildMenuItem(
@@ -239,11 +268,18 @@ class MenuPage extends StatelessWidget {
                       label: 'School Bulletin',
                       color: const Color(0xffF24727),
                       onTap: () {
-                        NavigationHelper.pushPage(
+                        provider.activeThemeData == ParentTheme.lightTheme()
+                            ? NavigationHelper.pushPage(
                             context,
-                            const SchoolBulettinPage(
+                            SchoolBulettinPage(
                               isFromSearch: false,
-                            ));
+                            ))
+                            : NavigationHelper.pushPage(
+                            context,
+                            AdminSchoolBulletinHomePage()
+                        );
+
+
                       },
                     ),
                   ],
@@ -263,33 +299,34 @@ class MenuPage extends StatelessWidget {
       required VoidCallback onTap}) {
     return GestureDetector(
       onTap: onTap,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          icon is IconData
-              ? Icon(
-                  icon,
-                  color: color,
-                  size: 24,
-                )
-              : Image(
-                  image: icon,
-                  height: 40,
-                  color: const Color(0xffF55B5B),
-                ),
-          const SizedBox(height: 2.0),
-          Expanded(
-            child: Text(
-              label,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  fontSize: 13.0, fontWeight: FontWeight.bold, color: color),
+      child: Center(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            icon is IconData
+                ? Icon(
+                    icon,
+                    color: color,
+                    size: 24,
+                  )
+                : Image(
+                    image: icon,
+                    height: 40,
+                    color: const Color(0xffF55B5B),
+                  ),
+            const SizedBox(height: 2.0),
+            Expanded(
+              child: Text(
+                label,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontSize: 13.0, fontWeight: FontWeight.bold, color: color),
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
 }
-
-

@@ -78,7 +78,7 @@ class _EtkinlikPageState extends State<EtkinlikPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(
-        isAdminColor: true,
+        isAdminColor: false,
         title: 'Activity Page',
         context: context,
         isFromSearch: widget.isFromSearch,
