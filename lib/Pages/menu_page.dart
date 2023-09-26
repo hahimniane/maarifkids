@@ -13,6 +13,7 @@ import '../admin_module/Bulletin/admin_buletin_home_page.dart';
 import '../admin_module/Food/admin_food_home_page.dart';
 import '../admin_module/Gallery/admin_gallery_page.dart';
 import '../admin_module/EventProgram/admin_activity_page.dart';
+import '../admin_module/Health/admin_health_home_page.dart';
 import '../admin_module/Messages/admin_messages_page.dart';
 
 import '../contants.dart';
@@ -231,11 +232,22 @@ class MenuPage extends StatelessWidget {
                       label: 'Health',
                       color: const Color(0xff14CDD4),
                       onTap: () {
-                        NavigationHelper.pushPage(
+                        provider.activeThemeData == ParentTheme.lightTheme()
+                            ? NavigationHelper.pushPage(
                             context,
-                            const HealthWelcomePage(
+                            HealthWelcomePage(
                               isFromSearch: false,
-                            ));
+                            )
+                        )
+                            : NavigationHelper.pushPage(
+                            context,
+                            AdminHealthHomePage()
+                        );
+                        // NavigationHelper.pushPage(
+                        //     context,
+                        //     const HealthWelcomePage(
+                        //       isFromSearch: false,
+                        //     ));
                       },
                     ),
                     _buildMenuItem(

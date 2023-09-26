@@ -3,6 +3,9 @@ const String galleryString ='Gallery';
 const String progressTrackingString='Progress Tracking';
 const String eventProgramString='Event Program';
 const String foodListString='Food List';
+const String healthString='Health';
+
+
 const String schoolBuletinString='School Bulletin';
 const String dateString='Date';
 const String gradeString='Grade';
