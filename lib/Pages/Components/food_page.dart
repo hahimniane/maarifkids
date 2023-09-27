@@ -3,9 +3,10 @@ import 'package:chat_bubbles/date_chips/date_chip.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import '../../admin_module/utils/custom_horizontal_activity_dates.dart';
+
 import '../../contants.dart';
 import '../../test_page.dart';
+import '../../utils/custom_horizontal_activity_dates.dart';
 import '../menu_page.dart';
 import 'Etkinlik_program_page.dart';
 import 'custom_nav_bar.dart';

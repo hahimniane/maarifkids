@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cupertino_date_picker_fork/flutter_cupertino_date_picker_fork.dart';
-import 'package:maarifkids/Pages/Components/saglik_page.dart';
+import 'package:maarifkids/Pages/Components/Health/saglik_page.dart';
 import 'package:maarifkids/contants.dart';
 
 import '../../test_page.dart';

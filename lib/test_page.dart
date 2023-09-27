@@ -572,16 +572,16 @@
 import 'package:flutter/material.dart';
 import 'package:maarifkids/Pages/Components/Etkinlik_program_page.dart';
 import 'package:maarifkids/Pages/Components/attendance_page.dart';
-import 'package:maarifkids/Pages/Components/gallery_page.dart';
+import 'package:maarifkids/Pages/Gallery/gallery_page.dart';
 import 'package:maarifkids/Pages/Components/gun_sonu_rapor_page.dart';
-import 'package:maarifkids/Pages/Components/saglik_page.dart';
+import 'package:maarifkids/Pages/Components/Health/saglik_page.dart';
 import 'package:maarifkids/Pages/Components/school_buletin_page.dart';
 import 'package:maarifkids/Pages/Components/service_page.dart';
 import 'package:maarifkids/contants.dart';
 import 'package:searchfield/searchfield.dart';
 
 import 'Pages/Components/food_page.dart';
-import 'Pages/Components/messages_page.dart';
+import 'Pages/Components/Messages/messages_page.dart';
 
 class SearchFieldSample extends StatefulWidget {
   const SearchFieldSample({Key? key}) : super(key: key);

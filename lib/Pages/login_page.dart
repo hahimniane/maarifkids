@@ -114,6 +114,7 @@ class _LoginPageState extends State<LoginPage> {
             Container(
               width: 150,
               child: ElevatedButton(
+                key: Key('giris_button'),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Theme.of(context).primaryColor,
                   ),
@@ -126,22 +127,7 @@ class _LoginPageState extends State<LoginPage> {
                       Provider.of<ThemeProvider>(context,listen: false).changeUserType(UserType.admin);
                       NavigationHelper.pushPage(context, AdminProfileSelectionPage());
                     }
-                    // if( Provider.of<ThemeProvider>(context,listen: false).activeThemeData==ParentTheme.lightTheme()){
-                    //   Provider.of<ThemeProvider>(context,listen: false).changeUserType(UserType.admin);
-                    // }
-                    // else{
-                    //
-                    // }
 
-                    // Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //         builder: (context) => ProfileSelectionPage()));
-
-                    // Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //         builder: (context) => AdminProfileSelectionPage()));
                   },
                   child: const Text(
                     'Giriş!',

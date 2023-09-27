@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:maarifkids/Pages/Components/gallery_page.dart';
+import 'package:maarifkids/Pages/Gallery/gallery_page.dart';
 import 'package:maarifkids/Pages/Components/school_buletin_page.dart';
 import 'package:maarifkids/Pages/Components/service_page.dart';
 import 'package:maarifkids/admin_module/Announcement/admin_announcement_dynamic_popup_menu_button.dart';
@@ -21,13 +21,13 @@ import '../theme.dart';
 import '../widgets/navigator_class.dart';
 import 'Components/Etkinlik_program_page.dart';
 import 'Components/attendance_page.dart';
-import 'Components/duyrular_page.dart';
+import 'Announcement/duyrular_page.dart';
 import 'Components/food_page.dart';
-import 'Components/gallery_page.dart';
-import 'Components/gallery_page.dart';
+import 'Gallery/gallery_page.dart';
+import 'Gallery/gallery_page.dart';
 import 'Components/gun_sonu_rapor_page.dart';
-import 'Components/messages_page.dart';
-import 'Components/saglik_page.dart';
+import 'Components/Messages/messages_page.dart';
+import 'Components/Health/saglik_page.dart';
 
 class MenuPage extends StatelessWidget {
   final CarouselController carouselController = CarouselController();

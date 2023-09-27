@@ -1,6 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:maarifkids/Pages/Components/saglik_page.dart';
+import 'package:maarifkids/Pages/Components/Health/saglik_page.dart';
 import 'package:maarifkids/contants.dart';
 
 import '../menu_page.dart';

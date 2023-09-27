@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:maarifkids/Pages/Components/saglik_page.dart';
+import 'package:maarifkids/Pages/Components/Health/saglik_page.dart';
 import 'package:maarifkids/contants.dart';
 import 'package:maarifkids/widgets/function_for_initializing_dates.dart';
 

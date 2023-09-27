@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../Pages/Components/Etkinlik_program_page.dart';
-import '../admin_module/utils/lists.dart';
+
 import '../contants.dart';
+import '../utils/lists.dart';
 
 Widget getActivitiesForDate({ required
     DateTime date,required String responseIfWeekend,required Widget responseIfWeekDay}) {

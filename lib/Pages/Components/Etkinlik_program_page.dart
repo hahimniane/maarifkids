@@ -3,9 +3,10 @@ import 'package:chat_bubbles/date_chips/date_chip.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import '../../admin_module/utils/lists.dart';
+
 import '../../contants.dart';
 import '../../test_page.dart';
+import '../../utils/lists.dart';
 import '../../widgets/acitvities_class.dart';
 import '../../widgets/function_for_initializing_dates.dart';
 import '../../widgets/function_to_display_what_happens_depending_on_the_date_selected.dart';

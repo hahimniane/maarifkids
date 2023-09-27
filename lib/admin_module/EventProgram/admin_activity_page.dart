@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:maarifkids/admin_module/EventProgram/view_old_events.dart';
-import 'package:maarifkids/admin_module/utils/CustomIconButton.dart';
+
 
 import '../../Pages/Components/Etkinlik_program_page.dart';
 import '../../Pages/Components/custom_nav_bar.dart';
 import '../../Pages/menu_page.dart';
 import '../../contants.dart';
+import '../../utils/CustomIconButton.dart';
 import '../../widgets/navigator_class.dart';
-import '../utils/custom_view_old.dart';
+
 import 'admin_event_add_new_event_page.dart';
 class AdminActivityPage extends StatelessWidget{
   @override

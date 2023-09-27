@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-import '../../Pages/Components/album_viewer.dart';
+import '../../Pages/Gallery/album_viewer.dart';
 import '../../Pages/Components/custom_nav_bar.dart';
 import '../../Pages/menu_page.dart';
 import '../../contants.dart';

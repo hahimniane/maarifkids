@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:maarifkids/admin_module/utils/custom_view_old.dart';
 
+
+import '../../utils/custom_view_old.dart';
 import 'old_events_page.dart';
 class ViewOldEvents extends StatelessWidget {
   const ViewOldEvents({super.key});

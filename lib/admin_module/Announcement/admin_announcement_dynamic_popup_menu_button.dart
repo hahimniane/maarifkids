@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:maarifkids/Pages/Components/announcement_details_page.dart';
+import 'package:maarifkids/Pages/Announcement/announcement_details_page.dart';
 import 'package:maarifkids/contants.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 

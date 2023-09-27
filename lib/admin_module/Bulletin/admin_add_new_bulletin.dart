@@ -17,8 +17,7 @@ import '../../Pages/Components/gun_sonu_rapor_page.dart';
 import '../../Pages/menu_page.dart';
 import '../../contants.dart';
 import '../../test_page.dart';
-import '../utils/custom_date_picker.dart';
-import '../utils/custom_view_old.dart';
+
 
 class AdminAddNewBulletinPage extends StatefulWidget {
   AdminAddNewBulletinPage({super.key});
