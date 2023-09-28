@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../Pages/Components/custom_nav_bar.dart';
-import '../../Pages/menu_page.dart';
+
 import '../../contants.dart';
 import '../../test_page.dart';
+import 'custom_nav_bar.dart';
+import '../parent_module/menu_page.dart';
 
 
 class CustomViewOldPage extends StatelessWidget {

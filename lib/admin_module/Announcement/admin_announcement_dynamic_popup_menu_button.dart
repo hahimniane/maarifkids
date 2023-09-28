@@ -2,13 +2,11 @@ import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:maarifkids/Pages/Announcement/announcement_details_page.dart';
+
 import 'package:maarifkids/contants.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
-import '../../Pages/Components/custom_nav_bar.dart';
-import '../../Pages/Components/pdf_viewer_page.dart';
-import '../../Pages/menu_page.dart';
+
 import '../../test_page.dart';
 import 'admin_announcement_model.dart';
 

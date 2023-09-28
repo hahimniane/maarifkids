@@ -3,8 +3,9 @@ import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
-import '../../Pages/Components/pdf_viewer_page.dart';
+
 import '../../contants.dart';
+import '../../utils/pdf_viewer_page.dart';
 class CreateNewAnnouncement extends StatefulWidget {
   CreateNewAnnouncement({
     super.key,

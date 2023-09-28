@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 
 import 'package:maarifkids/contants.dart';
 
-import '../../Pages/Components/custom_nav_bar.dart';
 
-import '../../Pages/menu_page.dart';
+import '../../utils/custom_nav_bar.dart';
+import '../../parent_module/menu_page.dart';
 import '../../test_page.dart';
 import '../../widgets/acitvities_class.dart';
 import '../../widgets/function_for_initializing_dates.dart';

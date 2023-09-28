@@ -3,9 +3,10 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
-import '../../Pages/Components/custom_nav_bar.dart';
-import '../../Pages/menu_page.dart';
+
 import '../../contants.dart';
+import '../../utils/custom_nav_bar.dart';
+import '../../parent_module/menu_page.dart';
 enum MediaType{
   image,
   video

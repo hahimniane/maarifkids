@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:maarifkids/admin_module/Progress%20Tracking/admin_progress_tracking_view_old.dart';
 
-import '../../Pages/Components/custom_nav_bar.dart';
-import '../../Pages/menu_page.dart';
+
 import '../../contants.dart';
+import '../../utils/custom_nav_bar.dart';
+import '../../parent_module/menu_page.dart';
 import '../../test_page.dart';
 import '../../utils/CustomIconButton.dart';
 import '../../widgets/navigator_class.dart';

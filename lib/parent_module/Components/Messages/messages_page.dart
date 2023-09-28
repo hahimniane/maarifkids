@@ -5,93 +5,53 @@ import 'package:flutter/material.dart';
 
 import '../../../contants.dart';
 import '../../../test_page.dart';
+import '../../menu_page.dart';
+import '../../../utils/custom_nav_bar.dart';
 
-import '../../utils/custom_nav_bar.dart';
-import '../../parent_module/menu_page.dart';
-
-class AdminMessagesPage extends StatelessWidget {
+class MessagesPage extends StatelessWidget {
   final bool isFromSearch;
-  const AdminMessagesPage({super.key, required this.isFromSearch});
+  const MessagesPage({super.key, required this.isFromSearch});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xffE7F7F8),
       appBar: buildAppBar(
-        isAdminColor: true,
         title: 'Messages',
         context: context,
-        isFromSearch: false,
+        isFromSearch: isFromSearch,
       ),
-      body: Column(
+      body: ListView(
+        padding: EdgeInsets.all(16),
         children: [
-          SizedBox(
-            height: 5,
+          MessageCard(
+            avatarColor: Colors.blue,
+            name: 'John Doe',
+            role: 'Principal',
+            unreadCount: 3,
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => DiscussionPage(
+                            personName: 'Principal',
+                            isFromSearch: false,
+                          )));
+            },
           ),
-          SizedBox(
-            width: MediaQuery.of(context).size.width*0.90,
-            height: MediaQuery.of(context).size.height*0.07,
-            child: TextField(
-              style: TextStyle(
-                color: Colors.white,
-              ),
-              decoration: InputDecoration(
-                labelStyle: TextStyle(
-                  color: Colors.white,
-                ),
-                hintStyle: TextStyle(
-                  color: Colors.white,
-                ),
-
-                contentPadding: EdgeInsets.fromLTRB(4, 0, 0, 0),
-                filled: true,
-                fillColor: adminAppColor,
-                border: OutlineInputBorder(
-                  borderSide: BorderSide.none,
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                labelText: 'Search',
-                hintText: 'Search...',
-                suffixIcon: Icon(Icons.search,color: Colors.white,),
-              ),
-            ),
+          MessageCard(
+            avatarColor: Colors.red,
+            name: 'Jane Smith',
+            role: 'English Teacher',
+            unreadCount: 0,
+            onTap: () {},
           ),
-          Expanded(
-            child: ListView(
-              shrinkWrap: false,
-              padding: EdgeInsets.all(16),
-              children: [
-                MessageCard(
-                  avatarColor: Colors.blue,
-                  parentName: 'John Doe',
-                  studentName: 'Hashim Niane',
-                  unreadCount: 3,
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => AdminDiscussedMessages(
-                                  personName: 'Principal',
-                                  isFromSearch: false,
-                                )));
-                  },
-                ),
-                MessageCard(
-                  avatarColor: Colors.red,
-                  parentName: 'Jane Smith',
-                  studentName: 'Ibrahim Smith',
-                  unreadCount: 0,
-                  onTap: () {},
-                ),
-                MessageCard(
-                  avatarColor: Colors.green,
-                  parentName: 'Michael Johnson',
-                  studentName: 'Ali johnson',
-                  unreadCount: 1,
-                  onTap: () {},
-                ),
-              ],
-            ),
+          MessageCard(
+            avatarColor: Colors.green,
+            name: 'Michael Johnson',
+            role: 'Math Teacher',
+            unreadCount: 1,
+            onTap: () {},
           ),
         ],
       ),
@@ -113,8 +73,8 @@ class AdminMessagesPage extends StatelessWidget {
 
 class MessageCard extends StatelessWidget {
   final Color avatarColor;
-  final String parentName;
-  final String studentName;
+  final String name;
+  final String role;
   final int unreadCount;
 
   final VoidCallback onTap;
@@ -122,8 +82,8 @@ class MessageCard extends StatelessWidget {
   const MessageCard(
       {Key? key,
       required this.avatarColor,
-      required this.parentName,
-      required this.studentName,
+      required this.name,
+      required this.role,
       required this.unreadCount,
       required this.onTap})
       : super(key: key);
@@ -133,7 +93,7 @@ class MessageCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Card(
-        color: unreadCount == 0 ? Colors.white : adminAppColor,
+        color: unreadCount == 0 ? Colors.white : parentAppColor,
         elevation: 5,
         child: ListTile(
           onTap: onTap,
@@ -141,23 +101,23 @@ class MessageCard extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Icon(
               Icons.person,
-              color: unreadCount == 0 ? adminAppColor : Colors.white,
+              color: unreadCount == 0 ? parentAppColor : Colors.white,
             ),
           ),
           title: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                parentName,
+                name,
                 style: TextStyle(
-                  color: unreadCount != 0 ? Colors.white : adminAppColor,
+                  color: unreadCount != 0 ? Colors.white : parentAppColor,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
-                studentName,
+                role,
                 style: TextStyle(
-                  color: unreadCount != 0 ? Colors.white : adminAppColor,
+                  color: unreadCount != 0 ? Colors.white : parentAppColor,
                 ),
               ),
             ],
@@ -166,12 +126,12 @@ class MessageCard extends StatelessWidget {
               ? Container(
                   padding: EdgeInsets.all(6),
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Colors.red,
                     shape: BoxShape.circle,
                   ),
                   child: Text(
                     unreadCount.toString(),
-                    style: TextStyle(color: adminAppColor),
+                    style: TextStyle(color: Colors.white),
                   ),
                 )
               : null,
@@ -181,18 +141,17 @@ class MessageCard extends StatelessWidget {
   }
 }
 
-class AdminDiscussedMessages extends StatefulWidget {
+class DiscussionPage extends StatefulWidget {
   final bool isFromSearch;
   final String personName;
 
-  AdminDiscussedMessages(
-      {required this.personName, required this.isFromSearch});
+  DiscussionPage({required this.personName, required this.isFromSearch});
 
   @override
-  _AdminDiscussedMessagesState createState() => _AdminDiscussedMessagesState();
+  _DiscussionPageState createState() => _DiscussionPageState();
 }
 
-class _AdminDiscussedMessagesState extends State<AdminDiscussedMessages> {
+class _DiscussionPageState extends State<DiscussionPage> {
   List<String> messages = [];
 
   TextEditingController _textEditingController = TextEditingController();
@@ -228,10 +187,9 @@ class _AdminDiscussedMessagesState extends State<AdminDiscussedMessages> {
     return Scaffold(
       backgroundColor: profileSecimiBackgroundColor,
       appBar: buildAppBar(
-        isAdminColor: true,
         title: 'Messages',
         context: context,
-        isFromSearch: false,
+        isFromSearch: widget.isFromSearch,
       ),
       body: SafeArea(
         child: Column(
@@ -242,9 +200,9 @@ class _AdminDiscussedMessagesState extends State<AdminDiscussedMessages> {
               padding: const EdgeInsets.all(8.0),
               child: Center(
                   child: Text(
-                'John Doe',
+                'Babacan Hocam',
                 style: TextStyle(
-                  color: adminAppColor,
+                  color: parentAppColor,
                   fontWeight: FontWeight.bold,
                   fontSize: 30,
                 ),
@@ -560,11 +518,11 @@ class _AdminDiscussedMessagesState extends State<AdminDiscussedMessages> {
   }
 }
 
-class AdminMessageBubble extends StatelessWidget {
+class MessageBubble extends StatelessWidget {
   final String message;
   final bool isSent;
 
-  const AdminMessageBubble({
+  const MessageBubble({
     Key? key,
     required this.message,
     required this.isSent,

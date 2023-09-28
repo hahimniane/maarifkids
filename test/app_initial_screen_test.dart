@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:maarifkids/Pages/app_initial_page.dart';
-import 'package:maarifkids/Pages/login_page.dart'; // Replace with the actual import path of your LoginPage
+
+import 'package:maarifkids/parent_module/app_initial_page.dart';
+import 'package:maarifkids/parent_module/login_page.dart'; // Replace with the actual import path of your LoginPage
 
 void main() {
   testWidgets('AppInitialPage should render without errors', (WidgetTester tester) async {

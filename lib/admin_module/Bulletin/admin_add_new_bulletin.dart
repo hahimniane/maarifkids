@@ -12,10 +12,11 @@ import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
-import '../../Pages/Components/custom_nav_bar.dart';
-import '../../Pages/Components/gun_sonu_rapor_page.dart';
-import '../../Pages/menu_page.dart';
+
+
 import '../../contants.dart';
+import '../../utils/custom_nav_bar.dart';
+import '../../parent_module/menu_page.dart';
 import '../../test_page.dart';
 
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:maarifkids/Pages/login_page.dart';
+import 'package:maarifkids/parent_module/login_page.dart';
+
 
 import 'package:provider/provider.dart';
 

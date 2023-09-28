@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../Pages/Components/custom_nav_bar.dart';
-import '../../Pages/Components/pdf_viewer_page.dart';
-import '../../Pages/menu_page.dart';
+
 import '../../contants.dart';
+import '../../utils/custom_nav_bar.dart';
+import '../../utils/pdf_viewer_page.dart';
+import '../../parent_module/menu_page.dart';
 import '../../utils/custom_date_picker.dart';
 
 // class AdminProgressTrackingViewOldResultsPage extends StatelessWidget {

@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:maarifkids/admin_module/Food/admin_add_new_food_list.dart';
 import 'package:maarifkids/admin_module/Food/admin_view_old_food_list.dart';
 
-import '../../Pages/Components/custom_nav_bar.dart';
-import '../../Pages/menu_page.dart';
+
 import '../../contants.dart';
+import '../../utils/custom_nav_bar.dart';
+import '../../parent_module/menu_page.dart';
 import '../../test_page.dart';
 import '../../utils/CustomIconButton.dart';
 import '../../widgets/navigator_class.dart';

@@ -2,25 +2,24 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-
 import '../../contants.dart';
-import '../../utils/custom_nav_bar.dart';
-import '../../parent_module/menu_page.dart';
 import '../../test_page.dart';
-import 'media_display_page.dart';
-class FetchedAlbumsPage extends StatelessWidget {
-  const FetchedAlbumsPage({super.key});
+import '../menu_page.dart';
+import 'album_viewer.dart';
+import '../../utils/custom_nav_bar.dart';
 
+class GalleryPage extends StatelessWidget {
+  final bool isFromSearch;
+  GalleryPage({Key? key, required this.isFromSearch}) : super(key: key);
+  int count = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: profileSecimiBackgroundColor,
-    appBar:  buildAppBar(
-
-        isAdminColor: true,
+      appBar: buildAppBar(
         title: 'Gallery',
         context: context,
-        isFromSearch: false,
+        isFromSearch: isFromSearch,
       ),
       body: Column(
         // mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -30,9 +29,9 @@ class FetchedAlbumsPage extends StatelessWidget {
             color: profileSecimiBackgroundColor,
             child: Center(
               child: Text(
-                'Class A',
+                'A Sınıfı',
                 style: TextStyle(
-                    color: adminAppColor,
+                    color: parentAppColor,
                     fontWeight: FontWeight.bold,
                     fontSize: 19),
               ),
@@ -49,9 +48,9 @@ class FetchedAlbumsPage extends StatelessWidget {
                           transitionDuration: Duration(milliseconds: 500),
                           pageBuilder:
                               (context, animation, secondaryAnimation) =>
-                              MediaDisplayPage(
-                                isFromSearch: false,
-                              ),
+                                  AlbumViewerPage(
+                                    isFromSearch: false,
+                                  ),
                           transitionsBuilder:
                               (context, animation, secondaryAnimation, child) {
                             return FadeTransition(
@@ -77,13 +76,6 @@ class FetchedAlbumsPage extends StatelessWidget {
                         height: double.infinity,
                       ),
                     ),
-
-                    BackdropFilter(
-                      filter: ImageFilter.blur(sigmaX: 0, sigmaY: 0),
-                      child: Container(
-                        color: Colors.black.withOpacity(0.6),
-                      ),
-                    ),
                     Positioned(
                       bottom: 16,
                       left: 16,
@@ -91,7 +83,7 @@ class FetchedAlbumsPage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            '20 March 2023 Photos',
+                            'Jan 2023',
                             style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
@@ -99,7 +91,7 @@ class FetchedAlbumsPage extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            '32 Photos/2Videos',
+                            'Photos/Videos',
                             style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.w900,
@@ -107,6 +99,12 @@ class FetchedAlbumsPage extends StatelessWidget {
                             ),
                           ),
                         ],
+                      ),
+                    ),
+                    BackdropFilter(
+                      filter: ImageFilter.blur(sigmaX: 0, sigmaY: 0),
+                      child: Container(
+                        color: Colors.grey.withOpacity(0.3),
                       ),
                     ),
                   ],
@@ -128,13 +126,6 @@ class FetchedAlbumsPage extends StatelessWidget {
                       height: double.infinity,
                     ),
                   ),
-
-                  BackdropFilter(
-                    filter: ImageFilter.blur(sigmaX: 0, sigmaY: 0),
-                    child: Container(
-                      color: Colors.black.withOpacity(0.5),
-                    ),
-                  ),
                   Positioned(
                     bottom: 16,
                     left: 16,
@@ -142,7 +133,7 @@ class FetchedAlbumsPage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Field Trip Album',
+                          'Jan 2023',
                           style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
@@ -150,7 +141,7 @@ class FetchedAlbumsPage extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          '10Photos/4Videos',
+                          'Photos and Videos',
                           style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
@@ -160,59 +151,65 @@ class FetchedAlbumsPage extends StatelessWidget {
                       ],
                     ),
                   ),
+                  BackdropFilter(
+                    filter: ImageFilter.blur(sigmaX: 0, sigmaY: 0),
+                    child: Container(
+                      color: Colors.grey.withOpacity(0.3),
+                    ),
+                  ),
                 ],
               ),
             ),
           ),
-          // Expanded(
-          //   child: Padding(
-          //     padding: const EdgeInsets.all(8.0),
-          //     child: Stack(
-          //       children: [
-          //         Container(
-          //           color: Colors.blue,
-          //           child: Image.asset(
-          //             'images/1647011757459939023.jpg',
-          //             fit: BoxFit.cover,
-          //             width: double.infinity,
-          //             height: double.infinity,
-          //           ),
-          //         ),
-          //         Positioned(
-          //           bottom: 16,
-          //           left: 16,
-          //           child: Column(
-          //             crossAxisAlignment: CrossAxisAlignment.start,
-          //             children: [
-          //               Text(
-          //                 'Jan 2023',
-          //                 style: TextStyle(
-          //                   color: Colors.white,
-          //                   fontWeight: FontWeight.bold,
-          //                   fontSize: 24,
-          //                 ),
-          //               ),
-          //               Text(
-          //                 'Photos and Videos',
-          //                 style: TextStyle(
-          //                   color: Colors.white,
-          //                   fontWeight: FontWeight.bold,
-          //                   fontSize: 16,
-          //                 ),
-          //               ),
-          //             ],
-          //           ),
-          //         ),
-          //         BackdropFilter(
-          //           filter: ImageFilter.blur(sigmaX: 0, sigmaY: 0),
-          //           child: Container(
-          //             color: Colors.grey.withOpacity(0.3),
-          //           ),
-          //         ),
-          //       ],
-          //     ),
-          //   ),
-          // ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Stack(
+                children: [
+                  Container(
+                    color: Colors.blue,
+                    child: Image.asset(
+                      'images/1647011757459939023.jpg',
+                      fit: BoxFit.cover,
+                      width: double.infinity,
+                      height: double.infinity,
+                    ),
+                  ),
+                  Positioned(
+                    bottom: 16,
+                    left: 16,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Jan 2023',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 24,
+                          ),
+                        ),
+                        Text(
+                          'Photos and Videos',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  BackdropFilter(
+                    filter: ImageFilter.blur(sigmaX: 0, sigmaY: 0),
+                    child: Container(
+                      color: Colors.grey.withOpacity(0.3),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
           // Padding(
           //   padding: const EdgeInsets.only(top: 15.0),
           //   child: Container(

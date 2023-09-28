@@ -1,15 +1,15 @@
+import '../../utils/custom_nav_bar.dart';
+import '../../parent_module/menu_page.dart';
 import 'admin_view_drug_information.dart';
 import 'package:flutter/material.dart';
 
 
-import '../../Pages/Components/custom_nav_bar.dart';
 
-import '../../Pages/menu_page.dart';
 import '../../contants.dart';
 import '../../test_page.dart';
 import '../../widgets/navigator_class.dart';
 
-import 'admin_health_information.dart';
+import 'health_information/admin_health_information.dart';
 import 'admin_view_drug_information.dart';
 class AdminHealthHomePage extends StatelessWidget {
   const AdminHealthHomePage({super.key});

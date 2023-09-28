@@ -1,8 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-import '../Pages/Components/Etkinlik_program_page.dart';
-import '../contants.dart';
+
+
+import '../parent_module/EventProgram/Etkinlik_program_page.dart';
 
 class CustomActivityList extends StatefulWidget {
   final List<DateTime> dates;

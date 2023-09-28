@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lorem/flutter_lorem.dart';
 
-import '../../Pages/Components/buletin_detailed_page.dart';
-import '../../Pages/Components/custom_nav_bar.dart';
-import '../../Pages/menu_page.dart';
+
 import '../../contants.dart';
+import '../../parent_module/Bulletin/buletin_detailed_page.dart';
+import '../../utils/custom_nav_bar.dart';
+import '../../parent_module/menu_page.dart';
 import '../../test_page.dart';
 class AdminViewOldBulletinPage extends StatelessWidget {
   final bool isFromSearch;

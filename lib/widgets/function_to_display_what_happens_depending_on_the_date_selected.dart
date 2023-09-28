@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../Pages/Components/Etkinlik_program_page.dart';
+
 
 import '../contants.dart';
 import '../utils/lists.dart';

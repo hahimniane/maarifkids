@@ -3,10 +3,11 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:maarifkids/Providers/Providers.dart';
+import 'package:maarifkids/parent_module/app_initial_page.dart';
 import 'package:maarifkids/theme.dart';
 import 'package:provider/provider.dart';
 
-import 'Pages/app_initial_page.dart';
+
 import 'contants.dart';
 import 'enums.dart';
 import 'firebase_options.dart';
