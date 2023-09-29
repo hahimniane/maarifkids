@@ -51,7 +51,10 @@ class _CustomActivityListState extends State<CustomActivityList> {
                   ),
                 ),
               )
-            : Container(),
+            : Container(
+          color: Colors.blue,
+          height: 1,
+        ),
         Expanded(
           child: SizedBox(
             // color: Colors.blue,

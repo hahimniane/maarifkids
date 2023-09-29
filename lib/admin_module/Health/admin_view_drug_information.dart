@@ -10,6 +10,7 @@ import '../../widgets/navigator_class.dart';
 import '../Gallery/admin_gallery_fetched_albums_page.dart';
 import '../Progress Tracking/admin_progress_tracking_add_new_file_page.dart';
 import '../Progress Tracking/admin_progress_tracking_view_old.dart';
+import 'admin_input_student_info_for_adding_new_pill.dart';
 
 class AdminDrugInformationHomePage extends StatelessWidget {
    AdminDrugInformationHomePage({super.key});
@@ -32,7 +33,7 @@ class AdminDrugInformationHomePage extends StatelessWidget {
           children: [
             CustomIconButton(onTap: () {
 
-              NavigationHelper.pushPage(context, AdminProgressAddNewFilePage());
+              NavigationHelper.pushPage(context, AdminViewStudentHealthInformationPage());
             }, iconData: Icons.add, label: 'Add New\n Pill',),
 
             SizedBox(

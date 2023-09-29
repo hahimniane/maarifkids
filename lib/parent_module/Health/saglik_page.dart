@@ -128,7 +128,7 @@ class ProfileCard extends StatelessWidget {
                     children: [
                       // Profile Photo
                       const CircleAvatar(
-                        radius: 40.0,
+                        radius: 30.0,
                         backgroundImage: AssetImage('images/yavuz_selim.jpeg'),
                       ),
                       const SizedBox(width: 10.0),
@@ -190,7 +190,7 @@ class ProfileCard extends StatelessWidget {
                                 ),
                               ],
                             ):Container(),
-                            SizedBox(height: 16.0),
+                            SizedBox(height: 1.0),
                           ],
                         ),
                       ),

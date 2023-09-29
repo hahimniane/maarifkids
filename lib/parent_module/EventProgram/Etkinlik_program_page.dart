@@ -2,6 +2,7 @@ import 'package:anim_search_bar/anim_search_bar.dart';
 import 'package:chat_bubbles/date_chips/date_chip.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:maarifkids/parent_module/Health/saglik_page.dart';
 
 
 import '../../contants.dart';
@@ -88,6 +89,7 @@ class _EtkinlikPageState extends State<EtkinlikPage> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+
           // Padding(
           //   padding: const EdgeInsets.all(8.0),
           //   child: Container(
@@ -229,9 +231,11 @@ class customHorizontalDatePicker extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.all(2.0),
                       child: Container(
-                        width: 50,
-                        height: 50,
+
+                        width: 30,
+                        height: 30,
                         decoration: BoxDecoration(
+
                           shape: BoxShape.circle,
                           color: isSelected ? Theme.of(context).primaryColor : Colors.grey,
                         ),
@@ -251,24 +255,29 @@ class customHorizontalDatePicker extends StatelessWidget {
                       ? Expanded(
                           flex: 0,
                           child: Container(
+margin: EdgeInsets.symmetric(vertical: 4),
                             width: 40,
-                            height: 20,
-                            padding: EdgeInsets.all(3),
+                            height: 25,
+                            padding: EdgeInsets.symmetric(vertical: 5,horizontal: 5),
                             decoration: BoxDecoration(
-                              color: isSelected ? Theme.of(context).primaryColor : Colors.grey,
+color: Colors.blue,
+                              // color: isSelected ? Theme.of(context).primaryColor : Colors.grey,
                               borderRadius: BorderRadius.circular(5),
                             ),
                             child: Center(
-                              child: Text(
-                                textAlign: TextAlign.center,
-                                dayOfWeek,
-                                style: TextStyle(
+                              child: Container(
 
-                                  color: isSelected
-                                      ? Colors.white
-                                      : Theme.of(context).primaryColor,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 12,
+                                child: Text(
+                                  textAlign: TextAlign.center,
+                                  dayOfWeek,
+                                  style: TextStyle(
+
+                                    color: isSelected
+                                        ? Colors.white
+                                        : Theme.of(context).primaryColor,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 12,
+                                  ),
                                 ),
                               ),
                             ),
