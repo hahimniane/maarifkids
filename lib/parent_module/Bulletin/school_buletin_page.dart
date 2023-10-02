@@ -3,7 +3,7 @@ import 'package:flutter_lorem/flutter_lorem.dart';
 
 import '../../contants.dart';
 import '../../test_page.dart';
-import '../menu_page.dart';
+import '../../menu_page.dart';
 import 'buletin_detailed_page.dart';
 import '../../utils/custom_nav_bar.dart';
 

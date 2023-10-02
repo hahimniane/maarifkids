@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
-const String galleryString ='Gallery';
-const String progressTrackingString='Progress Tracking';
-const String eventProgramString='Event Program';
-const String foodListString='Food List';
-const String healthString='Health';
 
+const String galleryString = 'Gallery';
+const String progressTrackingString = 'Progress Tracking';
+const String eventProgramString = 'Event Program';
+const String foodListString = 'Food List';
+const String healthString = 'Health';
+const String attendanceString = 'Attendance';
+const String schoolServiceString = 'School Service';
 
-const String schoolBuletinString='School Bulletin';
-const String dateString='Date';
-const String gradeString='Grade';
+const String schoolBuletinString = 'School Bulletin';
+const String dateString = 'Date';
+const String gradeString = 'Grade';
 Color parentAppColor = Color(0xff38C0C6);
 Color adminAppColor = Color(0xffEF8515);
 MaterialColor adminMaterialColor = MaterialColor(0xFFEF8515, <int, Color>{
@@ -36,6 +38,7 @@ MaterialColor parentMaterialColor = MaterialColor(0xff38C0C6, <int, Color>{
   900: Color(0xFF558B2F),
 });
 Color profileSecimiBackgroundColor = Color(0xffE7F7F8);
+Color adminPageBackgroundColor = Color(0xfffce5c7);
 Future animatedRoute(BuildContext context, page) {
   return Navigator.push(
       context,
@@ -69,13 +72,12 @@ class buildAppBar extends StatelessWidget implements PreferredSizeWidget {
       {super.key,
       required this.title,
       required this.context,
-      required this.isFromSearch, this.isAdminColor=false});
+      required this.isFromSearch,
+      this.isAdminColor = false});
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-
-
       leading: IconButton(
         icon: const Icon(Icons.arrow_back_ios_new),
         color: Colors.white,
@@ -87,9 +89,9 @@ class buildAppBar extends StatelessWidget implements PreferredSizeWidget {
           }
         },
       ),
-      backgroundColor: isAdminColor?adminAppColor:parentAppColor,
+      backgroundColor: isAdminColor ? adminAppColor : parentAppColor,
       title: Text(
-        textAlign:TextAlign.center,
+        textAlign: TextAlign.center,
         title,
         style:
             const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),

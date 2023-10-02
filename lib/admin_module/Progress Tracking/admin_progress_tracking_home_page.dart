@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:maarifkids/admin_module/Progress%20Tracking/admin_progress_tracking_view_old.dart';
 
-
 import '../../contants.dart';
 import '../../utils/custom_nav_bar.dart';
-import '../../parent_module/menu_page.dart';
+import '../../menu_page.dart';
 import '../../test_page.dart';
 import '../../utils/CustomIconButton.dart';
 import '../../widgets/navigator_class.dart';
 
 import 'admin_progress_tracking_add_new_file_page.dart';
+
 class AdminProgressTrackingHomePage extends StatelessWidget {
   const AdminProgressTrackingHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       appBar: buildAppBar(
         isAdminColor: true,
         title: progressTrackingString,
@@ -27,18 +27,24 @@ class AdminProgressTrackingHomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            CustomIconButton(onTap: () {
-
-              NavigationHelper.pushPage(context, AdminProgressAddNewFilePage());
-            }, iconData: Icons.add, label: 'Add New\n File',),
-
+            CustomIconButton(
+              onTap: () {
+                NavigationHelper.pushPage(
+                    context, AdminProgressAddNewFilePage());
+              },
+              iconData: Icons.add,
+              label: 'Add New\n File',
+            ),
             SizedBox(
               height: 20,
             ),
-            CustomIconButton(onTap: () {
-              NavigationHelper.pushPage(context, AdminProgressViewOldPage());
-            }, iconData:  Icons.file_present_sharp, label:  'View Old',),
-
+            CustomIconButton(
+              onTap: () {
+                NavigationHelper.pushPage(context, AdminProgressViewOldPage());
+              },
+              iconData: Icons.file_present_sharp,
+              label: 'View Old',
+            ),
           ],
         ),
       ),

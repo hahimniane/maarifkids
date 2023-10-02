@@ -3,13 +3,12 @@ import 'package:maarifkids/utils/pdf_viewer_page.dart';
 
 import 'package:maarifkids/test_page.dart';
 
-
 import '../../contants.dart';
 
 import 'package:flutter/material.dart';
 
 import '../../utils/custom_date_picker.dart';
-import '../menu_page.dart';
+import '../../menu_page.dart';
 import '../../utils/custom_nav_bar.dart';
 
 class BulletinDetailedPage extends StatelessWidget {
@@ -32,7 +31,8 @@ class BulletinDetailedPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(
-        isAdminColor: Theme.of(context).primaryColor==adminAppColor?true:false,
+        isAdminColor:
+            Theme.of(context).primaryColor == adminAppColor ? true : false,
         title: 'School Bulletin',
         context: context,
         isFromSearch: IsFromSearch,

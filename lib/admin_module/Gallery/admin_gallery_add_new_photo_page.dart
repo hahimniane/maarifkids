@@ -4,10 +4,9 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
-
 import '../../contants.dart';
 import '../../utils/custom_nav_bar.dart';
-import '../../parent_module/menu_page.dart';
+import '../../menu_page.dart';
 import '../../test_page.dart';
 import '../exercise.dart';
 
@@ -96,7 +95,10 @@ class _AddNewPhotoPageState extends State<AddNewPhotoPage> {
                       )),
                   child: TextButton(
                       onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>AddNewPhotoPage()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => AddNewPhotoPage()));
                         //TODO: make sure that the user is not empty.
                         //TODO: make sure that the subject is not empty
                         //TODO: make sure that the message is not empty
@@ -116,7 +118,7 @@ class _AddNewPhotoPageState extends State<AddNewPhotoPage> {
                           Text(
                             'Send',
                             style:
-                            TextStyle(color: adminAppColor, fontSize: 10),
+                                TextStyle(color: adminAppColor, fontSize: 10),
                           ),
                         ],
                       )),
@@ -138,12 +140,12 @@ class _AddNewPhotoPageState extends State<AddNewPhotoPage> {
                                 borderRadius: BorderRadius.circular(8)),
                             child: Center(
                                 child: Text(
-                                  'To',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.white,
-                                  ),
-                                ))),
+                              'To',
+                              style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                color: Colors.white,
+                              ),
+                            ))),
                         Container(
                           width: 210,
                           child: TextField(
@@ -162,12 +164,12 @@ class _AddNewPhotoPageState extends State<AddNewPhotoPage> {
                                 borderRadius: BorderRadius.circular(8)),
                             child: Center(
                                 child: Text(
-                                  'Date',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.white,
-                                  ),
-                                ))),
+                              'Date',
+                              style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                color: Colors.white,
+                              ),
+                            ))),
                         Container(
                             width: 210,
                             child: TextField(
@@ -185,12 +187,12 @@ class _AddNewPhotoPageState extends State<AddNewPhotoPage> {
                                 borderRadius: BorderRadius.circular(8)),
                             child: Center(
                                 child: Text(
-                                  'Subject',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.white,
-                                  ),
-                                ))),
+                              'Subject',
+                              style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                color: Colors.white,
+                              ),
+                            ))),
                         Container(
                             width: 210,
                             child: TextField(
@@ -209,70 +211,74 @@ class _AddNewPhotoPageState extends State<AddNewPhotoPage> {
               itemCount: albums.length,
               itemBuilder: (context, index) {
                 final album = albums[index];
-                final photoCount = album.media.where((f) => f.path.endsWith('.jpg')).length;
-                final videoCount = album.media.where((f) => f.path.endsWith('.mp4')).length;
+                final photoCount =
+                    album.media.where((f) => f.path.endsWith('.jpg')).length;
+                final videoCount =
+                    album.media.where((f) => f.path.endsWith('.mp4')).length;
                 return GestureDetector(
-                  onTap: (){
+                  onTap: () {
                     _pickMediaForAlbum(index);
                   },
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(36),
                     child: Card(
-
                       elevation: 4,
                       color: adminAppColor,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          photoCount==0&& videoCount==0
+                          photoCount == 0 && videoCount == 0
                               ? Text(
-                            textAlign: TextAlign.center,
-                            'UPLOAD',
-                            style: TextStyle(
-                                fontSize: 20,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w700),
-                          )
+                                  textAlign: TextAlign.center,
+                                  'UPLOAD',
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w700),
+                                )
                               : Container(),
-                          photoCount!=0 || videoCount!=0
+                          photoCount != 0 || videoCount != 0
                               ? Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Column(
-                                children: [
-                                  Text(album.name, style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                  ),),
-                                  Icon(
-                                    Icons.photo_library,
-                                    color: Colors.white,
-                                    size: 80,
-                                  ),
-                                ],
-                              ),
-                              Text(
-                                '${photoCount} Photos/ \n ${videoCount} video uploaded',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
-                              IconButton(
-                                icon: Icon(
-                                    Icons.delete
-                                ), onPressed: () {
-                                _deleteAlbum(index);
-                              },
-                              )
-                            ],
-                          )
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Column(
+                                      children: [
+                                        Text(
+                                          album.name,
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                        Icon(
+                                          Icons.photo_library,
+                                          color: Colors.white,
+                                          size: 80,
+                                        ),
+                                      ],
+                                    ),
+                                    Text(
+                                      '${photoCount} Photos/ \n ${videoCount} video uploaded',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                    IconButton(
+                                      icon: Icon(Icons.delete),
+                                      onPressed: () {
+                                        _deleteAlbum(index);
+                                      },
+                                    )
+                                  ],
+                                )
                               : Icon(
-                            Icons.photo_library,
-                            color: Colors.white,
-                            size: 80,
-                          ),
+                                  Icons.photo_library,
+                                  color: Colors.white,
+                                  size: 80,
+                                ),
                         ],
                       ),
                       // Column(
@@ -320,12 +326,10 @@ class _AddNewPhotoPageState extends State<AddNewPhotoPage> {
               child: TextField(
                 controller: albumNameController,
                 decoration: InputDecoration(
-
                   hintText: 'Album Name',
                   labelText: 'New Album',
                   border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10)
-                  ),
+                      borderRadius: BorderRadius.circular(10)),
                 ),
               ),
             ),
@@ -383,7 +387,5 @@ class _AddNewPhotoPageState extends State<AddNewPhotoPage> {
   void initState() {
     super.initState();
     albums.add(Album('Album'));
-
-
   }
 }

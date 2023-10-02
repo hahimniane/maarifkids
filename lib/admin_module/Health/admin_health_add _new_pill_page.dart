@@ -6,7 +6,7 @@ import 'package:maarifkids/contants.dart';
 
 import '../../parent_module/Health/saglik_page.dart';
 import '../../utils/custom_nav_bar.dart';
-import '../../parent_module/menu_page.dart';
+import '../../menu_page.dart';
 import '../../test_page.dart';
 import '../../widgets/acitvities_class.dart';
 import '../../widgets/function_for_initializing_dates.dart';
@@ -80,7 +80,9 @@ class _AdminHealthAddNewPillPageState extends State<AdminHealthAddNewPillPage> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          ProfileCard(isItFromHealthPage: true,),
+          ProfileCard(
+            isItFromHealthPage: true,
+          ),
           Expanded(
             flex: 2,
             child: CustomActivityList(
@@ -201,49 +203,14 @@ class _CreateEventState extends State<CreateEvent> {
       return Padding(
         padding: const EdgeInsets.only(top: 16.0, bottom: 5, left: 16),
         child: Container(
-          height: 60,
+          height: 100,
           child: Column(
             children: [
               Expanded(
+                flex: 1,
                 child: Container(
-                  height: 30,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
-                    border: Border.all(color: adminAppColor),
-                  ),
-                  child: DropdownButtonHideUnderline(
-                    child: DropdownButton<String>(
-                      icon: SizedBox.shrink(),
-                      value: slot['selectedTime'],
-                      onChanged: (newValue) {
-                        setState(() {
-                          slot['selectedTime'] = newValue!;
-                        });
-                      },
-                      items:
-                          timeList.map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Center(
-                            child: Text(
-                              value,
-                              style: TextStyle(color: adminAppColor),
-                            ),
-                          ),
-                        );
-                      }).toList(),
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                width: 10,
-              ),
-              Expanded(
-                flex: 3,
-                child: Container(
-                  color: Colors.yellow,
-                  height: 30,
+                  // color: Colors.yellow,
+                  height: 50,
                   child: Stack(
                     clipBehavior: Clip.none,
                     children: [
@@ -254,16 +221,16 @@ class _CreateEventState extends State<CreateEvent> {
                             focusColor: Colors.green,
                             focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                              color:
-                                  hasEmptyDetails && slot['eventDetails']!.isEmpty
-                                      ? Colors.red
-                                      : adminAppColor,
+                              color: hasEmptyDetails &&
+                                      slot['eventDetails']!.isEmpty
+                                  ? Colors.red
+                                  : adminAppColor,
                             )),
                             hintStyle: TextStyle(
                                 color: Colors.red, fontWeight: FontWeight.bold),
                             hintText:
                                 hasEmptyDetails && slot['eventDetails']!.isEmpty
-                                    ? 'Input Event...'
+                                    ? 'Enter Name...'
                                     : '',
                             helperStyle: TextStyle(height: 0),
                             contentPadding: EdgeInsets.zero,
@@ -284,10 +251,11 @@ class _CreateEventState extends State<CreateEvent> {
                         top: -25,
                         right: -24,
                         child: IconButton(
-                          icon:
-                              Icon(Icons.cancel, size: 15, color: adminAppColor),
+                          icon: Icon(Icons.cancel,
+                              size: 15, color: adminAppColor),
                           onPressed: () {
-                            print('the slot I am in right now is ${slot['id']}');
+                            print(
+                                'the slot I am in right now is ${slot['id']}');
 
                             removeSlot(slot[
                                 'id']!); // Remove the slot when the icon is clicked
@@ -297,6 +265,67 @@ class _CreateEventState extends State<CreateEvent> {
                     ],
                   ),
                 ),
+              ),
+              Expanded(
+                child: Row(
+                  children: [
+                    Container(
+                        height: 33,
+                        width: 40,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: adminAppColor,
+                        ),
+                        child: Center(
+                            child: Text(
+                          'Time',
+                          style: TextStyle(
+                              color: Colors.white, fontWeight: FontWeight.bold),
+                        ))),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Container(
+                      height: 30,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        border: Border.all(color: adminAppColor),
+                      ),
+                      child: DropdownButtonHideUnderline(
+                        child: DropdownButton<String>(
+                          icon: SizedBox.shrink(),
+                          value: slot['selectedTime'],
+                          onChanged: (newValue) {
+                            setState(() {
+                              slot['selectedTime'] = newValue!;
+                            });
+                          },
+                          items: timeList
+                              .map<DropdownMenuItem<String>>((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Center(
+                                child: Text(
+                                  value,
+                                  style: TextStyle(color: adminAppColor),
+                                ),
+                              ),
+                            );
+                          }).toList(),
+                        ),
+                      ),
+                    ),
+                    TextButton(
+                      child: Text('Add'),
+                      onPressed: () {
+                        addTimeSlot();
+                      },
+                    )
+                  ],
+                ),
+              ),
+              SizedBox(
+                width: 10,
               ),
               SizedBox(
                 width: 10,
@@ -311,7 +340,6 @@ class _CreateEventState extends State<CreateEvent> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-
           ...slotWidgets,
           Align(
             alignment: Alignment.centerLeft,
@@ -347,7 +375,6 @@ class _CreateEventState extends State<CreateEvent> {
               ),
               child: TextButton(
                 style: TextButton.styleFrom(
-
                   backgroundColor: adminAppColor,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.zero,
@@ -426,6 +453,8 @@ class _CreateEventState extends State<CreateEvent> {
     });
     slotId++;
   }
+
+  void addTimeSlot() {}
 }
 
 // class _CreateEventState extends State<CreateEvent> {

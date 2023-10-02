@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../../../contants.dart';
 import '../../../test_page.dart';
-import '../../menu_page.dart';
+import '../../../menu_page.dart';
 import '../../../utils/custom_nav_bar.dart';
 
 class MessagesPage extends StatelessWidget {

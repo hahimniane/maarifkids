@@ -2,12 +2,12 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-
 import '../../contants.dart';
 import '../../utils/custom_nav_bar.dart';
-import '../../parent_module/menu_page.dart';
+import '../../menu_page.dart';
 import '../../test_page.dart';
 import 'media_display_page.dart';
+
 class FetchedAlbumsPage extends StatelessWidget {
   const FetchedAlbumsPage({super.key});
 
@@ -15,8 +15,7 @@ class FetchedAlbumsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: profileSecimiBackgroundColor,
-    appBar:  buildAppBar(
-
+      appBar: buildAppBar(
         isAdminColor: true,
         title: 'Gallery',
         context: context,
@@ -49,9 +48,9 @@ class FetchedAlbumsPage extends StatelessWidget {
                           transitionDuration: Duration(milliseconds: 500),
                           pageBuilder:
                               (context, animation, secondaryAnimation) =>
-                              MediaDisplayPage(
-                                isFromSearch: false,
-                              ),
+                                  MediaDisplayPage(
+                                    isFromSearch: false,
+                                  ),
                           transitionsBuilder:
                               (context, animation, secondaryAnimation, child) {
                             return FadeTransition(
@@ -77,7 +76,6 @@ class FetchedAlbumsPage extends StatelessWidget {
                         height: double.infinity,
                       ),
                     ),
-
                     BackdropFilter(
                       filter: ImageFilter.blur(sigmaX: 0, sigmaY: 0),
                       child: Container(
@@ -128,7 +126,6 @@ class FetchedAlbumsPage extends StatelessWidget {
                       height: double.infinity,
                     ),
                   ),
-
                   BackdropFilter(
                     filter: ImageFilter.blur(sigmaX: 0, sigmaY: 0),
                     child: Container(

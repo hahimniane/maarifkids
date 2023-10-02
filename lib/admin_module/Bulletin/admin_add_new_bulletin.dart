@@ -12,19 +12,17 @@ import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
-
-
 import '../../contants.dart';
 import '../../utils/custom_nav_bar.dart';
-import '../../parent_module/menu_page.dart';
+import '../../menu_page.dart';
 import '../../test_page.dart';
-
 
 class AdminAddNewBulletinPage extends StatefulWidget {
   AdminAddNewBulletinPage({super.key});
 
   @override
-  State<AdminAddNewBulletinPage> createState() => _AdminAddNewBulletinPageState();
+  State<AdminAddNewBulletinPage> createState() =>
+      _AdminAddNewBulletinPageState();
 }
 
 class _AdminAddNewBulletinPageState extends State<AdminAddNewBulletinPage> {
@@ -103,12 +101,12 @@ class _AdminAddNewBulletinPageState extends State<AdminAddNewBulletinPage> {
                                 borderRadius: BorderRadius.circular(8)),
                             child: Center(
                                 child: Text(
-                                  'title',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.white,
-                                  ),
-                                ))),
+                              'title',
+                              style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                color: Colors.white,
+                              ),
+                            ))),
                         Container(
                           width: 210,
                           child: TextField(
@@ -127,12 +125,12 @@ class _AdminAddNewBulletinPageState extends State<AdminAddNewBulletinPage> {
                                 borderRadius: BorderRadius.circular(8)),
                             child: Center(
                                 child: Text(
-                                  'Date',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.white,
-                                  ),
-                                ))),
+                              'Date',
+                              style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                color: Colors.white,
+                              ),
+                            ))),
                         Container(
                             width: 210,
                             child: TextField(
@@ -180,7 +178,7 @@ class _AdminAddNewBulletinPageState extends State<AdminAddNewBulletinPage> {
               );
 
               if (result != null) {
-                selectedPdf =File( result.files[0].path!);
+                selectedPdf = File(result.files[0].path!);
                 setState(() {}); // Update the UI to reflect the selected files
               } else {
                 print('user cancelled the picker');
@@ -200,28 +198,29 @@ class _AdminAddNewBulletinPageState extends State<AdminAddNewBulletinPage> {
                     Card(
                       elevation: 0,
                       child: Container(
-                          height:30,
+                          height: 30,
                           width: 100,
-                          child: Center(child: Text(selectedPdf!=null?'File uploaded':'Add PDF',style: TextStyle(
-                            color: adminAppColor,
-                          ),))),
+                          child: Center(
+                              child: Text(
+                            selectedPdf != null ? 'File uploaded' : 'Add PDF',
+                            style: TextStyle(
+                              color: adminAppColor,
+                            ),
+                          ))),
                     ),
-
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(
-                          Icons.picture_as_pdf_sharp,color: Colors.white,
+                          Icons.picture_as_pdf_sharp,
+                          color: Colors.white,
                         ),
                         Icon(
-                          Icons.keyboard_double_arrow_up,color: Colors.white,
+                          Icons.keyboard_double_arrow_up,
+                          color: Colors.white,
                         )
                       ],
                     )
-
-
-
-
                   ],
                 ),
               ),
@@ -238,7 +237,7 @@ class _AdminAddNewBulletinPageState extends State<AdminAddNewBulletinPage> {
               );
 
               if (result != null) {
-                selectedCoverImage =File( result.files[0].path!);
+                selectedCoverImage = File(result.files[0].path!);
                 setState(() {}); // Update the UI to reflect the selected files
               } else {
                 print('user cancelled the picker');
@@ -258,29 +257,31 @@ class _AdminAddNewBulletinPageState extends State<AdminAddNewBulletinPage> {
                     Card(
                       elevation: 0,
                       child: Container(
-                          height:30,
+                          height: 30,
                           width: 100,
-                          child: Center(child: Text('Cover Image',style: TextStyle(
-                            color: adminAppColor,
-                          ),))),
+                          child: Center(
+                              child: Text(
+                            'Cover Image',
+                            style: TextStyle(
+                              color: adminAppColor,
+                            ),
+                          ))),
                     ),
-
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon( size:30,
-                          Icons.photo,color: Colors.white,
+                        Icon(
+                          size: 30,
+                          Icons.photo,
+                          color: Colors.white,
                         ),
                         Icon(
-                          size:30,
-                          Icons.keyboard_double_arrow_up,color: Colors.white,
+                          size: 30,
+                          Icons.keyboard_double_arrow_up,
+                          color: Colors.white,
                         )
                       ],
                     )
-
-
-
-
                   ],
                 ),
               ),

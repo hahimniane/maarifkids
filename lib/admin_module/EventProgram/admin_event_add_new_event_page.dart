@@ -3,9 +3,8 @@ import 'package:flutter/material.dart';
 
 import 'package:maarifkids/contants.dart';
 
-
 import '../../utils/custom_nav_bar.dart';
-import '../../parent_module/menu_page.dart';
+import '../../menu_page.dart';
 import '../../test_page.dart';
 import '../../widgets/acitvities_class.dart';
 import '../../widgets/function_for_initializing_dates.dart';
@@ -245,11 +244,12 @@ class _CreateEventState extends State<CreateEvent> {
                         decoration: InputDecoration(
                           focusColor: Colors.green,
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: hasEmptyDetails && slot['eventDetails']!.isEmpty? Colors.red:adminAppColor,
-                            )
-                          ),
-
+                              borderSide: BorderSide(
+                            color:
+                                hasEmptyDetails && slot['eventDetails']!.isEmpty
+                                    ? Colors.red
+                                    : adminAppColor,
+                          )),
                           hintStyle: TextStyle(
                               color: Colors.red, fontWeight: FontWeight.bold),
                           hintText:
@@ -257,16 +257,14 @@ class _CreateEventState extends State<CreateEvent> {
                                   ? 'Input Event...'
                                   : '',
                           helperStyle: TextStyle(height: 0),
-
                           contentPadding: EdgeInsets.zero,
                           border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(5),
+                              borderRadius: BorderRadius.circular(5),
                               borderSide: BorderSide(
-                            width: 1,
-                            color: Colors.purple,
-                          )),
+                                width: 1,
+                                color: Colors.purple,
+                              )),
                         ),
-
                         onChanged: (newValue) {
                           // Update event details when the text field changes
                           slot['eventDetails'] = newValue;
@@ -280,7 +278,6 @@ class _CreateEventState extends State<CreateEvent> {
                         icon:
                             Icon(Icons.cancel, size: 15, color: adminAppColor),
                         onPressed: () {
-
                           print('the slot I am in right now is ${slot['id']}');
 
                           removeSlot(slot[
@@ -440,21 +437,20 @@ class _CreateEventState extends State<CreateEvent> {
                           backgroundColor: adminAppColor,
                           title: Text("No Events Created"),
                           titleTextStyle: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold
-                          ),
+                              color: Colors.white, fontWeight: FontWeight.bold),
                           content: Text("You have not created any events."),
-                          contentTextStyle: TextStyle(
-                            color: Colors.white
-                          ),
+                          contentTextStyle: TextStyle(color: Colors.white),
                           actions: <Widget>[
                             TextButton(
                               onPressed: () {
                                 Navigator.of(context).pop();
                               },
-                              child: Text("OK",style: TextStyle(
-                                color: Colors.white,
-                              ),),
+                              child: Text(
+                                "OK",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
                             ),
                           ],
                         );

@@ -5,7 +5,7 @@ import 'package:maarifkids/widgets/function_for_initializing_dates.dart';
 
 import '../../../widgets/acitvities_class.dart';
 
-import '../menu_page.dart';
+import '../../menu_page.dart';
 import 'saglik_page.dart';
 import '../../../utils/custom_nav_bar.dart';
 

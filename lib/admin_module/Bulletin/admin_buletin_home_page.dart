@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 
-
 import '../../contants.dart';
 import '../../utils/custom_nav_bar.dart';
-import '../../parent_module/menu_page.dart';
+import '../../menu_page.dart';
 import '../../test_page.dart';
 import '../../utils/CustomIconButton.dart';
 import '../../widgets/navigator_class.dart';
 
 import 'admin_add_new_bulletin.dart';
 import 'admin_view_old_buletin.dart';
+
 class AdminSchoolBulletinHomePage extends StatelessWidget {
   const AdminSchoolBulletinHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       appBar: buildAppBar(
         isAdminColor: true,
         title: schoolBuletinString,
@@ -27,18 +27,27 @@ class AdminSchoolBulletinHomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            CustomIconButton(onTap: () {
-
-              NavigationHelper.pushPage(context, AdminAddNewBulletinPage());
-            }, iconData: Icons.add, label: 'Add New\n Publication',),
-
+            CustomIconButton(
+              onTap: () {
+                NavigationHelper.pushPage(context, AdminAddNewBulletinPage());
+              },
+              iconData: Icons.add,
+              label: 'Add New\n Publication',
+            ),
             SizedBox(
               height: 20,
             ),
-            CustomIconButton(onTap: () {
-              NavigationHelper.pushPage(context, AdminViewOldBulletinPage(isFromSearch: false,));
-            }, iconData:  Icons.list_alt_sharp, label:  'View Old',),
-
+            CustomIconButton(
+              onTap: () {
+                NavigationHelper.pushPage(
+                    context,
+                    AdminViewOldBulletinPage(
+                      isFromSearch: false,
+                    ));
+              },
+              iconData: Icons.list_alt_sharp,
+              label: 'View Old',
+            ),
           ],
         ),
       ),

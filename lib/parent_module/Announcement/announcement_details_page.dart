@@ -6,7 +6,7 @@ import 'package:maarifkids/contants.dart';
 import '../../utils/pdf_viewer_page.dart';
 import '../app_initial_page.dart';
 import '../home_page.dart';
-import '../menu_page.dart';
+import '../../menu_page.dart';
 import '../../utils/custom_nav_bar.dart';
 
 class AnnouncementDetailsPage extends StatelessWidget {

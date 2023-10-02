@@ -4,7 +4,7 @@ import 'package:maarifkids/contants.dart';
 import 'package:maarifkids/parent_module/Health/saglik_page.dart';
 
 import '../../../utils/custom_nav_bar.dart';
-import '../menu_page.dart';
+import '../../menu_page.dart';
 
 class HealthInformationPage extends StatelessWidget {
   final bool isFromSearch;
@@ -24,9 +24,7 @@ class HealthInformationPage extends StatelessWidget {
           Divider(
             color: parentAppColor,
           ),
-          Container(
-            height: 450,
-            width: 350,
+          Expanded(
             child: Card(
               color: profileSecimiBackgroundColor,
               child: const Padding(
@@ -103,7 +101,8 @@ class HealthIussueCard extends StatelessWidget {
                   Text(
                     title,
                     style: TextStyle(
-                        color: Theme.of(context).primaryColor, fontWeight: FontWeight.bold),
+                        color: Theme.of(context).primaryColor,
+                        fontWeight: FontWeight.bold),
                   ),
                   Expanded(
                       child: Text(

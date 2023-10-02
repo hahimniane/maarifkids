@@ -4,21 +4,24 @@ import 'package:flutter_cupertino_date_picker_fork/flutter_cupertino_date_picker
 
 import 'package:maarifkids/contants.dart';
 
-import '../../test_page.dart';
-import '../Health/saglik_page.dart';
+import '../../parent_module/Health/saglik_page.dart';
 import '../../menu_page.dart';
+import '../../test_page.dart';
 
 import '../../utils/custom_nav_bar.dart';
 
-class AttendancePage extends StatefulWidget {
+class AdminAttendanceStudentDetailsPage extends StatefulWidget {
   final bool isFromSearch;
-  const AttendancePage({super.key, required this.isFromSearch});
+  const AdminAttendanceStudentDetailsPage(
+      {super.key, required this.isFromSearch});
 
   @override
-  State<AttendancePage> createState() => _AttendancePageState();
+  State<AdminAttendanceStudentDetailsPage> createState() =>
+      _AdminAttendanceStudentDetailsPageState();
 }
 
-class _AttendancePageState extends State<AttendancePage> {
+class _AdminAttendanceStudentDetailsPageState
+    extends State<AdminAttendanceStudentDetailsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,10 +29,13 @@ class _AttendancePageState extends State<AttendancePage> {
         title: 'Attendance',
         context: context,
         isFromSearch: widget.isFromSearch,
+        isAdminColor: true,
       ),
       body: Column(
         children: [
-          ProfileCard(),
+          ProfileCard(
+            isItFromHealthPage: true,
+          ),
           const SizedBox(
             height: 8,
           ),
@@ -295,8 +301,8 @@ class _CustomContainerRowState extends State<CustomContainerRow> {
         child: Container(
           padding: const EdgeInsets.all(2),
           decoration: BoxDecoration(
-            color: isActive ? parentAppColor : Colors.white,
-            border: Border.all(color: parentAppColor),
+            color: isActive ? Theme.of(context).primaryColor : Colors.white,
+            border: Border.all(color: Theme.of(context).primaryColor),
             borderRadius: BorderRadius.circular(5),
           ),
           child: Center(
@@ -305,7 +311,7 @@ class _CustomContainerRowState extends State<CustomContainerRow> {
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w400,
-                color: isActive ? Colors.white : parentAppColor,
+                color: isActive ? Colors.white : Theme.of(context).primaryColor,
               ),
             ),
           ),
@@ -355,7 +361,7 @@ class _CustomContainerRowState extends State<CustomContainerRow> {
                         child: Text(
                           attendenceList[index],
                           style: TextStyle(
-                              color: parentAppColor,
+                              color: Theme.of(context).primaryColor,
                               fontWeight: FontWeight.w600,
                               fontSize: 16),
                         ),
@@ -401,7 +407,7 @@ class _CustomContainerRowState extends State<CustomContainerRow> {
                 TextSpan(
                   text: 'Number of Absenteeism: ',
                   style: TextStyle(
-                      color: parentAppColor,
+                      color: Theme.of(context).primaryColor,
                       fontWeight: FontWeight.w500,
                       fontSize: 16),
                 ),
@@ -409,7 +415,7 @@ class _CustomContainerRowState extends State<CustomContainerRow> {
                   text: '12',
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      color: parentAppColor,
+                      color: Theme.of(context).primaryColor,
                       fontSize: 16),
                 ),
               ],

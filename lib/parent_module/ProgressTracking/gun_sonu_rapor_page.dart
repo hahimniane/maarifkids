@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'package:maarifkids/utils/pdf_viewer_page.dart';
 
-
 import '../../contants.dart';
 import '../../utils/custom_date_picker.dart';
-import '../menu_page.dart';
+import '../../menu_page.dart';
 import '../../utils/custom_nav_bar.dart';
 
 class GelisimTakipPage extends StatelessWidget {
@@ -126,5 +125,3 @@ class ImageWithTitle extends StatelessWidget {
     );
   }
 }
-
-

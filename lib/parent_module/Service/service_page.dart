@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:maarifkids/contants.dart';
 
 import '../Health/saglik_page.dart';
-import '../menu_page.dart';
+import '../../menu_page.dart';
 
 import '../Attendance/attendance_page.dart';
 import '../../utils/custom_nav_bar.dart';
@@ -16,9 +16,11 @@ class ServicePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: profileSecimiBackgroundColor,
+      backgroundColor: adminPageBackgroundColor.withOpacity(0.9),
       appBar: buildAppBar(
-        title: 'School Service',
+        isAdminColor:
+            Theme.of(context).primaryColor == adminAppColor ? true : false,
+        title: schoolServiceString,
         context: context,
         isFromSearch: isFromSearch,
       ),
@@ -50,7 +52,7 @@ class ServicePage extends StatelessWidget {
                             'Going To School',
                             style: TextStyle(
                                 fontSize: 16,
-                                color: parentAppColor,
+                                color: Theme.of(context).primaryColor,
                                 fontWeight: FontWeight.bold),
                           ),
                         ),
@@ -63,7 +65,7 @@ class ServicePage extends StatelessWidget {
                                 'Did he get on the school bus?',
                                 style: TextStyle(
                                   fontSize: 16,
-                                  color: parentAppColor,
+                                  color: Theme.of(context).primaryColor,
                                 ),
                               ),
                               const SizedBox(
@@ -90,7 +92,7 @@ class ServicePage extends StatelessWidget {
                                 'Did he go to school?',
                                 style: TextStyle(
                                   fontSize: 16,
-                                  color: parentAppColor,
+                                  color: Theme.of(context).primaryColor,
                                 ),
                               ),
                               SizedBox(
@@ -111,7 +113,7 @@ class ServicePage extends StatelessWidget {
                             'Returning Home',
                             style: TextStyle(
                                 fontSize: 16,
-                                color: parentAppColor,
+                                color: Theme.of(context).primaryColor,
                                 fontWeight: FontWeight.bold),
                           ),
                         ),
@@ -124,7 +126,7 @@ class ServicePage extends StatelessWidget {
                                 'Did he get on the school bus?',
                                 style: TextStyle(
                                   fontSize: 16,
-                                  color: parentAppColor,
+                                  color: Theme.of(context).primaryColor,
                                 ),
                               ),
                               const SizedBox(
@@ -151,7 +153,7 @@ class ServicePage extends StatelessWidget {
                                 'Has he been handed over to the parent?',
                                 style: TextStyle(
                                   fontSize: 12,
-                                  color: parentAppColor,
+                                  color: Theme.of(context).primaryColor,
                                 ),
                               ),
                               const Expanded(
@@ -176,7 +178,7 @@ class ServicePage extends StatelessWidget {
                                   TextSpan(
                                     text: ' Missed: ',
                                     style: TextStyle(
-                                        color: parentAppColor,
+                                        color: Theme.of(context).primaryColor,
                                         fontWeight: FontWeight.w500,
                                         fontSize: 16),
                                   ),
@@ -184,7 +186,7 @@ class ServicePage extends StatelessWidget {
                                     text: '4',
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
-                                        color: parentAppColor,
+                                        color: Theme.of(context).primaryColor,
                                         fontSize: 16),
                                   ),
                                 ],

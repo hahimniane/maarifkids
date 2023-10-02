@@ -3,14 +3,12 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
-
 import '../../contants.dart';
 import '../../utils/custom_nav_bar.dart';
-import '../../parent_module/menu_page.dart';
-enum MediaType{
-  image,
-  video
-}
+import '../../menu_page.dart';
+
+enum MediaType { image, video }
+
 class MediaDisplayPage extends StatefulWidget {
   final bool isFromSearch;
   const MediaDisplayPage({super.key, required this.isFromSearch});
@@ -22,34 +20,44 @@ class MediaDisplayPage extends StatefulWidget {
 class _MediaDisplayPageState extends State<MediaDisplayPage> {
   late VideoPlayerController _controller;
   int _currentPhotoIndex = 0;
-  int _currentVideoIndex=0;
+  int _currentVideoIndex = 0;
 
   CarouselController photoCarouselController = CarouselController();
   CarouselController videoCarouselController = CarouselController();
 
   List<Widget> photosItems = [];
-  List<Widget>videosItems=[];
-  Future<void> showDeleteConfirmationDialog(BuildContext context, String imagePath,MediaType mediaType) async {
+  List<Widget> videosItems = [];
+  Future<void> showDeleteConfirmationDialog(
+      BuildContext context, String imagePath, MediaType mediaType) async {
     return showDialog<void>(
       context: context,
       barrierDismissible: false, // User must tap buttons to close the dialog
       builder: (BuildContext context) {
         return AlertDialog(
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20.0), // Adjust the radius as needed
+            borderRadius:
+                BorderRadius.circular(20.0), // Adjust the radius as needed
           ),
           backgroundColor: adminAppColor, // Set your custom background color
-          title: Text( mediaType==MediaType.image?'Delete Image':'Delete Video',style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          ),),
+          title: Text(
+            mediaType == MediaType.image ? 'Delete Image' : 'Delete Video',
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
           content: SingleChildScrollView(
             child: ListBody(
               children: <Widget>[
-                Text(mediaType==MediaType.image?'Are you sure you want to permanently delete the photo?':'Are you sure you want to permanently delete the video?',style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w300,
-                ),),
+                Text(
+                  mediaType == MediaType.image
+                      ? 'Are you sure you want to permanently delete the photo?'
+                      : 'Are you sure you want to permanently delete the video?',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w300,
+                  ),
+                ),
               ],
             ),
           ),
@@ -67,17 +75,17 @@ class _MediaDisplayPageState extends State<MediaDisplayPage> {
               onPressed: () {
                 // Implement your delete logic here
                 setState(() {
-                  int index = photosItems.indexWhere(
-                          (item) => item.key == ValueKey(imagePath));
+                  int index = photosItems
+                      .indexWhere((item) => item.key == ValueKey(imagePath));
 
                   if (index >= 0) {
-
                     photosItems.removeAt(index);
                     setState(() {
                       photosItems;
                     });
                     print('Removed item at index $index');
-                    print('Number of elements in the list ${photosItems.length}');
+                    print(
+                        'Number of elements in the list ${photosItems.length}');
                     print('The image path is $imagePath');
                   } else {
                     print('Item not found in the list.');
@@ -116,7 +124,8 @@ class _MediaDisplayPageState extends State<MediaDisplayPage> {
             child: IconButton(
               icon: Icon(Icons.delete, color: adminAppColor),
               onPressed: () {
-                showDeleteConfirmationDialog(context, imagePath,MediaType.image);
+                showDeleteConfirmationDialog(
+                    context, imagePath, MediaType.image);
               },
             ),
           ),
@@ -134,7 +143,7 @@ class _MediaDisplayPageState extends State<MediaDisplayPage> {
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           Expanded(
-            flex:5,
+            flex: 5,
             child: Image(
               fit: BoxFit.cover,
               image: AssetImage(imagePath),
@@ -144,7 +153,8 @@ class _MediaDisplayPageState extends State<MediaDisplayPage> {
             child: IconButton(
               icon: Icon(Icons.delete, color: adminAppColor),
               onPressed: () {
-                showDeleteConfirmationDialog(context, imagePath,MediaType.video);
+                showDeleteConfirmationDialog(
+                    context, imagePath, MediaType.video);
               },
             ),
           ),
@@ -153,23 +163,17 @@ class _MediaDisplayPageState extends State<MediaDisplayPage> {
     );
   }
 
-
-
-
-
-
-
   @override
   Widget build(BuildContext context) {
-    photosItems= [
+    photosItems = [
       createPhotoItem('images/frame_2_delay-2.01s.jpg'),
       createPhotoItem('images/frame_1_delay-2s.jpg'),
       createPhotoItem('images/frame_0_delay-2s.jpg'),
     ];
-   videosItems=[
-     createVideoItem('images/frame_1_delay-2s.jpg'),
-     createVideoItem('images/frame_1_delay-2s.jpg'),
-   ];
+    videosItems = [
+      createVideoItem('images/frame_1_delay-2s.jpg'),
+      createVideoItem('images/frame_1_delay-2s.jpg'),
+    ];
 
     // List<Widget> videoItems=[
     //
@@ -250,14 +254,12 @@ class _MediaDisplayPageState extends State<MediaDisplayPage> {
                     onPageChanged: (index, _) {
                       setState(() {
                         _currentPhotoIndex = index;
-
                       });
                     },
                   ),
-                  items:photosItems,
+                  items: photosItems,
                 );
               },
-
             ),
           ),
           Padding(
@@ -288,20 +290,19 @@ class _MediaDisplayPageState extends State<MediaDisplayPage> {
           SizedBox(height: 2),
           Expanded(
             child: CarouselSlider(
-              carouselController: videoCarouselController,
-              options: CarouselOptions(
-                height: 300,
-                viewportFraction: 0.95,
-                enlargeCenterPage: true,
-                autoPlay: true,
-                onPageChanged: (index, _) {
-                  setState(() {
-                    _currentVideoIndex = index;
-                  });
-                },
-              ),
-              items: videosItems
-            ),
+                carouselController: videoCarouselController,
+                options: CarouselOptions(
+                  height: 300,
+                  viewportFraction: 0.95,
+                  enlargeCenterPage: true,
+                  autoPlay: true,
+                  onPageChanged: (index, _) {
+                    setState(() {
+                      _currentVideoIndex = index;
+                    });
+                  },
+                ),
+                items: videosItems),
           ),
           Padding(
             padding: const EdgeInsets.all(2.0),
@@ -328,7 +329,6 @@ class _MediaDisplayPageState extends State<MediaDisplayPage> {
               ],
             ),
           ),
-
         ],
       ),
       bottomNavigationBar: CustomNavigationBar(
@@ -351,10 +351,10 @@ class _MediaDisplayPageState extends State<MediaDisplayPage> {
     _controller = VideoPlayerController.network(
       'https://www.youtube.com/watch?v=ni3rzDdndhQ&ab_channel=Waqar-%D9%88%D9%82%D8%A7%D8%B1', // Replace with your video URL
     )..initialize().then((_) {
-      setState(() {});
-      _controller.play();
-    }).onError((error, stackTrace) {
-      // print(stackTrace.toDart);
-    });
+        setState(() {});
+        _controller.play();
+      }).onError((error, stackTrace) {
+        // print(stackTrace.toDart);
+      });
   }
 }

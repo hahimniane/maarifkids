@@ -4,16 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:maarifkids/parent_module/Health/saglik_page.dart';
 
-
 import '../../contants.dart';
 import '../../test_page.dart';
 import '../../utils/lists.dart';
 import '../../widgets/acitvities_class.dart';
 import '../../widgets/function_for_initializing_dates.dart';
 import '../../widgets/function_to_display_what_happens_depending_on_the_date_selected.dart';
-import '../menu_page.dart';
+import '../../menu_page.dart';
 import '../../utils/custom_nav_bar.dart';
-
 
 List<String> deneme = [
   'Book',
@@ -72,7 +70,9 @@ class _EtkinlikPageState extends State<EtkinlikPage> {
     selectedDate = initializeDates(
         dates: dates,
         activities: activities,
-        whatToReturnAsAWidget: listViewForDisplayingListOfActivities(itemAccount: hours,));
+        whatToReturnAsAWidget: listViewForDisplayingListOfActivities(
+          itemAccount: hours,
+        ));
     // this.selectedDate = selectedDate;
   }
 
@@ -89,7 +89,6 @@ class _EtkinlikPageState extends State<EtkinlikPage> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-
           // Padding(
           //   padding: const EdgeInsets.all(8.0),
           //   child: Container(
@@ -231,13 +230,13 @@ class customHorizontalDatePicker extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.all(2.0),
                       child: Container(
-
                         width: 30,
                         height: 30,
                         decoration: BoxDecoration(
-
                           shape: BoxShape.circle,
-                          color: isSelected ? Theme.of(context).primaryColor : Colors.grey,
+                          color: isSelected
+                              ? Theme.of(context).primaryColor
+                              : Colors.grey,
                         ),
                         child: Center(
                           child: Text(
@@ -255,23 +254,24 @@ class customHorizontalDatePicker extends StatelessWidget {
                       ? Expanded(
                           flex: 0,
                           child: Container(
-margin: EdgeInsets.symmetric(vertical: 4),
+                            margin: EdgeInsets.symmetric(vertical: 4),
                             width: 40,
                             height: 25,
-                            padding: EdgeInsets.symmetric(vertical: 5,horizontal: 5),
+                            padding: EdgeInsets.symmetric(
+                                vertical: 5, horizontal: 5),
                             decoration: BoxDecoration(
-color: Colors.blue,
-                              // color: isSelected ? Theme.of(context).primaryColor : Colors.grey,
+                              // color: Colors.blue,
+                              color: isSelected
+                                  ? Theme.of(context).primaryColor
+                                  : Colors.grey,
                               borderRadius: BorderRadius.circular(5),
                             ),
                             child: Center(
                               child: Container(
-
                                 child: Text(
                                   textAlign: TextAlign.center,
                                   dayOfWeek,
                                   style: TextStyle(
-
                                     color: isSelected
                                         ? Colors.white
                                         : Theme.of(context).primaryColor,

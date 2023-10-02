@@ -7,7 +7,7 @@ import '../../../contants.dart';
 import '../../../test_page.dart';
 
 import '../../utils/custom_nav_bar.dart';
-import '../../parent_module/menu_page.dart';
+import '../../menu_page.dart';
 
 class AdminMessagesPage extends StatelessWidget {
   final bool isFromSearch;
@@ -29,8 +29,8 @@ class AdminMessagesPage extends StatelessWidget {
             height: 5,
           ),
           SizedBox(
-            width: MediaQuery.of(context).size.width*0.90,
-            height: MediaQuery.of(context).size.height*0.07,
+            width: MediaQuery.of(context).size.width * 0.90,
+            height: MediaQuery.of(context).size.height * 0.07,
             child: TextField(
               style: TextStyle(
                 color: Colors.white,
@@ -42,7 +42,6 @@ class AdminMessagesPage extends StatelessWidget {
                 hintStyle: TextStyle(
                   color: Colors.white,
                 ),
-
                 contentPadding: EdgeInsets.fromLTRB(4, 0, 0, 0),
                 filled: true,
                 fillColor: adminAppColor,
@@ -52,7 +51,10 @@ class AdminMessagesPage extends StatelessWidget {
                 ),
                 labelText: 'Search',
                 hintText: 'Search...',
-                suffixIcon: Icon(Icons.search,color: Colors.white,),
+                suffixIcon: Icon(
+                  Icons.search,
+                  color: Colors.white,
+                ),
               ),
             ),
           ),

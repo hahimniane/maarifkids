@@ -5,9 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:maarifkids/contants.dart';
 import 'package:maarifkids/widgets/navigator_class.dart';
 
-
 import '../../../utils/custom_nav_bar.dart';
-import '../menu_page.dart';
+import '../../menu_page.dart';
 import 'drug_information_page.dart';
 import 'health_infromation_page.dart';
 
@@ -19,7 +18,9 @@ class HealthWelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: profileSecimiBackgroundColor,
+      backgroundColor: Theme.of(context).primaryColor == adminAppColor
+          ? adminPageBackgroundColor
+          : profileSecimiBackgroundColor,
       appBar: buildAppBar(
         title: 'Health',
         context: context,
@@ -51,7 +52,7 @@ class HealthWelcomePage extends StatelessWidget {
                             ));
                       },
                       child: Card(
-                        color: parentAppColor,
+                        color: Theme.of(context).primaryColor,
                         child: const Center(
                             child: Text(
                           'Health Information',
@@ -85,7 +86,7 @@ class HealthWelcomePage extends StatelessWidget {
                           child: Text(
                         'Drug Information',
                         style: TextStyle(
-                            color: parentAppColor,
+                            color: Theme.of(context).primaryColor,
                             fontWeight: FontWeight.bold,
                             fontSize: 17),
                       )),
@@ -108,7 +109,7 @@ class HealthWelcomePage extends StatelessWidget {
 
 class ProfileCard extends StatelessWidget {
   final bool isItFromHealthPage;
-  const ProfileCard({super.key,  this.isItFromHealthPage=false});
+  const ProfileCard({super.key, this.isItFromHealthPage = false});
 
   @override
   Widget build(BuildContext context) {
@@ -148,8 +149,8 @@ class ProfileCard extends StatelessWidget {
                             ),
                             SizedBox(height: 8.0),
                             Center(
-                              child: Text(isItFromHealthPage?'351'
-                                :'(Student)',
+                              child: Text(
+                                isItFromHealthPage ? '351' : '(Student)',
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 14.0,
@@ -158,53 +159,59 @@ class ProfileCard extends StatelessWidget {
                               ),
                             ),
                             const SizedBox(height: 8.0),
-                            !isItFromHealthPage?  Row(
-                              children: [
-                                AutoSizeText(
-                                  'Height: ',
-                                  style: TextStyle(
-                                    color: parentAppColor,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 15.0,
-                                  ),
-                                ),
-                                Text(
-                                  '1.2 m',
-                                  style: TextStyle(color: parentAppColor),
-                                ),
-                                Expanded(child: SizedBox(width: 16.0)),
-                                Text(
-                                  'Weight: ',
-                                  style: TextStyle(
-                                    fontSize: 15.0,
-                                    color: parentAppColor,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                Text(
-                                  '30 kg',
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    color: parentAppColor,
-                                  ),
-                                ),
-                              ],
-                            ):Container(),
+                            !isItFromHealthPage
+                                ? Row(
+                                    children: [
+                                      AutoSizeText(
+                                        'Height: ',
+                                        style: TextStyle(
+                                          color: Theme.of(context).primaryColor,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 15.0,
+                                        ),
+                                      ),
+                                      Text(
+                                        '1.2 m',
+                                        style: TextStyle(
+                                            color:
+                                                Theme.of(context).primaryColor),
+                                      ),
+                                      Expanded(child: SizedBox(width: 16.0)),
+                                      Text(
+                                        'Weight: ',
+                                        style: TextStyle(
+                                          fontSize: 15.0,
+                                          color: Theme.of(context).primaryColor,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      Text(
+                                        '30 kg',
+                                        style: TextStyle(
+                                          fontSize: 14,
+                                          color: Theme.of(context).primaryColor,
+                                        ),
+                                      ),
+                                    ],
+                                  )
+                                : Container(),
                             SizedBox(height: 1.0),
                           ],
                         ),
                       ),
                     ],
                   ),
-                  !isItFromHealthPage? Center(
-                    child: Text(
-                      ' June 16, 2023',
-                      style: TextStyle(
-                          fontSize: 16.0,
-                          color: parentAppColor,
-                          fontWeight: FontWeight.w600),
-                    ),
-                  ):Container(),
+                  !isItFromHealthPage
+                      ? Center(
+                          child: Text(
+                            ' June 16, 2023',
+                            style: TextStyle(
+                                fontSize: 16.0,
+                                color: Theme.of(context).primaryColor,
+                                fontWeight: FontWeight.w600),
+                          ),
+                        )
+                      : Container(),
                 ],
               ),
             ),

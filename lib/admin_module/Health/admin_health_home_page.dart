@@ -1,9 +1,7 @@
 import '../../utils/custom_nav_bar.dart';
-import '../../parent_module/menu_page.dart';
+import '../../menu_page.dart';
 import 'admin_view_drug_information.dart';
 import 'package:flutter/material.dart';
-
-
 
 import '../../contants.dart';
 import '../../test_page.dart';
@@ -11,12 +9,13 @@ import '../../widgets/navigator_class.dart';
 
 import 'health_information/admin_health_information.dart';
 import 'admin_view_drug_information.dart';
+
 class AdminHealthHomePage extends StatelessWidget {
   const AdminHealthHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       backgroundColor: Color(0xfffce5c7),
       appBar: buildAppBar(
         isAdminColor: true,
@@ -29,15 +28,19 @@ class AdminHealthHomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            CustomButton( text: 'Health Information', cardColor: adminAppColor, destinationPage: AdminViewStudentHealthInformationPage(),),
+            CustomButton(
+              text: 'Health Information',
+              cardColor: adminAppColor,
+              destinationPage: AdminViewStudentHealthInformationPage(),
+            ),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.02,
             ),
-
-            CustomButton( text: 'Drug Information', cardColor: Colors.white, destinationPage:AdminDrugInformationHomePage(),),
-
-
-
+            CustomButton(
+              text: 'Drug Information',
+              cardColor: Colors.white,
+              destinationPage: AdminDrugInformationHomePage(),
+            ),
           ],
         ),
       ),
@@ -59,10 +62,13 @@ class AdminHealthHomePage extends StatelessWidget {
 
 class CustomButton extends StatelessWidget {
   final String text;
- final Widget destinationPage;
- final  Color cardColor;
+  final Widget destinationPage;
+  final Color cardColor;
   const CustomButton({
-    super.key,  required this.text, required this.cardColor, required this.destinationPage,
+    super.key,
+    required this.text,
+    required this.cardColor,
+    required this.destinationPage,
   });
 
   @override
@@ -73,20 +79,20 @@ class CustomButton extends StatelessWidget {
             width: 270,
             child: InkWell(
               onTap: () {
-                NavigationHelper.pushPage(
-                    context,
-                    destinationPage);
+                NavigationHelper.pushPage(context, destinationPage);
               },
               child: Card(
                 color: cardColor,
-                child:  Center(
+                child: Center(
                     child: Text(
-                      text,
-                      style: TextStyle(
-                          color:cardColor==Colors.white? Theme.of(context).primaryColor:Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 17),
-                    )),
+                  text,
+                  style: TextStyle(
+                      color: cardColor == Colors.white
+                          ? Theme.of(context).primaryColor
+                          : Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 17),
+                )),
               ),
             )));
   }

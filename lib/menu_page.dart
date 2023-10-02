@@ -5,30 +5,31 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:maarifkids/admin_module/Announcement/admin_announcement_dynamic_popup_menu_button.dart';
 import 'package:maarifkids/admin_module/Progress%20Tracking/admin_progress_tracking_home_page.dart';
 import 'package:provider/provider.dart';
-import '../Providers/Providers.dart';
-import '../admin_module/Announcement/admin_announcement_page.dart';
-import '../admin_module/Bulletin/admin_buletin_home_page.dart';
-import '../admin_module/Food/admin_food_home_page.dart';
-import '../admin_module/Gallery/admin_gallery_page.dart';
-import '../admin_module/EventProgram/admin_activity_page.dart';
-import '../admin_module/Health/admin_health_home_page.dart';
-import '../admin_module/Messages/admin_messages_page.dart';
+import 'Providers/Providers.dart';
+import 'admin_module/Announcement/admin_announcement_page.dart';
+import 'admin_module/Attendance/adminAttendanceHomePage.dart';
+import 'admin_module/Bulletin/admin_buletin_home_page.dart';
+import 'admin_module/Food/admin_food_home_page.dart';
+import 'admin_module/Gallery/admin_gallery_page.dart';
+import 'admin_module/EventProgram/admin_activity_page.dart';
+import 'admin_module/Health/admin_health_home_page.dart';
+import 'admin_module/Messages/admin_messages_page.dart';
 
-import '../contants.dart';
-import '../theme.dart';
-import '../widgets/navigator_class.dart';
-import 'EventProgram/Etkinlik_program_page.dart';
-import 'Attendance/attendance_page.dart';
-import 'Announcement/duyrular_page.dart';
-import 'Food/food_page.dart';
-import 'Bulletin/school_buletin_page.dart';
-import 'Health/saglik_page.dart';
-import 'Service/service_page.dart';
-import 'Gallery/gallery_page.dart';
-import 'Gallery/gallery_page.dart';
-import 'ProgressTracking/gun_sonu_rapor_page.dart';
-import 'Components/Messages/messages_page.dart';
-
+import 'admin_module/SchoolService/school_service_home_page.dart';
+import 'contants.dart';
+import 'theme.dart';
+import 'widgets/navigator_class.dart';
+import 'parent_module/EventProgram/Etkinlik_program_page.dart';
+import 'parent_module/Attendance/attendance_page.dart';
+import 'parent_module/Announcement/duyrular_page.dart';
+import 'parent_module/Food/food_page.dart';
+import 'parent_module/Bulletin/school_buletin_page.dart';
+import 'parent_module/Health/saglik_page.dart';
+import 'parent_module/Service/service_page.dart';
+import 'parent_module/Gallery/gallery_page.dart';
+import 'parent_module/Gallery/gallery_page.dart';
+import 'parent_module/ProgressTracking/gun_sonu_rapor_page.dart';
+import 'parent_module/Components/Messages/messages_page.dart';
 
 class MenuPage extends StatelessWidget {
   final CarouselController carouselController = CarouselController();
@@ -43,50 +44,108 @@ class MenuPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Container(
-            decoration: const BoxDecoration(
-              color: Color(0xffD0F0F1),
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(25),
-                bottomRight: Radius.circular(25),
-              ),
-            ),
-            height: MediaQuery.of(context).size.height * 0.30,
-            width: MediaQuery.of(context).size.width,
-            child: Padding(
-              padding: const EdgeInsets.only(top: 60.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: Container(
-                      decoration: const BoxDecoration(),
-                      // color: Colors.blue,
-                      height: 100,
-                      width: 100,
-                      child: const CircleAvatar(
-                        foregroundImage: AssetImage(
-                          'images/yavuz_selim.jpeg',
+          Theme.of(context).primaryColor == adminAppColor
+              ? Container(
+                  decoration: BoxDecoration(
+                    color: adminPageBackgroundColor,
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(25),
+                      bottomRight: Radius.circular(25),
+                    ),
+                  ),
+                  height: MediaQuery.of(context).size.height * 0.30,
+                  width: MediaQuery.of(context).size.width,
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 60.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          child: Container(
+                            decoration: const BoxDecoration(),
+                            // color: Colors.blue,
+                            height: 100,
+                            width: 100,
+                            child: CircleAvatar(
+                              backgroundColor: Colors.white,
+                              child: Icon(
+                                Icons.person,
+                                size: 50,
+                                color: adminAppColor,
+                              ),
+                            ),
+                          ),
                         ),
-                      ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Expanded(
+                          flex: 0,
+                          child: Text(
+                            'Arzu',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                                color: adminAppColor),
+                          ),
+                        ),
+                        Text(
+                          '(Teacher)',
+                          style: TextStyle(
+                              color: adminAppColor,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        )
+                      ],
                     ),
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  const Expanded(
-                    flex: 0,
-                    child: Text(
-                      'Yavuz Selim Sultan',
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                )
+              : Container(
+                  decoration: const BoxDecoration(
+                    color: Color(0xffD0F0F1),
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(25),
+                      bottomRight: Radius.circular(25),
                     ),
                   ),
-                  const Text('(Öğrenci)'),
-                  const Text('Boy:1.15 cm-kilo: 20')
-                ],
-              ),
-            ),
-          ),
+                  height: MediaQuery.of(context).size.height * 0.30,
+                  width: MediaQuery.of(context).size.width,
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 60.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          child: Container(
+                            decoration: const BoxDecoration(),
+                            // color: Colors.blue,
+                            height: 100,
+                            width: 100,
+                            child: const CircleAvatar(
+                              foregroundImage: AssetImage(
+                                'images/yavuz_selim.jpeg',
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        const Expanded(
+                          flex: 0,
+                          child: Text(
+                            'Yavuz Selim Sultan',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        const Text('(Öğrenci)'),
+                        const Text('Boy:1.15 cm-kilo: 20')
+                      ],
+                    ),
+                  ),
+                ),
 
           ///this contains me
 
@@ -162,19 +221,14 @@ class MenuPage extends StatelessWidget {
                       label: 'Event Program',
                       color: const Color(0xff2D9BF0),
                       onTap: () {
-
                         provider.activeThemeData == ParentTheme.lightTheme()
                             ? NavigationHelper.pushPage(
-                            context,
-                            EtkinlikPage(
-                              isFromSearch: false,
-                            ))
+                                context,
+                                EtkinlikPage(
+                                  isFromSearch: false,
+                                ))
                             : NavigationHelper.pushPage(
-                          context,
-                            AdminActivityPage()
-                        );
-
-
+                                context, AdminActivityPage());
                       },
                     ),
                     _buildMenuItem(
@@ -182,20 +236,14 @@ class MenuPage extends StatelessWidget {
                       label: 'Progress Tracking',
                       color: const Color(0xff414BB2),
                       onTap: () {
-
-
                         provider.activeThemeData == ParentTheme.lightTheme()
                             ? NavigationHelper.pushPage(
-                            context,
-                            GelisimTakipPage(
-                              isFromSearch: false,
-                            ))
+                                context,
+                                GelisimTakipPage(
+                                  isFromSearch: false,
+                                ))
                             : NavigationHelper.pushPage(
-                            context,
-                            AdminProgressTrackingHomePage()
-                        );
-
-
+                                context, AdminProgressTrackingHomePage());
                       },
                     ),
                     _buildMenuItem(
@@ -203,20 +251,14 @@ class MenuPage extends StatelessWidget {
                       label: 'Food List',
                       color: const Color(0xff652CB3),
                       onTap: () {
-
-
                         provider.activeThemeData == ParentTheme.lightTheme()
                             ? NavigationHelper.pushPage(
-                            context,
-                            FoodPage(
-                              isFromSearch: false,
-                            )
-                        )
+                                context,
+                                FoodPage(
+                                  isFromSearch: false,
+                                ))
                             : NavigationHelper.pushPage(
-                            context,
-                            AdminFoodHomePage()
-                        );
-
+                                context, AdminFoodHomePage());
 
                         // AdminFoodHomePage
 
@@ -235,15 +277,12 @@ class MenuPage extends StatelessWidget {
                       onTap: () {
                         provider.activeThemeData == ParentTheme.lightTheme()
                             ? NavigationHelper.pushPage(
-                            context,
-                            HealthWelcomePage(
-                              isFromSearch: false,
-                            )
-                        )
+                                context,
+                                HealthWelcomePage(
+                                  isFromSearch: false,
+                                ))
                             : NavigationHelper.pushPage(
-                            context,
-                            AdminHealthHomePage()
-                        );
+                                context, AdminHealthHomePage());
                         // NavigationHelper.pushPage(
                         //     context,
                         //     const HealthWelcomePage(
@@ -256,11 +295,20 @@ class MenuPage extends StatelessWidget {
                       label: 'Attendance',
                       color: const Color(0xff050039),
                       onTap: () {
-                        NavigationHelper.pushPage(
-                            context,
-                            const AttendancePage(
-                              isFromSearch: false,
-                            ));
+                        provider.activeThemeData == ParentTheme.lightTheme()
+                            ? NavigationHelper.pushPage(
+                                context,
+                                AttendancePage(
+                                  isFromSearch: false,
+                                ))
+                            : NavigationHelper.pushPage(
+                                context, AdminAttendanceStudentInfoInputPage());
+
+                        // NavigationHelper.pushPage(
+                        //     context,
+                        //     const AttendancePage(
+                        //       isFromSearch: false,
+                        //     ));
                       },
                     ),
                     _buildMenuItem(
@@ -268,11 +316,20 @@ class MenuPage extends StatelessWidget {
                       label: 'School Service',
                       color: const Color(0xffDA0064),
                       onTap: () {
-                        NavigationHelper.pushPage(
-                            context,
-                            const ServicePage(
-                              isFromSearch: false,
-                            ));
+                        provider.activeThemeData == ParentTheme.lightTheme()
+                            ? NavigationHelper.pushPage(
+                                context,
+                                const ServicePage(
+                                  isFromSearch: false,
+                                ))
+                            : NavigationHelper.pushPage(
+                                context, AdminSchoolServiceHomePage());
+
+                        // NavigationHelper.pushPage(
+                        //     context,
+                        //     const ServicePage(
+                        //       isFromSearch: false,
+                        //     ));
                       },
                     ),
                     const SizedBox(),
@@ -283,16 +340,12 @@ class MenuPage extends StatelessWidget {
                       onTap: () {
                         provider.activeThemeData == ParentTheme.lightTheme()
                             ? NavigationHelper.pushPage(
-                            context,
-                            SchoolBulettinPage(
-                              isFromSearch: false,
-                            ))
+                                context,
+                                SchoolBulettinPage(
+                                  isFromSearch: false,
+                                ))
                             : NavigationHelper.pushPage(
-                            context,
-                            AdminSchoolBulletinHomePage()
-                        );
-
-
+                                context, AdminSchoolBulletinHomePage());
                       },
                     ),
                   ],

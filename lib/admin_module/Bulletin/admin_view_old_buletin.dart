@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lorem/flutter_lorem.dart';
 
-
 import '../../contants.dart';
 import '../../parent_module/Bulletin/buletin_detailed_page.dart';
 import '../../utils/custom_nav_bar.dart';
-import '../../parent_module/menu_page.dart';
+import '../../menu_page.dart';
 import '../../test_page.dart';
+
 class AdminViewOldBulletinPage extends StatelessWidget {
   final bool isFromSearch;
   const AdminViewOldBulletinPage({super.key, required this.isFromSearch});
@@ -52,20 +52,20 @@ class AdminViewOldBulletinPage extends StatelessWidget {
 
 Widget _buildPamphlet(
     {required String title,
-      required String cover,
-      required BuildContext context}) {
+    required String cover,
+    required BuildContext context}) {
   return GestureDetector(
     onTap: () {
       Navigator.push(
           context,
           MaterialPageRoute(
               builder: (context) => BulletinDetailedPage(
-                title: 'Maarif bulletin',
-                coverImage: 'images/bulettin/bultenweb1.png',
-                topic: 'school',
-                randomText: lorem(paragraphs: 1, words: 20),
-                IsFromSearch: false,
-              )));
+                    title: 'Maarif bulletin',
+                    coverImage: 'images/bulettin/bultenweb1.png',
+                    topic: 'school',
+                    randomText: lorem(paragraphs: 1, words: 20),
+                    IsFromSearch: false,
+                  )));
     },
     child: Card(
       elevation: 0,
@@ -74,58 +74,61 @@ Widget _buildPamphlet(
         children: [
           Expanded(
               child: Row(
-                children: [
-                  Image.asset(
-                      cover),
-                  Expanded(
-                    child: IconButton(
-                     icon: Icon(
-                        Icons.delete,color: Theme.of(context).primaryColor,
-                      ), onPressed: () {
-                      showDialog(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return AlertDialog(
-                            backgroundColor: adminAppColor,
-                            title: Text("Delete Bulletin"),
-                            titleTextStyle: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold
-                            ),
-                            content: Text("Are you sure you want to delete this Bulletin?"),
-                            contentTextStyle: TextStyle(
-                                color: Colors.white
-                            ),
-                            actions: <Widget>[
-                              TextButton(
-                                onPressed: () {
-                                  Navigator.of(context).pop();
-                                },
-                                child: Text("Cancel",style: TextStyle(
+            children: [
+              Image.asset(cover),
+              Expanded(
+                child: IconButton(
+                  icon: Icon(
+                    Icons.delete,
+                    color: Theme.of(context).primaryColor,
+                  ),
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          backgroundColor: adminAppColor,
+                          title: Text("Delete Bulletin"),
+                          titleTextStyle: TextStyle(
+                              color: Colors.white, fontWeight: FontWeight.bold),
+                          content: Text(
+                              "Are you sure you want to delete this Bulletin?"),
+                          contentTextStyle: TextStyle(color: Colors.white),
+                          actions: <Widget>[
+                            TextButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: Text(
+                                "Cancel",
+                                style: TextStyle(
                                   color: Colors.white,
-                                ),),
+                                ),
                               ),
-                              TextButton(
-                                onPressed: () {
-                                  Navigator.of(context).pop();
-                                },
-                                child: Text("Delete",style: TextStyle(
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: Text(
+                                "Delete",
+                                style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white,
-                                ),),
+                                ),
                               ),
-                            ],
-                          );
-                        },
-                      );
+                            ),
+                          ],
+                        );
+                      },
+                    );
 
-
-                      print('should delete');
-                },
-                    ),
-                  )
-                ],
-              )), // Use appropriate image asset or network image
+                    print('should delete');
+                  },
+                ),
+              )
+            ],
+          )), // Use appropriate image asset or network image
           SizedBox(height: 8),
           Text(title,
               style: TextStyle(

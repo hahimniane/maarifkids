@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../contants.dart';
 
-import '../parent_module/menu_page.dart';
+import '../menu_page.dart';
 
 class AdminProfileSelectionPage extends StatelessWidget {
   @override

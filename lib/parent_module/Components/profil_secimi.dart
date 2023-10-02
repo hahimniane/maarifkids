@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../contants.dart';
-import '../menu_page.dart';
+import '../../menu_page.dart';
 import '../Announcement/announcement_details_page.dart';
 
 class ProfileSelectionPage extends StatelessWidget {

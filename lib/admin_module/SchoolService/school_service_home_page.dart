@@ -1,37 +1,20 @@
-import 'dart:io';
-
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:maarifkids/contants.dart';
 
-import '../../contants.dart';
-import '../../utils/custom_nav_bar.dart';
 import '../../menu_page.dart';
-import '../../test_page.dart';
-import '../../utils/custom_date_picker.dart';
+import '../../utils/custom_nav_bar.dart';
+import '../../widgets/navigator_class.dart';
+import '../Attendance/admin_attendance_results_page.dart';
+import 'admin_service_student_service_result_page.dart';
 
-class AdminProgressAddNewFilePage extends StatefulWidget {
-  AdminProgressAddNewFilePage({super.key});
-
-  @override
-  State<AdminProgressAddNewFilePage> createState() =>
-      _AdminProgressAddNewFilePageState();
-}
-
-class _AdminProgressAddNewFilePageState
-    extends State<AdminProgressAddNewFilePage> {
-  final TextEditingController gradeController = TextEditingController();
-
-  final TextEditingController dateController = TextEditingController();
-
-  File? selectedPdf;
-
-  File? selectedCoverImage;
+class AdminSchoolServiceHomePage extends StatelessWidget {
+  const AdminSchoolServiceHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(
-        title: progressTrackingString,
+        title: schoolServiceString,
         context: context,
         isFromSearch: false,
         isAdminColor: true,
@@ -50,6 +33,8 @@ class _AdminProgressAddNewFilePageState
                       )),
                   child: TextButton(
                       onPressed: () {
+                        NavigationHelper.pushPage(
+                            context, AdminServiceStudentServiceResultPage());
                         // Navigator.push(context, MaterialPageRoute(builder: (context)=>));
                         //TODO: make sure that the user is not empty.
                         //TODO: make sure that the subject is not empty
@@ -159,127 +144,6 @@ class _AdminProgressAddNewFilePageState
               ],
             ),
           ),
-          DateSelectionWidget(),
-          SizedBox(
-            height: 10,
-          ),
-          GestureDetector(
-            onTap: () async {
-              FilePickerResult? result = await FilePicker.platform.pickFiles(
-                allowMultiple: false,
-                // allowedExtensions: ['pdf'],
-              );
-
-              if (result != null) {
-                selectedPdf = File(result.files[0].path!);
-                setState(() {}); // Update the UI to reflect the selected files
-              } else {
-                print('user cancelled the picker');
-                // User canceled the picker
-              }
-            },
-            child: Card(
-              child: Container(
-                decoration: BoxDecoration(
-                    color: adminAppColor,
-                    borderRadius: BorderRadius.circular(12)),
-                height: 100,
-                width: MediaQuery.of(context).size.width * 0.5,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Card(
-                      elevation: 0,
-                      child: Container(
-                          height: 30,
-                          width: 100,
-                          child: Center(
-                              child: Text(
-                            selectedPdf != null ? 'File uploaded' : 'Add PDF',
-                            style: TextStyle(
-                              color: adminAppColor,
-                            ),
-                          ))),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.picture_as_pdf_sharp,
-                          color: Colors.white,
-                        ),
-                        Icon(
-                          Icons.keyboard_double_arrow_up,
-                          color: Colors.white,
-                        )
-                      ],
-                    )
-                  ],
-                ),
-              ),
-            ),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          GestureDetector(
-            onTap: () async {
-              FilePickerResult? result = await FilePicker.platform.pickFiles(
-                allowMultiple: false,
-                // allowedExtensions: ['pdf'],
-              );
-
-              if (result != null) {
-                selectedCoverImage = File(result.files[0].path!);
-                setState(() {}); // Update the UI to reflect the selected files
-              } else {
-                print('user cancelled the picker');
-                // User canceled the picker
-              }
-            },
-            child: Card(
-              child: Container(
-                decoration: BoxDecoration(
-                    color: adminAppColor,
-                    borderRadius: BorderRadius.circular(12)),
-                height: 100,
-                width: MediaQuery.of(context).size.width * 0.5,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Card(
-                      elevation: 0,
-                      child: Container(
-                          height: 30,
-                          width: 100,
-                          child: Center(
-                              child: Text(
-                            'Cover Image',
-                            style: TextStyle(
-                              color: adminAppColor,
-                            ),
-                          ))),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          size: 30,
-                          Icons.photo,
-                          color: Colors.white,
-                        ),
-                        Icon(
-                          size: 30,
-                          Icons.keyboard_double_arrow_up,
-                          color: Colors.white,
-                        )
-                      ],
-                    )
-                  ],
-                ),
-              ),
-            ),
-          )
         ],
       ),
       bottomNavigationBar: CustomNavigationBar(
@@ -288,9 +152,6 @@ class _AdminProgressAddNewFilePageState
           if (value == 0) {
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => MenuPage()));
-          } else if (value == 1) {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => SearchFieldSample()));
           }
         },
       ),
