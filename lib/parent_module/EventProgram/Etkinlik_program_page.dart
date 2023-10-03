@@ -4,12 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:maarifkids/parent_module/Health/saglik_page.dart';
 
-import '../../contants.dart';
-import '../../test_page.dart';
+import '../../services/acitvities_class.dart';
+import '../../services/function_for_initializing_dates.dart';
+import '../../services/function_to_display_what_happens_depending_on_the_date_selected.dart';
+import '../../utils/contants.dart';
+import '../../utils/search_functionality.dart';
 import '../../utils/lists.dart';
-import '../../widgets/acitvities_class.dart';
-import '../../widgets/function_for_initializing_dates.dart';
-import '../../widgets/function_to_display_what_happens_depending_on_the_date_selected.dart';
+
 import '../../menu_page.dart';
 import '../../utils/custom_nav_bar.dart';
 

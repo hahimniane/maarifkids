@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:maarifkids/widgets/navigator_class.dart';
 
-import '../../contants.dart';
-import '../../test_page.dart';
+import '../services/navigator_class.dart';
+import 'contants.dart';
+import 'search_functionality.dart';
 import '../admin_module/Health/all_students_with_medication_contol.dart';
 import 'custom_nav_bar.dart';
 import '../menu_page.dart';

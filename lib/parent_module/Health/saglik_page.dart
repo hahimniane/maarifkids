@@ -2,11 +2,11 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:maarifkids/contants.dart';
-import 'package:maarifkids/widgets/navigator_class.dart';
+import 'package:maarifkids/utils/contants.dart';
 
 import '../../../utils/custom_nav_bar.dart';
 import '../../menu_page.dart';
+import '../../services/navigator_class.dart';
 import 'drug_information_page.dart';
 import 'health_infromation_page.dart';
 

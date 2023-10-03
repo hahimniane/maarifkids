@@ -1,7 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-import '../../contants.dart';
+import 'contants.dart';
+
 class CustomActivityList extends StatefulWidget {
   final List<DateTime> dates;
   final DateTime selectedDate;
@@ -10,9 +11,9 @@ class CustomActivityList extends StatefulWidget {
 
   CustomActivityList(
       {required this.dates,
-        required this.selectedDate,
-        required this.onDateSelected,
-        required this.showSearchBar});
+      required this.selectedDate,
+      required this.onDateSelected,
+      required this.showSearchBar});
 
   @override
   _CustomActivityListState createState() => _CustomActivityListState();
@@ -100,39 +101,40 @@ class _CustomActivityListState extends State<CustomActivityList> {
                               ),
                               isSelected
                                   ? Expanded(
-                                flex: 0,
-                                child: Container(
-                                  width: 40,
-                                  padding: EdgeInsets.all(3),
-                                  decoration: BoxDecoration(
-                                    color: isSelected
-                                        ? Theme.of(context).primaryColor
-                                        : Colors.grey,
-                                    borderRadius:
-                                    BorderRadius.circular(5),
-                                  ),
-                                  child: Center(
-                                    child: Text(
-                                      dayOfWeek,
-                                      style: TextStyle(
-                                        color: isSelected
-                                            ? Colors.white
-                                            : Theme.of(context).primaryColor,
-                                        fontWeight: FontWeight.bold,
+                                      flex: 0,
+                                      child: Container(
+                                        width: 40,
+                                        padding: EdgeInsets.all(3),
+                                        decoration: BoxDecoration(
+                                          color: isSelected
+                                              ? Theme.of(context).primaryColor
+                                              : Colors.grey,
+                                          borderRadius:
+                                              BorderRadius.circular(5),
+                                        ),
+                                        child: Center(
+                                          child: Text(
+                                            dayOfWeek,
+                                            style: TextStyle(
+                                              color: isSelected
+                                                  ? Colors.white
+                                                  : Theme.of(context)
+                                                      .primaryColor,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                        ),
                                       ),
-                                    ),
-                                  ),
-                                ),
-                              )
+                                    )
                                   : Expanded(
-                                child: Text(
-                                  dayOfWeek,
-                                  style: TextStyle(
-                                    color: Theme.of(context).primaryColor,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              )
+                                      child: Text(
+                                        dayOfWeek,
+                                        style: TextStyle(
+                                          color: Theme.of(context).primaryColor,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    )
                               // : Expanded(
                               //     child: Container(
                               //       height: 25,

@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
 
-import '../../contants.dart';
+import 'contants.dart';
+
 class CustomIconButton extends StatelessWidget {
   final String label;
   final VoidCallback onTap;
   final IconData iconData;
   const CustomIconButton({
-    super.key, required this.onTap,  required this.iconData, required this.label,
+    super.key,
+    required this.onTap,
+    required this.iconData,
+    required this.label,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap:onTap,
+      onTap: onTap,
       child: SizedBox(
         width: MediaQuery.of(context).size.width * 0.60,
         height: MediaQuery.of(context).size.height * 0.25,

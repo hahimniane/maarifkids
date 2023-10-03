@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 import 'package:maarifkids/admin_module/Gallery/admin_gallery_view_old_photos.dart';
-import 'package:maarifkids/widgets/navigator_class.dart';
 
-import '../../contants.dart';
+import '../../services/navigator_class.dart';
+import '../../utils/contants.dart';
 import '../../utils/custom_nav_bar.dart';
 import '../../menu_page.dart';
-import '../../test_page.dart';
+import '../../utils/search_functionality.dart';
 import '../../utils/CustomIconButton.dart';
 import 'admin_gallery_add_new_photo_page.dart';
 

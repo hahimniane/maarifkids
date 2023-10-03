@@ -4,6 +4,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:maarifkids/admin_module/Announcement/admin_announcement_dynamic_popup_menu_button.dart';
 import 'package:maarifkids/admin_module/Progress%20Tracking/admin_progress_tracking_home_page.dart';
+import 'package:maarifkids/parent_module/Messages/messages_page.dart';
+import 'package:maarifkids/services/navigator_class.dart';
 import 'package:provider/provider.dart';
 import 'Providers/Providers.dart';
 import 'admin_module/Announcement/admin_announcement_page.dart';
@@ -16,9 +18,9 @@ import 'admin_module/Health/admin_health_home_page.dart';
 import 'admin_module/Messages/admin_messages_page.dart';
 
 import 'admin_module/SchoolService/school_service_home_page.dart';
-import 'contants.dart';
+import 'utils/contants.dart';
 import 'theme.dart';
-import 'widgets/navigator_class.dart';
+
 import 'parent_module/EventProgram/Etkinlik_program_page.dart';
 import 'parent_module/Attendance/attendance_page.dart';
 import 'parent_module/Announcement/duyrular_page.dart';
@@ -29,7 +31,6 @@ import 'parent_module/Service/service_page.dart';
 import 'parent_module/Gallery/gallery_page.dart';
 import 'parent_module/Gallery/gallery_page.dart';
 import 'parent_module/ProgressTracking/gun_sonu_rapor_page.dart';
-import 'parent_module/Components/Messages/messages_page.dart';
 
 class MenuPage extends StatelessWidget {
   final String studentNumber;

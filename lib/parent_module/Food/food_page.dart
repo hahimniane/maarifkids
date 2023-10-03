@@ -3,8 +3,8 @@ import 'package:chat_bubbles/date_chips/date_chip.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import '../../contants.dart';
-import '../../test_page.dart';
+import '../../utils/contants.dart';
+import '../../utils/search_functionality.dart';
 import '../../utils/custom_horizontal_activity_dates.dart';
 import '../../menu_page.dart';
 import '../EventProgram/Etkinlik_program_page.dart';

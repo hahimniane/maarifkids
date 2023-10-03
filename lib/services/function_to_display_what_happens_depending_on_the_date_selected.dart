@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-
-
-import '../contants.dart';
+import '../utils/contants.dart';
 import '../utils/lists.dart';
 
-Widget getActivitiesForDate({ required
-    DateTime date,required String responseIfWeekend,required Widget responseIfWeekDay}) {
+Widget getActivitiesForDate(
+    {required DateTime date,
+    required String responseIfWeekend,
+    required Widget responseIfWeekDay}) {
   if (date.weekday == DateTime.saturday || date.weekday == DateTime.sunday) {
     return Center(child: Text(responseIfWeekend));
   } else {
@@ -17,7 +17,8 @@ Widget getActivitiesForDate({ required
 class listViewForDisplayingListOfActivities extends StatelessWidget {
   final List itemAccount;
   const listViewForDisplayingListOfActivities({
-    super.key, required this.itemAccount,
+    super.key,
+    required this.itemAccount,
   });
 
   @override
@@ -34,9 +35,10 @@ class listViewForDisplayingListOfActivities extends StatelessWidget {
                 child: Text(
                   hours[index],
                   style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Theme.of(context).primaryColor,),
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Theme.of(context).primaryColor,
+                  ),
                 ),
               ),
               Expanded(

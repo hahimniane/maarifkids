@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../contants.dart';
+import '../../../utils/contants.dart';
 import '../../../parent_module/Health/health_infromation_page.dart';
 import '../../../parent_module/Health/saglik_page.dart';
 import '../../../menu_page.dart';

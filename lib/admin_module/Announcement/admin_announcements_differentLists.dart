@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../contants.dart';
+import '../../utils/contants.dart';
 import 'admin_announcement_model.dart';
-List<PopupMenuEntry<String>>  postedAnnouncementsListItems=  [
+
+List<PopupMenuEntry<String>> postedAnnouncementsListItems = [
   PopupMenuItem<String>(
     value: 'Delete',
     child: Container(
@@ -38,11 +39,10 @@ List<PopupMenuEntry<String>>  postedAnnouncementsListItems=  [
 // Add more menu items as needed
 ];
 
-List<PopupMenuEntry<String>>  deletedAnnouncementsListItems=  [
+List<PopupMenuEntry<String>> deletedAnnouncementsListItems = [
   PopupMenuItem<String>(
     value: 'Remove',
     child: Container(
-
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(4),
         color: Colors.white,
@@ -73,11 +73,10 @@ List<PopupMenuEntry<String>>  deletedAnnouncementsListItems=  [
   ),
 // Add more menu items as needed
 ];
-List<PopupMenuEntry<String>>  withDrawnAnnouncementsListItems=  [
+List<PopupMenuEntry<String>> withDrawnAnnouncementsListItems = [
   PopupMenuItem<String>(
     value: 'Remove',
     child: Container(
-
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(4),
         color: Colors.white,
@@ -108,7 +107,6 @@ List<PopupMenuEntry<String>>  withDrawnAnnouncementsListItems=  [
   ),
 // Add more menu items as needed
 ];
-
 
 List<Announcement> announcementsList = [
   Announcement(
@@ -118,38 +116,38 @@ List<Announcement> announcementsList = [
   Announcement(
       title: "Trip Plan",
       content:
-      'Değerli Velilerimiz, 25 Haziran Pazar günü veli toplantısı düzenlenecektir. Katılımlarınızı önemle rica ederiz.'),
+          'Değerli Velilerimiz, 25 Haziran Pazar günü veli toplantısı düzenlenecektir. Katılımlarınızı önemle rica ederiz.'),
   Announcement(
       title: "Gezi Plani",
       content:
-      'Değerli Velilerimiz, 25 Haziran Pazar günü veli toplantısı düzenlenecektir. Katılımlarınızı önemle rica ederiz.'),
+          'Değerli Velilerimiz, 25 Haziran Pazar günü veli toplantısı düzenlenecektir. Katılımlarınızı önemle rica ederiz.'),
   Announcement(
       title: "Trip Plan",
       content:
-      'Değerli Velilerimiz, 25 Haziran Pazar günü veli toplantısı düzenlenecektir. Katılımlarınızı önemle rica ederiz.'),
+          'Değerli Velilerimiz, 25 Haziran Pazar günü veli toplantısı düzenlenecektir. Katılımlarınızı önemle rica ederiz.'),
   Announcement(
       title: "Trip Plan",
       content:
-      'Değerli Velilerimiz, 25 Haziran Pazar günü veli toplantısı düzenlenecektir. Katılımlarınızı önemle rica ederiz.'),
+          'Değerli Velilerimiz, 25 Haziran Pazar günü veli toplantısı düzenlenecektir. Katılımlarınızı önemle rica ederiz.'),
   Announcement(
       title: "Trip Plan",
       content:
-      'Değerli Velilerimiz, 25 Haziran Pazar günü veli toplantısı düzenlenecektir. Katılımlarınızı önemle rica ederiz.'),
+          'Değerli Velilerimiz, 25 Haziran Pazar günü veli toplantısı düzenlenecektir. Katılımlarınızı önemle rica ederiz.'),
   Announcement(
       title: "Trip Plan",
       content:
-      'Değerli Velilerimiz, 25 Haziran Pazar günü veli toplantısı düzenlenecektir. Katılımlarınızı önemle rica ederiz.'),
+          'Değerli Velilerimiz, 25 Haziran Pazar günü veli toplantısı düzenlenecektir. Katılımlarınızı önemle rica ederiz.'),
   Announcement(
       title: "Trip Plan",
       content:
-      'Değerli Velilerimiz, 25 Haziran Pazar günü veli toplantısı düzenlenecektir. Katılımlarınızı önemle rica ederiz.'),
+          'Değerli Velilerimiz, 25 Haziran Pazar günü veli toplantısı düzenlenecektir. Katılımlarınızı önemle rica ederiz.'),
   Announcement(
       title: "Trip Plan",
       content:
-      'Değerli Velilerimiz, 25 Haziran Pazar günü veli toplantısı düzenlenecektir. Katılımlarınızı önemle rica ederiz.'),
+          'Değerli Velilerimiz, 25 Haziran Pazar günü veli toplantısı düzenlenecektir. Katılımlarınızı önemle rica ederiz.'),
   Announcement(
       title: "Trip Plan",
       content:
-      'Değerli Velilerimiz, 25 Haziran Pazar günü veli toplantısı düzenlenecektir. Katılımlarınızı önemle rica ederiz.'),
+          'Değerli Velilerimiz, 25 Haziran Pazar günü veli toplantısı düzenlenecektir. Katılımlarınızı önemle rica ederiz.'),
   // Add more announcements as needed
 ];

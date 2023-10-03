@@ -3,8 +3,8 @@ import 'package:chat_bubbles/date_chips/date_chip.dart';
 import 'package:chat_bubbles/message_bars/message_bar.dart';
 import 'package:flutter/material.dart';
 
-import '../../../contants.dart';
-import '../../../test_page.dart';
+import '../../utils/contants.dart';
+import '../../utils/search_functionality.dart';
 
 import '../../utils/custom_nav_bar.dart';
 import '../../menu_page.dart';

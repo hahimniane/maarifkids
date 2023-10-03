@@ -1,11 +1,11 @@
+import '../../services/navigator_class.dart';
 import '../../utils/custom_nav_bar.dart';
 import '../../menu_page.dart';
 import 'admin_view_drug_information.dart';
 import 'package:flutter/material.dart';
 
-import '../../contants.dart';
-import '../../test_page.dart';
-import '../../widgets/navigator_class.dart';
+import '../../utils/contants.dart';
+import '../../utils/search_functionality.dart';
 
 import 'health_information/admin_health_information.dart';
 import 'admin_view_drug_information.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:maarifkids/contants.dart';
+import 'package:maarifkids/utils/contants.dart';
 import 'package:video_player/video_player.dart';
 
 import '../../menu_page.dart';

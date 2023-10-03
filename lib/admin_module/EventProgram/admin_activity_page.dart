@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:maarifkids/admin_module/EventProgram/view_old_events.dart';
 
-import '../../contants.dart';
+import '../../services/navigator_class.dart';
+import '../../utils/contants.dart';
 import '../../utils/custom_nav_bar.dart';
 import '../../menu_page.dart';
 import '../../utils/CustomIconButton.dart';
-import '../../widgets/navigator_class.dart';
 
 import 'admin_event_add_new_event_page.dart';
 

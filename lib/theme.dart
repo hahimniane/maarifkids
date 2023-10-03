@@ -1,30 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:maarifkids/contants.dart';
+import 'package:maarifkids/utils/contants.dart';
 
 // Custom theme for normal users
 class ParentTheme {
   static ThemeData lightTheme() {
     return ThemeData(
       appBarTheme: AppBarTheme(
-
-          titleTextStyle:TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
+          titleTextStyle: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            fontSize: 20,
           ),
-
-        iconTheme: IconThemeData(
-          color: Colors.white,
-        )
-
-
-      ),
-
+          iconTheme: IconThemeData(
+            color: Colors.white,
+          )),
 
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
-
         selectedItemColor: parentAppColor,
-            unselectedItemColor: parentAppColor,
+        unselectedItemColor: parentAppColor,
       ),
       useMaterial3: true,
       brightness: Brightness.light,
@@ -43,19 +36,17 @@ class AdminTheme {
   static ThemeData lightTheme() {
     return ThemeData(
       useMaterial3: true,
-      tabBarTheme: TabBarTheme(
-
-      ),
+      tabBarTheme: TabBarTheme(),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         selectedItemColor: adminAppColor,
         unselectedItemColor: adminAppColor,
       ),
       appBarTheme: AppBarTheme(
-        // titleTextStyle: TextStyle(
-        //   color: Colors.white,
-        //   fontWeight: FontWeight.bold
-        // )
-      ),
+          // titleTextStyle: TextStyle(
+          //   color: Colors.white,
+          //   fontWeight: FontWeight.bold
+          // )
+          ),
       primarySwatch: adminMaterialColor,
       primaryColor: adminAppColor, // Admin color
       // accentColor: Color(0xFFEF8515), // You can customize other properties as needed
@@ -64,8 +55,3 @@ class AdminTheme {
     );
   }
 }
-
-
-
-
-

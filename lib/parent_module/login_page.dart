@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:maarifkids/admin_module/profile_selection.dart';
 import 'package:maarifkids/theme.dart';
-import 'package:maarifkids/widgets/navigator_class.dart';
+
 import 'package:provider/provider.dart';
 
 import '../Providers/Providers.dart';
-import '../contants.dart';
+import '../services/navigator_class.dart';
+import '../utils/contants.dart';
 
-import '../enums.dart';
-import 'Components/profil_secimi.dart';
+import '../utils/enums.dart';
+import 'profil_secimi.dart';
 import 'home_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -125,7 +126,7 @@ class _LoginPageState extends State<LoginPage> {
                       Provider.of<ThemeProvider>(context, listen: false)
                           .changeUserType(UserType.parent);
                       NavigationHelper.pushPage(
-                          context, ProfileSelectionPage());
+                          context, ParentProfileSelectionPage());
                     } else {
                       Provider.of<ThemeProvider>(context, listen: false)
                           .changeUserType(UserType.admin);

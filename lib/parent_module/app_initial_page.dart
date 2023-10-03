@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-import '../contants.dart';
-import '../test_page.dart';
-import 'Components/profil_secimi.dart';
+import '../utils/contants.dart';
+import '../utils/search_functionality.dart';
+import 'profil_secimi.dart';
 import 'api_deneme.dart';
 import 'login_page.dart';
 

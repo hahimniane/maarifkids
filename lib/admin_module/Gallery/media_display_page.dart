@@ -3,7 +3,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
-import '../../contants.dart';
+import '../../utils/contants.dart';
 import '../../utils/custom_nav_bar.dart';
 import '../../menu_page.dart';
 

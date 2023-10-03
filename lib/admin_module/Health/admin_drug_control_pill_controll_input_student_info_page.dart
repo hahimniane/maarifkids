@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../contants.dart';
+import '../../utils/contants.dart';
 import '../../utils/custom_view_old.dart';
 import 'admin_health_add _new_pill_page.dart';
 import 'admin_health_drug_control_student_input_information_result_page.dart';

@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
-import '../contants.dart';
+import '../utils/contants.dart';
 
 // class Album {
 //   final String name;
@@ -11,9 +11,6 @@ import '../contants.dart';
 //
 //   Album(this.name, this.media);
 // }
-
-
-
 
 // class MediaUploadPage extends StatefulWidget {
 //   @override

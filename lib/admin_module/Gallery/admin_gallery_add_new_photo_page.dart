@@ -4,10 +4,10 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
-import '../../contants.dart';
+import '../../utils/contants.dart';
 import '../../utils/custom_nav_bar.dart';
 import '../../menu_page.dart';
-import '../../test_page.dart';
+import '../../utils/search_functionality.dart';
 import '../exercise.dart';
 
 class Album {

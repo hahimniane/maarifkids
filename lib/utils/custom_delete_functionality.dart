@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../contants.dart';
+import 'contants.dart';
 
 class CustomDeleteWidget extends StatelessWidget {
   final String title;

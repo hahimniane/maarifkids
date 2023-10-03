@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:maarifkids/contants.dart';
+import 'package:maarifkids/utils/contants.dart';
 
 import '../../menu_page.dart';
+import '../../services/navigator_class.dart';
 import '../../utils/custom_nav_bar.dart';
-import '../../widgets/navigator_class.dart';
+
 import '../Attendance/admin_attendance_results_page.dart';
 import 'admin_service_student_service_result_page.dart';
 

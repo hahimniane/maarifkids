@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:maarifkids/contants.dart';
+import 'package:maarifkids/utils/contants.dart';
 
 import '../../menu_page.dart';
 import 'announcement_details_page.dart';

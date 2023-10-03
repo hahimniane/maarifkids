@@ -2,8 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-import '../../contants.dart';
-import '../../test_page.dart';
+import '../../utils/contants.dart';
+import '../../utils/search_functionality.dart';
 import '../../menu_page.dart';
 import 'album_viewer.dart';
 import '../../utils/custom_nav_bar.dart';

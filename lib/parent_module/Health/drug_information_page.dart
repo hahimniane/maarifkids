@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 
-import 'package:maarifkids/contants.dart';
-import 'package:maarifkids/widgets/function_for_initializing_dates.dart';
-
-import '../../../widgets/acitvities_class.dart';
+import 'package:maarifkids/utils/contants.dart';
 
 import '../../menu_page.dart';
+import '../../services/acitvities_class.dart';
+import '../../services/function_for_initializing_dates.dart';
 import 'saglik_page.dart';
 import '../../../utils/custom_nav_bar.dart';
 

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:maarifkids/utils/pdf_viewer_page.dart';
 
-import 'package:maarifkids/test_page.dart';
+import 'package:maarifkids/utils/search_functionality.dart';
 
-import '../../contants.dart';
+import '../../utils/contants.dart';
 
 import 'package:flutter/material.dart';
 

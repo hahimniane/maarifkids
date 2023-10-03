@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../contants.dart';
+import '../../utils/contants.dart';
 import '../../utils/custom_delete_functionality.dart';
 import '../../utils/custom_nav_bar.dart';
 import '../../utils/pdf_viewer_page.dart';
@@ -67,9 +67,9 @@ class AdminProgressTrackingViewOldResultsPage extends StatelessWidget {
                           context: context,
                           builder: (BuildContext context) {
                             return CustomDeleteWidget(
-                              title: "Delete Bulletin",
+                              title: "Delete Achievement",
                               content:
-                                  'Are you sure you want to delete this post?',
+                                  'Are you sure you want to delete this achievement?',
                             );
                           },
                         );

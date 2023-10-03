@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:maarifkids/widgets/navigator_class.dart';
 
-import '../../contants.dart';
+import '../../services/navigator_class.dart';
+import '../../utils/contants.dart';
 import '../../menu_page.dart';
 import '../../parent_module/Attendance/attendance_page.dart';
 import '../../parent_module/Service/service_page.dart';
-import '../../test_page.dart';
+import '../../utils/search_functionality.dart';
 import '../../utils/custom_nav_bar.dart';
 import 'admin_service_single_student_details_page.dart';
 

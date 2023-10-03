@@ -1,13 +1,13 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-import 'package:maarifkids/contants.dart';
+import 'package:maarifkids/utils/contants.dart';
 
+import '../../services/acitvities_class.dart';
+import '../../services/function_for_initializing_dates.dart';
 import '../../utils/custom_nav_bar.dart';
 import '../../menu_page.dart';
-import '../../test_page.dart';
-import '../../widgets/acitvities_class.dart';
-import '../../widgets/function_for_initializing_dates.dart';
+import '../../utils/search_functionality.dart';
 
 class AdminAddNewEventPage extends StatefulWidget {
   final bool isFromSearch;

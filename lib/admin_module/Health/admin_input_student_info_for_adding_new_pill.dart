@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../contants.dart';
+import '../../utils/contants.dart';
 import '../../utils/custom_view_old.dart';
 import 'admin_health_add _new_pill_page.dart';
 
@@ -16,7 +16,9 @@ class AdminViewStudentHealthInformationPage extends StatelessWidget {
       gradeController: galleryGradeController,
       dateController: galleryDateController,
       appBarTitleString: healthString,
-      nextPage: AdminHealthAddNewPillPage(isFromSearch: false,),
+      nextPage: AdminHealthAddNewPillPage(
+        isFromSearch: false,
+      ),
       isItHealthPage: true,
     );
   }

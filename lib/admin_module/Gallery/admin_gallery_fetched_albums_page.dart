@@ -2,10 +2,10 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-import '../../contants.dart';
+import '../../utils/contants.dart';
 import '../../utils/custom_nav_bar.dart';
 import '../../menu_page.dart';
-import '../../test_page.dart';
+import '../../utils/search_functionality.dart';
 import 'media_display_page.dart';
 
 class FetchedAlbumsPage extends StatelessWidget {

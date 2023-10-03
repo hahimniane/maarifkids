@@ -91,9 +91,9 @@ import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
-import '../contants.dart';
-import '../contants.dart';
-import '../contants.dart';
+import 'contants.dart';
+import 'contants.dart';
+import 'contants.dart';
 
 class SyncVisionPdfViewer extends StatefulWidget {
   final dynamic pdfSource;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:maarifkids/admin_module/SchoolService/admin_service_student_service_result_page.dart';
 
-import 'package:maarifkids/contants.dart';
+import 'package:maarifkids/utils/contants.dart';
 import 'package:maarifkids/parent_module/Health/saglik_page.dart';
 
 import '../../../utils/custom_nav_bar.dart';

@@ -4,7 +4,7 @@
 //
 // import '../../../Pages/Components/custom_nav_bar.dart';
 // import '../../../Pages/menu_page.dart';
-// import '../../../test_page.dart';
+// import '../../../search_functionality.dart';
 // import '../../../widgets/acitvities_class.dart';
 // import '../../../widgets/function_for_initializing_dates.dart';
 // class AdminAddNewFoodListPage extends StatefulWidget {
@@ -490,7 +490,7 @@
 //   }
 // }
 import 'package:flutter/material.dart';
-import 'package:maarifkids/contants.dart';
+import 'package:maarifkids/utils/contants.dart';
 
 import '../../../utils/custom_view_old.dart';
 import '../../Gallery/admin_gallery_fetched_albums_page.dart';
@@ -498,13 +498,19 @@ import '../../Gallery/admin_gallery_fetched_albums_page.dart';
 import 'Admin_health_view_student_health_information_page.dart';
 
 class AdminViewStudentHealthInformationPage extends StatelessWidget {
-   AdminViewStudentHealthInformationPage({super.key});
+  AdminViewStudentHealthInformationPage({super.key});
 
-  final TextEditingController galleryGradeController=TextEditingController();
-  final TextEditingController galleryDateController=TextEditingController();
+  final TextEditingController galleryGradeController = TextEditingController();
+  final TextEditingController galleryDateController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    return  CustomViewOldPage(gradeController: galleryGradeController, dateController: galleryDateController, appBarTitleString: healthString, nextPage: AdminHealthInformationResultsPage(),isItHealthPage: true,);
+    return CustomViewOldPage(
+      gradeController: galleryGradeController,
+      dateController: galleryDateController,
+      appBarTitleString: healthString,
+      nextPage: AdminHealthInformationResultsPage(),
+      isItHealthPage: true,
+    );
   }
 }

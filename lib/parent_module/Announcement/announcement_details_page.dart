@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import 'package:maarifkids/contants.dart';
+import 'package:maarifkids/utils/contants.dart';
 
 import '../../utils/pdf_viewer_page.dart';
 import '../app_initial_page.dart';

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:maarifkids/contants.dart';
+import 'package:maarifkids/utils/contants.dart';
 
+import '../../services/acitvities_class.dart';
+import '../../services/function_for_initializing_dates.dart';
 import '../../utils/custom_nav_bar.dart';
 import '../../menu_page.dart';
-import '../../test_page.dart';
-import '../../widgets/acitvities_class.dart';
-import '../../widgets/function_for_initializing_dates.dart';
+import '../../utils/search_functionality.dart';
 
 class AdminAddNewFoodListPage extends StatefulWidget {
   final bool isFromSearch;
@@ -68,7 +68,7 @@ class _AdminAddNewFoodListPageState extends State<AdminAddNewFoodListPage> {
     return Scaffold(
       appBar: buildAppBar(
         isAdminColor: true,
-        title: eventProgramString,
+        title: foodListString,
         context: context,
         isFromSearch: widget.isFromSearch,
       ),
@@ -196,45 +196,47 @@ class _CreateEventState extends State<CreateEvent> {
       return Padding(
         padding: const EdgeInsets.only(top: 16.0, bottom: 5, left: 16),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Expanded(
-              child: Container(
-                height: 30,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5),
-                  border: Border.all(color: adminAppColor),
-                ),
-                child: DropdownButtonHideUnderline(
-                  child: DropdownButton<String>(
-                    icon: SizedBox.shrink(),
-                    value: slot['selectedTime'],
-                    onChanged: (newValue) {
-                      setState(() {
-                        slot['selectedTime'] = newValue!;
-                      });
-                    },
-                    items:
-                        timeList.map<DropdownMenuItem<String>>((String value) {
-                      return DropdownMenuItem<String>(
-                        value: value,
-                        child: Center(
-                          child: Text(
-                            value,
-                            style: TextStyle(color: adminAppColor),
-                          ),
-                        ),
-                      );
-                    }).toList(),
-                  ),
-                ),
-              ),
-            ),
+            // Expanded(
+            //   child: Container(
+            //     height: 30,
+            //     decoration: BoxDecoration(
+            //       borderRadius: BorderRadius.circular(5),
+            //       border: Border.all(color: adminAppColor),
+            //     ),
+            //     child: DropdownButtonHideUnderline(
+            //       child: DropdownButton<String>(
+            //         icon: SizedBox.shrink(),
+            //         value: slot['selectedTime'],
+            //         onChanged: (newValue) {
+            //           setState(() {
+            //             slot['selectedTime'] = newValue!;
+            //           });
+            //         },
+            //         items:
+            //             timeList.map<DropdownMenuItem<String>>((String value) {
+            //           return DropdownMenuItem<String>(
+            //             value: value,
+            //             child: Center(
+            //               child: Text(
+            //                 value,
+            //                 style: TextStyle(color: adminAppColor),
+            //               ),
+            //             ),
+            //           );
+            //         }).toList(),
+            //       ),
+            //     ),
+            //   ),
+            // ),
             SizedBox(
               width: 10,
             ),
-            Expanded(
-              flex: 3,
+            Align(
+              alignment: Alignment.center,
               child: Container(
+                width: MediaQuery.of(context).size.width * 0.60,
                 height: 30,
                 child: Stack(
                   clipBehavior: Clip.none,
@@ -302,76 +304,9 @@ class _CreateEventState extends State<CreateEvent> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          ListTile(
-            title: Container(
-              width: 60,
-              height: 30,
-              decoration: BoxDecoration(
-                color: adminAppColor,
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: Center(
-                child: Text(
-                  'Choose ',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-            ),
-            trailing: Container(
-              width: 210,
-              child: DropdownButton<String>(
-                isExpanded: true,
-                hint: Text("Choose Meal"), // Optional hint text
-                value: slectedValue, // Set the selected value here
-                items: <String>['Breakfast', 'Lunch'].map((String value) {
-                  return DropdownMenuItem<String>(
-                    value:
-                        value, // Set the value of each item to the option's value
-                    child: Text(
-                      value,
-                      style: TextStyle(
-                        color: adminAppColor,
-                      ),
-                    ),
-                  );
-                }).toList(),
-                onChanged: (newValue) {
-                  setState(() {
-                    slectedValue =
-                        newValue; // Update the selected value when an option is chosen
-                  });
-                  print(slectedValue);
-
-                  // Handle the selection here
-                  // You can replace this with your logic
-                },
-              ),
-            ),
-          ),
-          ...slotWidgets, // Display slots in a normal column layout
-          Container(
-            child: TextButton(
-              onPressed: () {
-                addSlot();
-              },
-              child: Row(
-                children: [
-                  Icon(
-                    Icons.add,
-                    color: adminAppColor,
-                  ),
-                  Text(
-                    'Add',
-                    style: TextStyle(
-                      color: adminAppColor,
-                    ),
-                  )
-                ],
-              ),
-            ),
+          MealWidget(
+            slectedValue: slectedValue!,
+            slotWidgets: slotWidgets,
           ),
           Align(
             alignment: Alignment.centerLeft,
@@ -400,6 +335,7 @@ class _CreateEventState extends State<CreateEvent> {
           Align(
             alignment: Alignment.centerRight,
             child: Container(
+              margin: EdgeInsets.only(right: 10),
               height: MediaQuery.of(context).size.height * 0.047,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
@@ -408,7 +344,7 @@ class _CreateEventState extends State<CreateEvent> {
                 style: TextButton.styleFrom(
                   backgroundColor: adminAppColor,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.zero,
+                    borderRadius: BorderRadius.circular(5),
                   ),
                 ),
                 onPressed: () {
@@ -421,10 +357,10 @@ class _CreateEventState extends State<CreateEvent> {
                       builder: (BuildContext context) {
                         return AlertDialog(
                           backgroundColor: adminAppColor,
-                          title: Text("No Events Created"),
+                          title: Text("No Food Created"),
                           titleTextStyle: TextStyle(
                               color: Colors.white, fontWeight: FontWeight.bold),
-                          content: Text("You have not created any events."),
+                          content: Text("You have to create Food to save"),
                           contentTextStyle: TextStyle(color: Colors.white),
                           actions: <Widget>[
                             TextButton(
@@ -483,5 +419,113 @@ class _CreateEventState extends State<CreateEvent> {
       'mandatory': 'true', // Add a 'mandatory' key to mark it as mandatory
     });
     slotId++;
+  }
+}
+
+class MealWidget extends StatefulWidget {
+  String slectedValue;
+  final List<Widget> slotWidgets;
+  MealWidget(
+      {super.key, required this.slectedValue, required this.slotWidgets});
+
+  @override
+  State<MealWidget> createState() => _MealWidgetState();
+}
+
+class _MealWidgetState extends State<MealWidget> {
+  String? selectedTime = '12:00';
+  List<Map<String, String>> foodSlots = [];
+  int slotId = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        ListTile(
+          title: Container(
+            width: 60,
+            height: 30,
+            decoration: BoxDecoration(
+              color: adminAppColor,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Center(
+              child: Text(
+                'Choose ',
+                style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ),
+          trailing: Container(
+            width: 210,
+            child: DropdownButton<String>(
+              isExpanded: true,
+              hint: Text("Choose Meal"), // Optional hint text
+              value: widget.slectedValue, // Set the selected value here
+              items: <String>['Breakfast', 'Lunch'].map((String value) {
+                return DropdownMenuItem<String>(
+                  value:
+                      value, // Set the value of each item to the option's value
+                  child: Text(
+                    value,
+                    style: TextStyle(
+                      color: adminAppColor,
+                    ),
+                  ),
+                );
+              }).toList(),
+              onChanged: (newValue) {
+                setState(() {
+                  widget.slectedValue =
+                      newValue!; // Update the selected value when an option is chosen
+                });
+                print(widget.slectedValue);
+
+                // Handle the selection here
+                // You can replace this with your logic
+              },
+            ),
+          ),
+        ),
+        ...widget.slotWidgets, // Display slots in a normal column layout
+        Container(
+          child: TextButton(
+            onPressed: () {
+              addSlot();
+            },
+            child: Row(
+              children: [
+                Icon(
+                  Icons.add,
+                  color: adminAppColor,
+                ),
+                Text(
+                  'Add',
+                  style: TextStyle(
+                    color: adminAppColor,
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  void addSlot() {
+    print('adding a new slot and slot id is $slotId ');
+    setState(() {
+      // Add a new slot with a unique identifier
+      foodSlots.add({
+        'id': slotId.toString(),
+        'selectedTime': selectedTime!,
+        'eventDetails': '',
+      });
+      slotId++; // Increment the unique identifier
+    });
   }
 }

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:maarifkids/contants.dart';
-import 'package:maarifkids/widgets/navigator_class.dart';
+import 'package:maarifkids/utils/contants.dart';
 
+import '../../services/navigator_class.dart';
 import '../../utils/custom_date_picker.dart';
 import '../EventProgram/admin_progress_tracking_results_page.dart';
-
 
 class AdminProgressViewOldPage extends StatelessWidget {
   const AdminProgressViewOldPage({super.key});
@@ -32,7 +31,11 @@ class AdminProgressViewOldPage extends StatelessWidget {
                       )),
                   child: TextButton(
                     onPressed: () {
-                   NavigationHelper.pushPage(context, AdminProgressTrackingViewOldResultsPage(isFromSearch: false,));
+                      NavigationHelper.pushPage(
+                          context,
+                          AdminProgressTrackingViewOldResultsPage(
+                            isFromSearch: false,
+                          ));
                       //TODO: make sure that the user is not empty.
                       //TODO: make sure that the subject is not empty
                       //TODO: make sure that the message is not empty
@@ -87,9 +90,10 @@ class AdminProgressViewOldPage extends StatelessWidget {
                           width: 210,
                           child: TextField(
                             decoration: InputDecoration(
-                              suffixIcon:Icon(
-Icons.search,color: Theme.of(context).primaryColor,                              )
-                            ),
+                                suffixIcon: Icon(
+                              Icons.search,
+                              color: Theme.of(context).primaryColor,
+                            )),
                             textAlign: TextAlign.center,
                           ),
                         ),
@@ -105,19 +109,17 @@ Icons.search,color: Theme.of(context).primaryColor,                             
                                 borderRadius: BorderRadius.circular(8)),
                             child: Center(
                                 child: Text(
-                                  textAlign:TextAlign.center,
+                              textAlign: TextAlign.center,
                               'Academic Year',
                               style: TextStyle(
-
                                 fontSize: 12,
                                 fontWeight: FontWeight.w500,
                                 color: Colors.white,
                               ),
-
                             ))),
                         Container(
                           width: 210,
-                          child:DateSelectionWidget(),
+                          child: DateSelectionWidget(),
                         ),
                       ],
                     ),

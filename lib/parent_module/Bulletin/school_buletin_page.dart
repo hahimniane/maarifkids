@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lorem/flutter_lorem.dart';
 
-import '../../contants.dart';
-import '../../test_page.dart';
+import '../../utils/contants.dart';
+import '../../utils/search_functionality.dart';
 import '../../menu_page.dart';
 import 'buletin_detailed_page.dart';
 import '../../utils/custom_nav_bar.dart';

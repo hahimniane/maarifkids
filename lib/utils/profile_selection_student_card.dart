@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../contants.dart';
+import 'contants.dart';
 import '../menu_page.dart';
 
 class profileSelectionStudentCard extends StatelessWidget {

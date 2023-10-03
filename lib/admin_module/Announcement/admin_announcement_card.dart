@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 
-import '../../contants.dart';
+import '../../utils/contants.dart';
 import 'admin_announcement_dynamic_popup_menu_button.dart';
 import 'admin_announcement_model.dart';
+
 class DynamicAnnouncementCard extends StatelessWidget {
   final dynamicPopUpMenuButtonListItems;
   final Announcement announcement;
 
-  DynamicAnnouncementCard({required this.announcement,required this.dynamicPopUpMenuButtonListItems});
+  DynamicAnnouncementCard(
+      {required this.announcement,
+      required this.dynamicPopUpMenuButtonListItems});
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +41,9 @@ class DynamicAnnouncementCard extends StatelessWidget {
                   ],
                 ),
               )),
-          dynamicPopUpMenuButton(announncementsListItems: dynamicPopUpMenuButtonListItems,),
+          dynamicPopUpMenuButton(
+            announncementsListItems: dynamicPopUpMenuButtonListItems,
+          ),
         ],
 
         // subtitle:

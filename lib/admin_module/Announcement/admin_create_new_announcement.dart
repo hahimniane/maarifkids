@@ -3,9 +3,9 @@ import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
-
-import '../../contants.dart';
+import '../../utils/contants.dart';
 import '../../utils/pdf_viewer_page.dart';
+
 class CreateNewAnnouncement extends StatefulWidget {
   CreateNewAnnouncement({
     super.key,
@@ -73,15 +73,18 @@ class _CreateNewAnnouncementState extends State<CreateNewAnnouncement> {
                               borderRadius: BorderRadius.circular(8)),
                           child: Center(
                               child: Text(
-                                'To',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.white,
-                                ),
-                              ))),
-                      Container(width: 210, child: TextField(
-                        textAlign: TextAlign.center,
-                      ),),
+                            'To',
+                            style: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              color: Colors.white,
+                            ),
+                          ))),
+                      Container(
+                        width: 210,
+                        child: TextField(
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
                     ],
                   ),
                   Row(
@@ -94,13 +97,17 @@ class _CreateNewAnnouncementState extends State<CreateNewAnnouncement> {
                               borderRadius: BorderRadius.circular(8)),
                           child: Center(
                               child: Text(
-                                'Subject',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.white,
-                                ),
-                              ))),
-                      Container(width: 210, child: TextField(  textAlign: TextAlign.center,))
+                            'Subject',
+                            style: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              color: Colors.white,
+                            ),
+                          ))),
+                      Container(
+                          width: 210,
+                          child: TextField(
+                            textAlign: TextAlign.center,
+                          ))
                     ],
                   ),
                 ],
@@ -117,10 +124,8 @@ class _CreateNewAnnouncementState extends State<CreateNewAnnouncement> {
                   height: MediaQuery.of(context).size.height * 0.40,
                   width: MediaQuery.of(context).size.width * 0.95,
                   child: TextField(
-
                     expands: true,
                     decoration: InputDecoration(
-
                       labelText: 'Enter Message',
                       border: OutlineInputBorder(),
                     ),
@@ -155,7 +160,7 @@ class _CreateNewAnnouncementState extends State<CreateNewAnnouncement> {
                   height: 30,
                   width: 30,
                   image:
-                  AssetImage('images/admin_images/attachedFilesIcon.png'),
+                      AssetImage('images/admin_images/attachedFilesIcon.png'),
                 ),
                 Text(
                   'Attached Files',
@@ -172,40 +177,40 @@ class _CreateNewAnnouncementState extends State<CreateNewAnnouncement> {
             alignment: Alignment.centerLeft,
             child: selectedFiles.isNotEmpty
                 ? Row(
-              children: selectedFiles.map((file) {
-                return GestureDetector(
-                  onTap: () {
-                    print('clicked');
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => SyncVisionPdfViewer(
-                          pdfSource: file,
+                    children: selectedFiles.map((file) {
+                      return GestureDetector(
+                        onTap: () {
+                          print('clicked');
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => SyncVisionPdfViewer(
+                                pdfSource: file,
+                              ),
+                            ),
+                          );
+                        },
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 8.0),
+                          child: Image.asset(
+                            'images/admin_images/pdfIcon.png',
+                            height: 30,
+                            width: 30,
+                          ),
                         ),
-                      ),
-                    );
-                  },
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 8.0),
-                    child: Image.asset(
-                      'images/admin_images/pdfIcon.png',
-                      height: 30,
-                      width: 30,
-                    ),
-                  ),
-                );
-              }).toList(),
-            )
+                      );
+                    }).toList(),
+                  )
                 : Container()
-          // Padding(
-          //   padding: const EdgeInsets.only(left: 13.0),
-          //   child: Image(
-          //     height: 30,
-          //     width: 30,
-          //     image: AssetImage('images/admin_images/pdfIcon.png'),
-          //   ),
-          // ),
-        )
+            // Padding(
+            //   padding: const EdgeInsets.only(left: 13.0),
+            //   child: Image(
+            //     height: 30,
+            //     width: 30,
+            //     image: AssetImage('images/admin_images/pdfIcon.png'),
+            //   ),
+            // ),
+            )
       ],
     );
   }

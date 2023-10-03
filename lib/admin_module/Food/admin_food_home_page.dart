@@ -2,14 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:maarifkids/admin_module/Food/admin_add_new_food_list.dart';
 import 'package:maarifkids/admin_module/Food/admin_view_old_food_list.dart';
 
-import '../../contants.dart';
+import '../../services/navigator_class.dart';
+import '../../utils/contants.dart';
 import '../../utils/custom_nav_bar.dart';
 import '../../menu_page.dart';
-import '../../test_page.dart';
+import '../../utils/search_functionality.dart';
 import '../../utils/CustomIconButton.dart';
-import '../../widgets/navigator_class.dart';
+
 import '../Bulletin/admin_add_new_bulletin.dart';
 import '../Bulletin/admin_view_old_buletin.dart';
+import '../test_page.dart';
 
 class AdminFoodHomePage extends StatelessWidget {
   const AdminFoodHomePage({super.key});
@@ -31,10 +33,12 @@ class AdminFoodHomePage extends StatelessWidget {
             CustomIconButton(
               onTap: () {
                 NavigationHelper.pushPage(
-                    context,
-                    AdminAddNewFoodListPage(
-                      isFromSearch: false,
-                    ));
+                  context,
+                  MealPlanner(),
+                  // AdminAddNewFoodListPage(
+                  //   isFromSearch: false,
+                  // ),
+                );
               },
               iconData: Icons.add,
               label: 'Add New\n Food List',

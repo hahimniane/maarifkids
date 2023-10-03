@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../contants.dart';
-import '../../utils/profile_selection_student_card.dart';
+import '../utils/contants.dart';
+import '../utils/profile_selection_student_card.dart';
 
-class ProfileSelectionPage extends StatelessWidget {
+class ParentProfileSelectionPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
