@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-
 import '../contants.dart';
 import '../test_page.dart';
 import 'Components/profil_secimi.dart';
@@ -55,9 +54,10 @@ class _AppInitialPageState extends State<AppInitialPage> {
               child: Text(
                 'Welcome!',
                 style: TextStyle(
-                    backgroundColor: Colors.white70,
-                    fontSize: 25,
-                    color: Theme.of(context).primaryColor,),
+                  backgroundColor: Colors.white70,
+                  fontSize: 25,
+                  color: Theme.of(context).primaryColor,
+                ),
               ),
             ),
             // Photo holder
@@ -100,7 +100,7 @@ class _AppInitialPageState extends State<AppInitialPage> {
                       MaterialPageRoute(builder: (context) => LoginPage()));
                 },
                 child: const Text(
-                  'Devam Et',
+                  'Continue',
                   style: TextStyle(
                     color: Colors.white,
                   ),

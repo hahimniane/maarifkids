@@ -100,7 +100,7 @@ class _LoginPageState extends State<LoginPage> {
                       obscureText: true,
                       keyboardType: TextInputType.emailAddress,
                       // style: const TextStyle(color: Colors.grey),
-                      controller: emailTextFieldController,
+                      controller: passwordTextFieldController,
                       decoration: const InputDecoration(
                         hintText: '********',
                         border: OutlineInputBorder(),
@@ -116,7 +116,7 @@ class _LoginPageState extends State<LoginPage> {
             Container(
               width: 150,
               child: ElevatedButton(
-                  key: Key('giris_button'),
+                  key: Key('loginButton'),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Theme.of(context).primaryColor,
                   ),
