@@ -32,9 +32,10 @@ import 'parent_module/ProgressTracking/gun_sonu_rapor_page.dart';
 import 'parent_module/Components/Messages/messages_page.dart';
 
 class MenuPage extends StatelessWidget {
+  final String studentNumber;
   final CarouselController carouselController = CarouselController();
 
-  MenuPage({Key? key}) : super(key: key);
+  MenuPage({Key? key, this.studentNumber = '1234'}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+const String profileSelectionString = 'Profile Selection';
 const String galleryString = 'Gallery';
 const String progressTrackingString = 'Progress Tracking';
 const String eventProgramString = 'Event Program';
@@ -79,7 +80,10 @@ class buildAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       leading: IconButton(
-        icon: const Icon(Icons.arrow_back_ios_new),
+        icon: const Icon(
+          Icons.arrow_back_ios_new,
+          color: Colors.white,
+        ),
         color: Colors.white,
         onPressed: () {
           if (isFromSearch) {

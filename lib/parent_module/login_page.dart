@@ -22,11 +22,9 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController emailTextFieldController = TextEditingController();
   TextEditingController passwordTextFieldController = TextEditingController();
 
-
   @override
   void initState() {
     super.initState();
-
   }
 
   @override
@@ -60,7 +58,9 @@ class _LoginPageState extends State<LoginPage> {
                     padding: const EdgeInsets.only(bottom: 8.0),
                     child: Text(
                       'Email',
-                      style: TextStyle(color: Theme.of(context).primaryColor,),
+                      style: TextStyle(
+                        color: Theme.of(context).primaryColor,
+                      ),
                     ),
                   ),
                   Container(
@@ -89,7 +89,9 @@ class _LoginPageState extends State<LoginPage> {
                     padding: EdgeInsets.only(bottom: 8.0),
                     child: Text(
                       'Password',
-                      style: TextStyle(color: Theme.of(context).primaryColor,),
+                      style: TextStyle(
+                        color: Theme.of(context).primaryColor,
+                      ),
                     ),
                   ),
                   Container(
@@ -114,23 +116,25 @@ class _LoginPageState extends State<LoginPage> {
             Container(
               width: 150,
               child: ElevatedButton(
-                key: Key('giris_button'),
+                  key: Key('giris_button'),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Theme.of(context).primaryColor,
                   ),
                   onPressed: () {
-                    if(emailTextFieldController.text=='parent'){
-                      Provider.of<ThemeProvider>(context,listen: false).changeUserType(UserType.parent);
-                      NavigationHelper.pushPage(context, ProfileSelectionPage());
+                    if (emailTextFieldController.text == 'parent') {
+                      Provider.of<ThemeProvider>(context, listen: false)
+                          .changeUserType(UserType.parent);
+                      NavigationHelper.pushPage(
+                          context, ProfileSelectionPage());
+                    } else {
+                      Provider.of<ThemeProvider>(context, listen: false)
+                          .changeUserType(UserType.admin);
+                      NavigationHelper.pushPage(
+                          context, AdminProfileSelectionPage());
                     }
-                    else{
-                      Provider.of<ThemeProvider>(context,listen: false).changeUserType(UserType.admin);
-                      NavigationHelper.pushPage(context, AdminProfileSelectionPage());
-                    }
-
                   },
                   child: const Text(
-                    'Giriş!',
+                    'Login!',
                     style: TextStyle(
                       color: Colors.white,
                     ),
