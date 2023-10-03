@@ -25,36 +25,38 @@ class _CreateNewAnnouncementState extends State<CreateNewAnnouncement> {
           padding: const EdgeInsets.all(8.0),
           child: Row(
             children: [
-              Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    border: Border.all(
-                      color: adminAppColor,
-                    )),
-                child: TextButton(
-                    onPressed: () {
-                      //TODO: make sure that the user is not empty.
-                      //TODO: make sure that the subject is not empty
-                      //TODO: make sure that the message is not empty
-                      //TODO: check if there is any attachement attached.
-                    },
-                    child: Column(
-                      children: [
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.arrow_forward_ios_rounded,
-                              size: 10,
-                              color: adminAppColor,
-                            ),
-                          ],
-                        ),
-                        Text(
-                          'Send',
-                          style: TextStyle(color: adminAppColor, fontSize: 10),
-                        ),
-                      ],
-                    )),
+              Expanded(
+                child: Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(
+                        color: adminAppColor,
+                      )),
+                  child: TextButton(
+                      onPressed: () {
+                        //TODO: make sure that the user is not empty.
+                        //TODO: make sure that the subject is not empty
+                        //TODO: make sure that the message is not empty
+                        //TODO: check if there is any attachement attached.
+                      },
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.arrow_forward_ios_rounded,
+                                size: 10,
+                                color: adminAppColor,
+                              ),
+                            ],
+                          ),
+                          Text(
+                            'Send',
+                            style: TextStyle(color: adminAppColor, fontSize: 10),
+                          ),
+                        ],
+                      )),
+                ),
               ),
               SizedBox(
                 width: 15,

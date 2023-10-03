@@ -84,8 +84,10 @@ class _AdminAddNewBulletinPageState extends State<AdminAddNewBulletinPage> {
                         ],
                       )),
                 ),
-                SizedBox(
-                  width: 15,
+                Expanded(
+                  child: SizedBox(
+                    width: 15,
+                  ),
                 ),
                 Column(
                   mainAxisSize: MainAxisSize.min,

@@ -5,6 +5,11 @@ import 'package:maarifkids/utils/contants.dart';
 class ParentTheme {
   static ThemeData lightTheme() {
     return ThemeData(
+      colorScheme: ColorScheme.fromSeed(
+        seedColor: adminAppColor,
+        // ···
+
+      ),
       appBarTheme: AppBarTheme(
           titleTextStyle: TextStyle(
             color: Colors.white,
@@ -35,6 +40,12 @@ class ParentTheme {
 class AdminTheme {
   static ThemeData lightTheme() {
     return ThemeData(
+      colorScheme: ColorScheme.fromSeed(
+        seedColor: adminAppColor,
+        // ···
+
+      ),
+      highlightColor: adminAppColor,
       useMaterial3: true,
       tabBarTheme: TabBarTheme(),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(

@@ -36,13 +36,15 @@ class CustomIconButton extends StatelessWidget {
                     color: adminAppColor,
                     size: 80,
                   ),
-                  Text(
-                    textAlign: TextAlign.center,
-                    label,
-                    style: TextStyle(
-                        fontSize: 25,
-                        color: adminAppColor,
-                        fontWeight: FontWeight.bold),
+                  Expanded(
+                    child: Text(
+                      textAlign: TextAlign.center,
+                      label,
+                      style: TextStyle(
+                          fontSize: 25,
+                          color: adminAppColor,
+                          fontWeight: FontWeight.bold),
+                    ),
                   )
                 ],
               ),

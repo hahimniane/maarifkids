@@ -44,43 +44,45 @@ class CustomViewOldPage extends StatelessWidget {
             child: !isItHealthPage
                 ? Row(
                     children: [
-                      Container(
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8),
-                            border: Border.all(
-                              color: adminAppColor,
-                            )),
-                        child: TextButton(
-                            onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => nextPage));
-                              //TODO: make sure that the user is not empty.
-                              //TODO: make sure that the subject is not empty
-                              //TODO: make sure that the message is not empty
-                              //TODO: check if there is any attachement attached.
-                            },
-                            child: Column(
-                              children: [
-                                Row(
-                                  children: [
-                                    Icon(
-                                      Icons.remove_red_eye,
-                                      size: 20,
-                                      color: adminAppColor,
-                                    ),
-                                  ],
-                                ),
-                                Text(
-                                  'View',
-                                  style: TextStyle(
-                                      color: adminAppColor,
-                                      fontSize: 10,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ],
-                            )),
+                      Expanded(
+                        child: Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8),
+                              border: Border.all(
+                                color: adminAppColor,
+                              )),
+                          child: TextButton(
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => nextPage));
+                                //TODO: make sure that the user is not empty.
+                                //TODO: make sure that the subject is not empty
+                                //TODO: make sure that the message is not empty
+                                //TODO: check if there is any attachement attached.
+                              },
+                              child: Column(
+                                children: [
+                                  Row(
+                                    children: [
+                                      Icon(
+                                        Icons.remove_red_eye,
+                                        size: 20,
+                                        color: adminAppColor,
+                                      ),
+                                    ],
+                                  ),
+                                  Text(
+                                    'View',
+                                    style: TextStyle(
+                                        color: adminAppColor,
+                                        fontSize: 10,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ],
+                              )),
+                        ),
                       ),
                       SizedBox(
                         width: 15,
@@ -255,15 +257,17 @@ class CustomViewOldPage extends StatelessWidget {
                             },
                             child: Column(
                               children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Icon(
-                                      Icons.remove_red_eye,
-                                      size: 20,
-                                      color: Colors.white,
-                                    ),
-                                  ],
+                                Expanded(
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Icon(
+                                        Icons.remove_red_eye,
+                                        size: 20,
+                                        color: Colors.white,
+                                      ),
+                                    ],
+                                  ),
                                 ),
                                 Text(
                                   'View',
