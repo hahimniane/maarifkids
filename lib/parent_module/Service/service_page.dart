@@ -16,7 +16,7 @@ class ServicePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: adminPageBackgroundColor.withOpacity(0.9),
+      backgroundColor:Theme.of(context).primaryColor==adminAppColor? adminPageBackgroundColor.withOpacity(0.9):profileSecimiBackgroundColor,
       appBar: buildAppBar(
         isAdminColor:
             Theme.of(context).primaryColor == adminAppColor ? true : false,

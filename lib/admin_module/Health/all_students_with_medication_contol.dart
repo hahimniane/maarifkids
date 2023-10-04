@@ -103,8 +103,20 @@ class _AllStudentsWithMedicationControlPageState
                       style: TextStyle(color: adminAppColor),
                     ),
                     trailing: Switch(
-                      activeTrackColor: adminAppColor,
+                      trackOutlineColor: MaterialStateProperty.resolveWith ((Set  states) {
+                        print('in here');
+                        if (states.contains(MaterialState.disabled)) {
+
+                          return Colors.red;
+                        }
+                        return Colors.teal; // Use the default color.
+                      }),
+
+                      inactiveThumbColor: Colors.white,
+                      inactiveTrackColor: Colors.red,
+                      activeTrackColor: Colors.teal,
                       activeColor: Colors.white,
+
                       value: _presenceMap[student.studentNumber] ?? false,
                       onChanged: (value) {
                         setState(() {
