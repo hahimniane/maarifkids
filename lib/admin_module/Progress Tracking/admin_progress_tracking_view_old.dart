@@ -23,50 +23,52 @@ class AdminProgressViewOldPage extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Row(
               children: [
-                Expanded(
-                  child: Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        border: Border.all(
-                          color: adminAppColor,
-                        )),
-                    child: TextButton(
-                      onPressed: () {
-                        NavigationHelper.pushPage(
-                            context,
-                            AdminProgressTrackingViewOldResultsPage(
-                              isFromSearch: false,
-                            ));
-                        //TODO: make sure that the user is not empty.
-                        //TODO: make sure that the subject is not empty
-                        //TODO: make sure that the message is not empty
-                        //TODO: check if there is any attachement attached.
-                      },
-                      child: Column(
-                        children: [
-                          Row(
-                            children: [
-                              Icon(
-                                Icons.remove_red_eye,
-                                size: 20,
-                                color: adminAppColor,
-                              ),
-                            ],
-                          ),
-                          Text(
-                            'Publish',
-                            style: TextStyle(
-                                color: adminAppColor,
-                                fontSize: 10,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      ),
+                Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(
+                        color: adminAppColor,
+                      )),
+                  child: TextButton(
+                    onPressed: () {
+                      NavigationHelper.pushPage(
+                          context,
+                          AdminProgressTrackingViewOldResultsPage(
+                            isFromSearch: false,
+                          ));
+                      //TODO: make sure that the user is not empty.
+                      //TODO: make sure that the subject is not empty
+                      //TODO: make sure that the message is not empty
+                      //TODO: check if there is any attachement attached.
+                    },
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.remove_red_eye,
+                              size: 20,
+                              color: adminAppColor,
+                            ),
+                          ],
+                        ),
+                        Text(
+                          'Publish',
+                          style: TextStyle(
+                              color: adminAppColor,
+                              fontSize: 10,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ],
                     ),
                   ),
                 ),
-                SizedBox(
-                  width: 15,
+                Expanded(
+                  child: SizedBox(
+                    width: 15,
+                  ),
                 ),
                 Column(
                   mainAxisSize: MainAxisSize.min,

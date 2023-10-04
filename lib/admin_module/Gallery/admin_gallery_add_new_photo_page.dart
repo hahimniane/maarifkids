@@ -221,100 +221,103 @@ class _AddNewPhotoPageState extends State<AddNewPhotoPage> {
                   onTap: () {
                     _pickMediaForAlbum(index);
                   },
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(36),
-                    child: Card(
-                      elevation: 4,
-                      color: adminAppColor,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          photoCount == 0 && videoCount == 0
-                              ? Text(
-                                  textAlign: TextAlign.center,
-                                  'UPLOAD',
-                                  style: TextStyle(
-                                      fontSize: 20,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w700),
-                                )
-                              : Container(),
-                          photoCount != 0 || videoCount != 0
-                              ? Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceAround,
-                                  children: [
-                                    Column(
-                                      children: [
-                                        Text(
-                                          album.name,
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                        Icon(
-                                          Icons.photo_library,
-                                          color: Colors.white,
-                                          size: 80,
-                                        ),
-                                      ],
-                                    ),
-                                    Text(
-                                      '${photoCount} Photos/ \n ${videoCount} video uploaded',
-                                      style: TextStyle(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(36),
+                      child: Card(
+                        elevation: 4,
+                        color: adminAppColor,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            photoCount == 0 && videoCount == 0
+                                ? Text(
+                                    textAlign: TextAlign.center,
+                                    'UPLOAD',
+                                    style: TextStyle(
+                                        fontSize: 20,
                                         color: Colors.white,
-                                        fontWeight: FontWeight.w600,
+                                        fontWeight: FontWeight.w700),
+                                  )
+                                : Container(),
+                            photoCount != 0 || videoCount != 0
+                                ? Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                      Column(
+                                        children: [
+                                          Text(
+                                            album.name,
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                          Icon(
+                                            Icons.photo_library,
+                                            color: Colors.white,
+                                            size: 80,
+                                          ),
+                                        ],
                                       ),
-                                    ),
-                                    IconButton(
-                                      icon: Icon(Icons.delete),
-                                      onPressed: () {
-                                        _deleteAlbum(index);
-                                      },
-                                    )
-                                  ],
-                                )
-                              : Icon(
-                                  Icons.photo_library,
-                                  color: Colors.white,
-                                  size: 80,
-                                ),
-                        ],
+                                      Text(
+                                        '${photoCount} Photos/ \n ${videoCount} video uploaded',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                      IconButton(
+                                        icon: Icon(Icons.delete),
+                                        onPressed: () {
+                                          _deleteAlbum(index);
+                                        },
+                                      )
+                                    ],
+                                  )
+                                : Icon(
+                                    Icons.photo_library,
+                                    color: Colors.white,
+                                    size: 80,
+                                  ),
+                          ],
+                        ),
+                        // Column(
+                        //   crossAxisAlignment: CrossAxisAlignment.center,
+                        //   children: [
+                        //     ListTile(
+                        //       title: Text(album.name,style: TextStyle(
+                        //     color: Colors.white,fontWeight: FontWeight.w600
+                        // ),),
+                        //       subtitle: Text('Photos: $photoCount, Videos: $videoCount',style: TextStyle(
+                        //         color: Colors.white,fontWeight: FontWeight.w600
+                        //       ),),
+                        //       trailing: IconButton(
+                        //         icon: Icon(Icons.delete,color: Colors.white,),
+                        //         onPressed: () => _deleteAlbum(index),
+                        //       ),
+                        //     ),
+                        //     Padding(
+                        //       padding: const EdgeInsets.all(16),
+                        //       child: Row(
+                        //         children: [
+                        //           ElevatedButton(
+                        //             onPressed: () => _pickMediaForAlbum(index),
+                        //             child: Text('Add Media',style: TextStyle(
+                        //               color: adminAppColor,fontWeight: FontWeight.bold
+                        //             ),),
+                        //           ),
+                        //           Spacer(),
+                        //           // Add a button here to view media within the album if needed
+                        //         ],
+                        //       ),
+                        //     ),
+                        //   ],
+                        // ),
                       ),
-                      // Column(
-                      //   crossAxisAlignment: CrossAxisAlignment.center,
-                      //   children: [
-                      //     ListTile(
-                      //       title: Text(album.name,style: TextStyle(
-                      //     color: Colors.white,fontWeight: FontWeight.w600
-                      // ),),
-                      //       subtitle: Text('Photos: $photoCount, Videos: $videoCount',style: TextStyle(
-                      //         color: Colors.white,fontWeight: FontWeight.w600
-                      //       ),),
-                      //       trailing: IconButton(
-                      //         icon: Icon(Icons.delete,color: Colors.white,),
-                      //         onPressed: () => _deleteAlbum(index),
-                      //       ),
-                      //     ),
-                      //     Padding(
-                      //       padding: const EdgeInsets.all(16),
-                      //       child: Row(
-                      //         children: [
-                      //           ElevatedButton(
-                      //             onPressed: () => _pickMediaForAlbum(index),
-                      //             child: Text('Add Media',style: TextStyle(
-                      //               color: adminAppColor,fontWeight: FontWeight.bold
-                      //             ),),
-                      //           ),
-                      //           Spacer(),
-                      //           // Add a button here to view media within the album if needed
-                      //         ],
-                      //       ),
-                      //     ),
-                      //   ],
-                      // ),
                     ),
                   ),
                 );
@@ -347,7 +350,7 @@ class _AddNewPhotoPageState extends State<AddNewPhotoPage> {
                   // height: 30,
                   // width: 30,
 
-                  Icons.camera_alt_rounded,
+                  isAddingAlbum ? Icons.save_alt : Icons.camera_alt_rounded,
                   color: adminAppColor,
                 ),
                 Text(

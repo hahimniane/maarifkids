@@ -23,41 +23,43 @@ class AdminHealthInformationResultsPage extends StatelessWidget {
           const ProfileCard(
             isItFromHealthPage: true,
           ),
-          Container(
-            height: 400,
-            width: 350,
-            child: Card(
-              color: Color(0xffFEF1E2),
-              child: Padding(
-                padding: EdgeInsets.only(top: 8.0),
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      HealthIussueCard(
-                        title: 'Blood type',
-                        issue: '0 rh (+)',
-                      ),
-                      HealthIussueCard(
-                        title: 'Are there any health problems?',
-                        issue: 'yok',
-                      ),
-                      HealthIussueCard(
-                        title: 'Private Health insurance',
-                        issue: 'Var (Axa Sigorta)',
-                      ),
-                      HealthIussueCard(
-                        title: 'Does the kid have allergies?',
-                        issue: 'yes',
-                      ),
-                      HealthIussueCard(
-                        title: 'Doctor information',
-                        issue: 'Hashim Niane',
-                      ),
-                      HealthIussueCard(
-                        title: 'Emergency health information',
-                        issue: '0880311414',
-                      ),
-                    ],
+          Expanded(
+            child: Container(
+              height: 400,
+              width: 350,
+              child: Card(
+                color: Color(0xffFEF1E2),
+                child: Padding(
+                  padding: EdgeInsets.only(top: 8.0),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        HealthIussueCard(
+                          title: 'Blood type',
+                          issue: '0 rh (+)',
+                        ),
+                        HealthIussueCard(
+                          title: 'Are there any health problems?',
+                          issue: 'yok',
+                        ),
+                        HealthIussueCard(
+                          title: 'Private Health insurance',
+                          issue: 'Var (Axa Sigorta)',
+                        ),
+                        HealthIussueCard(
+                          title: 'Does the kid have allergies?',
+                          issue: 'yes',
+                        ),
+                        HealthIussueCard(
+                          title: 'Doctor information',
+                          issue: 'Hashim Niane',
+                        ),
+                        HealthIussueCard(
+                          title: 'Emergency health information',
+                          issue: '0880311414',
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),

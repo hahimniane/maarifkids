@@ -414,7 +414,8 @@ class _CreateEventState extends State<CreateEvent> {
           Align(
             alignment: Alignment.centerRight,
             child: Container(
-              height: MediaQuery.of(context).size.height * 0.047,
+              margin: EdgeInsets.only(right: 5),
+              height: MediaQuery.of(context).size.height * 0.052,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
               ),

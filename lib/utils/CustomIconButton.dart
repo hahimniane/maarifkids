@@ -4,8 +4,11 @@ import 'contants.dart';
 
 class CustomIconButton extends StatelessWidget {
   final String label;
+
   final VoidCallback onTap;
+
   final IconData iconData;
+
   const CustomIconButton({
     super.key,
     required this.onTap,
@@ -31,19 +34,29 @@ class CustomIconButton extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Icon(
-                    iconData,
-                    color: adminAppColor,
-                    size: 80,
+                  Expanded(
+                    flex: 1,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Center(
+                        child: Icon(
+                          iconData,
+                          color: adminAppColor,
+                          size: 80,
+                        ),
+                      ),
+                    ),
                   ),
                   Expanded(
-                    child: Text(
-                      textAlign: TextAlign.center,
-                      label,
-                      style: TextStyle(
-                          fontSize: 25,
-                          color: adminAppColor,
-                          fontWeight: FontWeight.bold),
+                    child: Center(
+                      child: Text(
+                        textAlign: TextAlign.center,
+                        label,
+                        style: TextStyle(
+                            fontSize: 25,
+                            color: adminAppColor,
+                            fontWeight: FontWeight.bold),
+                      ),
                     ),
                   )
                 ],

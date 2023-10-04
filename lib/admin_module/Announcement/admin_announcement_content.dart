@@ -23,15 +23,11 @@ class _AdminAnnouncementContentState extends State<AdminAnnouncementContent> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: adminAppColor,
-        title: Text(
-          'Announcements',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-          ),
-        ),
+      appBar: buildAppBar(
+        title: announcementString,
+        context: context,
+        isFromSearch: false,
+        isAdminColor: true,
       ),
       body: Column(
         children: [

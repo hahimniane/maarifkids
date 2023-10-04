@@ -38,7 +38,7 @@ class _AdminAddNewBulletinPageState extends State<AdminAddNewBulletinPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(
-        title: progressTrackingString,
+        title: schoolBuletinString,
         context: context,
         isFromSearch: false,
         isAdminColor: true,

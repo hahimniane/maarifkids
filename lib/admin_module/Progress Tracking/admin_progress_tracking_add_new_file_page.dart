@@ -60,6 +60,7 @@ class _AdminProgressAddNewFilePageState
                         child: Column(
                           children: [
                             Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Icon(
                                   Icons.remove_red_eye,
