@@ -88,7 +88,7 @@ class MenuPage extends StatelessWidget {
                         bottomRight: Radius.circular(25),
                       ),
                     ),
-                    height: availableHeight * 0.2746,
+                    height: availableHeight * 0.2246,
                     width: MediaQuery.of(context).size.width,
                     child: Padding(
                       padding: const EdgeInsets.only(top: 20.0),
