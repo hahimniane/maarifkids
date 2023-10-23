@@ -1,16 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:maarifkids/admin_module/profile_selection.dart';
-import 'package:maarifkids/theme.dart';
-
 import 'package:provider/provider.dart';
-
 import '../Providers/Providers.dart';
 import '../services/navigator_class.dart';
-import '../utils/contants.dart';
-
 import '../utils/enums.dart';
 import 'profil_secimi.dart';
-import 'home_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
