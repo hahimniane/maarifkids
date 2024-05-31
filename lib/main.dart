@@ -16,7 +16,7 @@ Future<void> main() async {
   );
   runApp(
     DevicePreview(
-      enabled: true,
+      enabled: false,
       builder: (context) => ChangeNotifierProvider(
           create: (BuildContext context) => ThemeProvider(),
           child: MyApp()), // Wrap your app
