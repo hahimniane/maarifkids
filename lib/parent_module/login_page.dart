@@ -1,16 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:maarifkids/admin_module/profile_selection.dart';
-import 'package:maarifkids/theme.dart';
-
 import 'package:provider/provider.dart';
-
 import '../Providers/Providers.dart';
+import '../admin_module/SchoolService/service_assistant/service_assistant_welcome_page.dart';
 import '../services/navigator_class.dart';
-import '../utils/contants.dart';
-
 import '../utils/enums.dart';
 import 'profil_secimi.dart';
-import 'home_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -127,6 +122,11 @@ class _LoginPageState extends State<LoginPage> {
                           .changeUserType(UserType.parent);
                       NavigationHelper.pushPage(
                           context, ParentProfileSelectionPage());
+                    } else if (emailTextFieldController.text == 'assistant') {
+                      Provider.of<ThemeProvider>(context, listen: false)
+                          .changeUserType(UserType.admin);
+                      NavigationHelper.pushPage(
+                          context, ServiceAssistantWelcomePage());
                     } else {
                       Provider.of<ThemeProvider>(context, listen: false)
                           .changeUserType(UserType.admin);

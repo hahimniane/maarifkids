@@ -38,22 +38,6 @@ class MyApp extends StatelessWidget {
         // builder: DevicePreview.appBuilder,
         debugShowCheckedModeBanner: false,
         theme: Provider.of<ThemeProvider>(context).activeThemeData,
-        //userType==UserType.admin?AdminTheme.lightTheme():ParentTheme.lightTheme(),
-        // theme: ThemeData(
-        //   iconTheme: IconThemeData(
-        //     color: Colors.white, // Set your desired icon color
-        //   ),
-        //   appBarTheme: AppBarTheme(
-        //     iconTheme: IconThemeData(
-        //       color: Colors
-        //           .white, // Set your desired icon color for the back icon in AppBar
-        //     ),
-        //   ),
-        //   colorScheme: ColorScheme.fromSeed(
-        //     seedColor: parentAppColor,
-        //   ),
-        //   useMaterial3: true,
-        // ),
         home: const AppInitialPage());
   }
 }

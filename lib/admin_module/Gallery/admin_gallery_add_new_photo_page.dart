@@ -87,122 +87,123 @@ class _AddNewPhotoPageState extends State<AddNewPhotoPage> {
             padding: const EdgeInsets.all(8.0),
             child: Row(
               children: [
+                Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(
+                        color: adminAppColor,
+                      )),
+                  child: TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => AddNewPhotoPage()));
+                        //TODO: make sure that the user is not empty.
+                        //TODO: make sure that the subject is not empty
+                        //TODO: make sure that the message is not empty
+                        //TODO: check if there is any attachement attached.
+                      },
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.arrow_forward_ios_rounded,
+                                size: 10,
+                                color: adminAppColor,
+                              ),
+                            ],
+                          ),
+                          Text(
+                            'Send',
+                            style:
+                                TextStyle(color: adminAppColor, fontSize: 10),
+                          ),
+                        ],
+                      )),
+                ),
+
                 Expanded(
-                  child: Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        border: Border.all(
-                          color: adminAppColor,
-                        )),
-                    child: TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => AddNewPhotoPage()));
-                          //TODO: make sure that the user is not empty.
-                          //TODO: make sure that the subject is not empty
-                          //TODO: make sure that the message is not empty
-                          //TODO: check if there is any attachement attached.
-                        },
-                        child: Column(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Row(
                           children: [
-                            Row(
-                              children: [
-                                Icon(
-                                  Icons.arrow_forward_ios_rounded,
-                                  size: 10,
-                                  color: adminAppColor,
-                                ),
-                              ],
-                            ),
-                            Text(
-                              'Send',
-                              style:
-                                  TextStyle(color: adminAppColor, fontSize: 10),
+                            Container(
+                                width: 60,
+                                height: 30,
+                                decoration: BoxDecoration(
+                                    color: adminAppColor,
+                                    borderRadius: BorderRadius.circular(8)),
+                                child: Center(
+                                    child: Text(
+                                  'To',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.white,
+                                  ),
+                                ))),
+                            Container(
+                              width: 210,
+                              child: TextField(
+                                textAlign: TextAlign.center,
+                              ),
                             ),
                           ],
-                        )),
-                  ),
-                ),
-                SizedBox(
-                  width: 15,
-                ),
-                Column(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Row(
-                      children: [
-                        Container(
-                            width: 60,
-                            height: 30,
-                            decoration: BoxDecoration(
-                                color: adminAppColor,
-                                borderRadius: BorderRadius.circular(8)),
-                            child: Center(
-                                child: Text(
-                              'To',
-                              style: TextStyle(
-                                fontWeight: FontWeight.w500,
-                                color: Colors.white,
-                              ),
-                            ))),
-                        Container(
-                          width: 210,
-                          child: TextField(
-                            textAlign: TextAlign.center,
-                          ),
+                        ),
+                        Row(
+                          children: [
+                            Container(
+                                width: 60,
+                                height: 30,
+                                decoration: BoxDecoration(
+                                    color: adminAppColor,
+                                    borderRadius: BorderRadius.circular(8)),
+                                child: Center(
+                                    child: Text(
+                                  'Date',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.white,
+                                  ),
+                                ))),
+                            Container(
+                                width: 210,
+                                child: TextField(
+                                  textAlign: TextAlign.center,
+                                ))
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Container(
+                                width: 60,
+                                height: 30,
+                                decoration: BoxDecoration(
+                                    color: adminAppColor,
+                                    borderRadius: BorderRadius.circular(8)),
+                                child: Center(
+                                    child: Text(
+                                  'Subject',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.white,
+                                  ),
+                                ))),
+                            Container(
+                                width: 210,
+                                child: TextField(
+                                  textAlign: TextAlign.center,
+                                ))
+                          ],
                         ),
                       ],
                     ),
-                    Row(
-                      children: [
-                        Container(
-                            width: 60,
-                            height: 30,
-                            decoration: BoxDecoration(
-                                color: adminAppColor,
-                                borderRadius: BorderRadius.circular(8)),
-                            child: Center(
-                                child: Text(
-                              'Date',
-                              style: TextStyle(
-                                fontWeight: FontWeight.w500,
-                                color: Colors.white,
-                              ),
-                            ))),
-                        Container(
-                            width: 210,
-                            child: TextField(
-                              textAlign: TextAlign.center,
-                            ))
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Container(
-                            width: 60,
-                            height: 30,
-                            decoration: BoxDecoration(
-                                color: adminAppColor,
-                                borderRadius: BorderRadius.circular(8)),
-                            child: Center(
-                                child: Text(
-                              'Subject',
-                              style: TextStyle(
-                                fontWeight: FontWeight.w500,
-                                color: Colors.white,
-                              ),
-                            ))),
-                        Container(
-                            width: 210,
-                            child: TextField(
-                              textAlign: TextAlign.center,
-                            ))
-                      ],
-                    ),
-                  ],
+                  ),
                 )
               ],
             ),
